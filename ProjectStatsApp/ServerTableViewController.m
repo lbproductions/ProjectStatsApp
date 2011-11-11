@@ -13,6 +13,7 @@
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize editServerViewController = __editServerViewController;
+@synthesize serverLoader = _serverLoader;
 
 - (id)init
 {
@@ -46,6 +47,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.serverLoader = [[ServerLoader alloc ] init];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -220,6 +222,9 @@
              [self.navigationController pushViewController:self.editServerViewController animated:NO];
          }
          completion:NULL];
+    }
+    else {
+        [self.serverLoader repopulatePlayerList];
     }
 }
 

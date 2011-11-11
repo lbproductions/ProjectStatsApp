@@ -21,7 +21,11 @@
 		857F071E146C4A9400368D8C /* README in Resources */ = {isa = PBXBuildFile; fileRef = 857F0714146C4A9400368D8C /* README */; };
 		857F071F146C4A9400368D8C /* ServerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 857F0716146C4A9400368D8C /* ServerTableViewController.m */; };
 		857F0720146C4A9400368D8C /* ServerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857F0717146C4A9400368D8C /* ServerTableViewController.xib */; };
-		857F0721146C4A9400368D8C /* ServerView-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 857F0718146C4A9400368D8C /* ServerView-Info.plist */; };
+		85EE579A146D439300631678 /* projectstats.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 85EE578F146D439300631678 /* projectstats.nsmap */; };
+		85EE579B146D439300631678 /* soapC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85EE5790146D439300631678 /* soapC.cpp */; };
+		85EE579C146D439300631678 /* soapprojectstatsProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85EE5792146D439300631678 /* soapprojectstatsProxy.cpp */; };
+		85EE579F146D439300631678 /* stdsoap2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85EE5798146D439300631678 /* stdsoap2.cpp */; };
+		85EE57A2146D43BA00631678 /* ServerLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 85EE57A1146D43BA00631678 /* ServerLoader.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +49,17 @@
 		857F0715146C4A9400368D8C /* ServerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerTableViewController.h; sourceTree = "<group>"; };
 		857F0716146C4A9400368D8C /* ServerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerTableViewController.m; sourceTree = "<group>"; };
 		857F0717146C4A9400368D8C /* ServerTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerTableViewController.xib; sourceTree = "<group>"; };
-		857F0718146C4A9400368D8C /* ServerView-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ServerView-Info.plist"; sourceTree = "<group>"; };
-		857F0719146C4A9400368D8C /* ServerView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ServerView-Prefix.pch"; sourceTree = "<group>"; };
+		85EE578F146D439300631678 /* projectstats.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = projectstats.nsmap; sourceTree = "<group>"; };
+		85EE5790146D439300631678 /* soapC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapC.cpp; sourceTree = "<group>"; };
+		85EE5791146D439300631678 /* soapH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapH.h; sourceTree = "<group>"; };
+		85EE5792146D439300631678 /* soapprojectstatsProxy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapprojectstatsProxy.cpp; sourceTree = "<group>"; };
+		85EE5793146D439300631678 /* soapprojectstatsProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapprojectstatsProxy.h; sourceTree = "<group>"; };
+		85EE5794146D439300631678 /* soapStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapStub.h; sourceTree = "<group>"; };
+		85EE5795146D439300631678 /* soapprojectstatsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapprojectstatsObject.h; sourceTree = "<group>"; };
+		85EE5798146D439300631678 /* stdsoap2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdsoap2.cpp; sourceTree = "<group>"; };
+		85EE5799146D439300631678 /* stdsoap2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdsoap2.h; sourceTree = "<group>"; };
+		85EE57A0146D43BA00631678 /* ServerLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerLoader.h; sourceTree = "<group>"; };
+		85EE57A1146D43BA00631678 /* ServerLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ServerLoader.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,16 +108,10 @@
 		857F06F8146C497300368D8C /* ProjectStatsApp */ = {
 			isa = PBXGroup;
 			children = (
-				857F070C146C4A9400368D8C /* EditServerViewController.h */,
-				857F070D146C4A9400368D8C /* EditServerViewController.m */,
-				857F070E146C4A9400368D8C /* EditServerViewController.xib */,
+				85EE578E146D3B1600631678 /* ServerLoader */,
+				85EE578D146D3ADE00631678 /* ServerChooser */,
 				857F070F146C4A9400368D8C /* en.lproj */,
 				857F0714146C4A9400368D8C /* README */,
-				857F0715146C4A9400368D8C /* ServerTableViewController.h */,
-				857F0716146C4A9400368D8C /* ServerTableViewController.m */,
-				857F0717146C4A9400368D8C /* ServerTableViewController.xib */,
-				857F0718146C4A9400368D8C /* ServerView-Info.plist */,
-				857F0719146C4A9400368D8C /* ServerView-Prefix.pch */,
 				857F0701146C497300368D8C /* AppDelegate.h */,
 				857F0702146C497300368D8C /* AppDelegate.m */,
 				857F0704146C497300368D8C /* ProjectStatsApp.xcdatamodeld */,
@@ -130,6 +137,37 @@
 				857F0710146C4A9400368D8C /* InfoPlist.strings */,
 			);
 			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		85EE578D146D3ADE00631678 /* ServerChooser */ = {
+			isa = PBXGroup;
+			children = (
+				857F070C146C4A9400368D8C /* EditServerViewController.h */,
+				857F070D146C4A9400368D8C /* EditServerViewController.m */,
+				857F070E146C4A9400368D8C /* EditServerViewController.xib */,
+				857F0715146C4A9400368D8C /* ServerTableViewController.h */,
+				857F0716146C4A9400368D8C /* ServerTableViewController.m */,
+				857F0717146C4A9400368D8C /* ServerTableViewController.xib */,
+			);
+			name = ServerChooser;
+			sourceTree = "<group>";
+		};
+		85EE578E146D3B1600631678 /* ServerLoader */ = {
+			isa = PBXGroup;
+			children = (
+				85EE578F146D439300631678 /* projectstats.nsmap */,
+				85EE5790146D439300631678 /* soapC.cpp */,
+				85EE5791146D439300631678 /* soapH.h */,
+				85EE5792146D439300631678 /* soapprojectstatsProxy.cpp */,
+				85EE5793146D439300631678 /* soapprojectstatsProxy.h */,
+				85EE5794146D439300631678 /* soapStub.h */,
+				85EE5795146D439300631678 /* soapprojectstatsObject.h */,
+				85EE5798146D439300631678 /* stdsoap2.cpp */,
+				85EE5799146D439300631678 /* stdsoap2.h */,
+				85EE57A0146D43BA00631678 /* ServerLoader.h */,
+				85EE57A1146D43BA00631678 /* ServerLoader.mm */,
+			);
+			name = ServerLoader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,7 +226,7 @@
 				857F071C146C4A9400368D8C /* InfoPlist.strings in Resources */,
 				857F071E146C4A9400368D8C /* README in Resources */,
 				857F0720146C4A9400368D8C /* ServerTableViewController.xib in Resources */,
-				857F0721146C4A9400368D8C /* ServerView-Info.plist in Resources */,
+				85EE579A146D439300631678 /* projectstats.nsmap in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +242,10 @@
 				857F0706146C497300368D8C /* ProjectStatsApp.xcdatamodeld in Sources */,
 				857F071A146C4A9400368D8C /* EditServerViewController.m in Sources */,
 				857F071F146C4A9400368D8C /* ServerTableViewController.m in Sources */,
+				85EE579B146D439300631678 /* soapC.cpp in Sources */,
+				85EE579C146D439300631678 /* soapprojectstatsProxy.cpp in Sources */,
+				85EE579F146D439300631678 /* stdsoap2.cpp in Sources */,
+				85EE57A2146D43BA00631678 /* ServerLoader.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,9 +321,14 @@
 		857F070A146C497400368D8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProjectStatsApp/ProjectStatsApp-Prefix.pch";
 				INFOPLIST_FILE = "ProjectStatsApp/ProjectStatsApp-Info.plist";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DWITH_NONAMESPACES",
+					"$(OTHER_CFLAGS)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -290,6 +337,7 @@
 		857F070B146C497400368D8C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ProjectStatsApp/ProjectStatsApp-Prefix.pch";
 				INFOPLIST_FILE = "ProjectStatsApp/ProjectStatsApp-Info.plist";
@@ -317,6 +365,7 @@
 				857F070B146C497400368D8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
