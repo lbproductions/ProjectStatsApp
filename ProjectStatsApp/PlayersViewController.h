@@ -12,6 +12,9 @@
 
 @interface PlayersViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
+- (id)init:(NSManagedObjectContext*)context;
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+
 @property (nonatomic, strong) NSMutableArray *players;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

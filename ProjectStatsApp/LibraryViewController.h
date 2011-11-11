@@ -8,15 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LibraryViewController : UITableViewController{
-    IBOutlet UITableViewCell *cellPlayers;
-    IBOutlet UITableViewCell *cellGames;
-    IBOutlet UITableViewCell *cellDrinks;
-    IBOutlet UITableViewCell *cellPlaces;
-}
+@interface LibraryViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, retain) IBOutlet UITableViewCell *cellPlayers;
-@property (nonatomic, retain) IBOutlet UITableViewCell *cellGames;
-@property (nonatomic, retain) IBOutlet UITableViewCell *cellDrinks;
-@property (nonatomic, retain) IBOutlet UITableViewCell *cellPlaces;
+- (id)initWithStyle:(UITableViewStyle)style managedObjectContext:(NSManagedObjectContext*)context;
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
 @end

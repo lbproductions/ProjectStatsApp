@@ -8,22 +8,29 @@
 
 #import "LibraryViewController.h"
 
+#import "PlayersViewController.h"
+
 @implementation LibraryViewController
 
-@synthesize cellDrinks = __cellDrinks;
-@synthesize cellGames;
-@synthesize cellPlaces;
-@synthesize cellPlayers;
+@synthesize fetchedResultsController = __fetchedResultsController;
+@synthesize managedObjectContext = __managedObjectContext;
+
+NSMutableArray *listOfItems;
 
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithStyle:(UITableViewStyle)style managedObjectContext:(NSManagedObjectContext*)context
 {
     self = [super initWithStyle:style];
     if (self) {
-        cellDrinks.textLabel.text = @"Drinks";
-        cellGames.textLabel.text = @"Games";
-        cellPlaces.textLabel.text = @"Places";
-        cellPlayers.textLabel.text = @"Players";
+        listOfItems = [[NSMutableArray alloc] init];
+        
+        //Add items
+        [listOfItems addObject:@"Players"];
+        [listOfItems addObject:@"Games"];
+        [listOfItems addObject:@"Places"];
+        [listOfItems addObject:@"Drinks"];
+        
+        self.managedObjectContext = context;
     }
     self.title = @"Library";
     
@@ -89,14 +96,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 4;
 }
@@ -109,20 +114,10 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    if([indexPath row] == 0){
-        cell = cellPlayers;
-    }
-    if([indexPath row] == 1){
-        cell = cellGames;
-    }
-    if([indexPath row] == 2){
-        cell = cellPlaces;
-    }
-    if([indexPath row] == 3){
-        cell = cellDrinks;
-    }
     
-    // Configure the cell...
+    NSString *cellValue = [listOfItems objectAtIndex:indexPath.row];
+    cell.textLabel.text = cellValue;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }
@@ -177,6 +172,10 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+    if(indexPath.row == 0){
+        PlayersViewController* playerController = [[PlayersViewController alloc] init:self.managedObjectContext];
+        [self.navigationController pushViewController:playerController animated:YES];
+    }
 }
 
 @end

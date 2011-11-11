@@ -22,7 +22,7 @@
     if (self) {
         self.managedObjectContext = context;
         NSMutableArray *m_menu = [NSMutableArray arrayWithCapacity:2];
-        [m_menu addObject:(LibraryViewController*)[[LibraryViewController alloc] initWithStyle:UITableViewStylePlain]];
+        [m_menu addObject:(LibraryViewController*)[[LibraryViewController alloc] initWithStyle:UITableViewStylePlain managedObjectContext:self.managedObjectContext]];
         ServerTableViewController *serverTableViewController = [[ServerTableViewController alloc] init];
         serverTableViewController.managedObjectContext = self.managedObjectContext;
         [m_menu addObject:serverTableViewController];

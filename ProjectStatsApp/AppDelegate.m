@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "MainMenuTabBarController.h"
 
+#import "ServerTableViewController.h"
+
 
 @implementation AppDelegate
 

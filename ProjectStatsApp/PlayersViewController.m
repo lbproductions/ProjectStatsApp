@@ -16,10 +16,12 @@
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)init:(NSManagedObjectContext*)context
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:@"PlayersViewController" bundle:nil];
     if (self) {
+        self.managedObjectContext = context;
+        self.title = @"Players";
     }
     return self;
 }
@@ -38,6 +40,7 @@
 {
     [super viewDidLoad];
     
+    /*
     NSMutableArray *m_players = [NSMutableArray arrayWithCapacity:20];
     
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
@@ -59,8 +62,10 @@
     player.name = @"Niklas Wulf";
     player.avatar = [UIImage imageNamed:@"germany.gif"];
     [m_players addObject:player];
-    */
+    
     self.players = m_players;
+    
+    */
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
     self.navigationItem.rightBarButtonItem = addButton;
@@ -115,18 +120,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return [self.players count];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
+    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView 
-                              dequeueReusableCellWithIdentifier:@"PlayerCell"];
-	NSManagedObject *player = [self.players objectAtIndex:indexPath.row];
-	cell.textLabel.text = [player valueForKey:@"name"];
-    cell.detailTextLabel.text = @"Blubb";
-    //cell.imageView.image = player.avatar;
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if(cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
 
@@ -173,7 +179,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog([(NSManagedObject *)[players objectAtIndex:indexPath.row] valueForKey:@"name"]);
+    //NSLog([(NSManagedObject *)[players objectAtIndex:indexPath.row] valueForKey:@"name"]);
     // Navigation logic may go here. Create and push another view controller.
     
     PlayerTabController* playerTab = [[PlayerTabController alloc] initWithNibName:@"PlayerTabController" bundle:nil];
@@ -218,7 +224,7 @@
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Players"];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
@@ -234,6 +240,14 @@
 	}
     
     return __fetchedResultsController;
-}  
+}   
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = [[managedObject valueForKey:@"name"] description];
+    //cell.editingAccessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+}
 
 @end
