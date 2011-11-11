@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LibraryViewController : UITableViewController
+@interface LibraryViewController : UITableViewController{
+    IBOutlet UITableViewCell *cellPlayers;
+    IBOutlet UITableViewCell *cellGames;
+    IBOutlet UITableViewCell *cellDrinks;
+    IBOutlet UITableViewCell *cellPlaces;
+}
 
+@property (nonatomic, retain) IBOutlet UITableViewCell *cellPlayers;
+@property (nonatomic, retain) IBOutlet UITableViewCell *cellGames;
+@property (nonatomic, retain) IBOutlet UITableViewCell *cellDrinks;
+@property (nonatomic, retain) IBOutlet UITableViewCell *cellPlaces;
 @end
