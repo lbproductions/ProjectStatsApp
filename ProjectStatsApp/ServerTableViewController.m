@@ -50,6 +50,7 @@
     [super viewDidLoad];
     self.serverLoader = [[ServerLoader alloc ] init];
     self.serverLoader.managedObjectContext = self.managedObjectContext;
+    [self.serverLoader repopulatePlayerList];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
