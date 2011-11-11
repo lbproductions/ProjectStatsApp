@@ -10,7 +10,7 @@
 
 #import <CoreData/CoreData.h>
 
-@interface PlayersViewController : UITableViewController
+@interface PlayersViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *players;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;

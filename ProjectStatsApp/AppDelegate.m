@@ -35,14 +35,14 @@
 //        controller.managedObjectContext = self.managedObjectContext;
     } else {
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        /*
+        
         ServerTableViewController *serverTableViewController = [[ServerTableViewController alloc] init];
         serverTableViewController.managedObjectContext = self.managedObjectContext;
-        */
-        MainMenuTabBarController* mainMenu = [[MainMenuTabBarController alloc] initWithNibName:@"MainMenuTabBarController" bundle:nil managedObjectContext:self.managedObjectContext];
+        
+        //MainMenuTabBarController* mainMenu = [[MainMenuTabBarController alloc] initWithNibName:@"MainMenuTabBarController" bundle:nil managedObjectContext:self.managedObjectContext];
         
         self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.window.rootViewController];
-        [self.navigationController pushViewController:mainMenu animated:NO];
+        [self.navigationController pushViewController:serverTableViewController animated:NO];
         [self.window addSubview:navigationController.view];
         [self.window makeKeyAndVisible];
     }
