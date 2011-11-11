@@ -22,6 +22,18 @@
 		857F071F146C4A9400368D8C /* ServerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 857F0716146C4A9400368D8C /* ServerTableViewController.m */; };
 		857F0720146C4A9400368D8C /* ServerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857F0717146C4A9400368D8C /* ServerTableViewController.xib */; };
 		857F0721146C4A9400368D8C /* ServerView-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 857F0718146C4A9400368D8C /* ServerView-Info.plist */; };
+		D1F4EF92146D3A62006AA425 /* PlayerInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F4EF87146D3A62006AA425 /* PlayerInfoViewController.m */; };
+		D1F4EF93146D3A62006AA425 /* PlayerInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F4EF88146D3A62006AA425 /* PlayerInfoViewController.xib */; };
+		D1F4EF94146D3A62006AA425 /* PlayerStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F4EF8A146D3A62006AA425 /* PlayerStatsViewController.m */; };
+		D1F4EF95146D3A62006AA425 /* PlayerStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F4EF8B146D3A62006AA425 /* PlayerStatsViewController.xib */; };
+		D1F4EF96146D3A62006AA425 /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F4EF8D146D3A62006AA425 /* PlayersViewController.m */; };
+		D1F4EF97146D3A62006AA425 /* PlayersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F4EF8E146D3A62006AA425 /* PlayersViewController.xib */; };
+		D1F4EF98146D3A62006AA425 /* PlayerTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F4EF90146D3A62006AA425 /* PlayerTabController.m */; };
+		D1F4EF99146D3A62006AA425 /* PlayerTabController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F4EF91146D3A62006AA425 /* PlayerTabController.xib */; };
+		D1F4EF9E146D3C3B006AA425 /* MainMenuTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F4EF9C146D3C3A006AA425 /* MainMenuTabBarController.m */; };
+		D1F4EF9F146D3C3B006AA425 /* MainMenuTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F4EF9D146D3C3B006AA425 /* MainMenuTabBarController.xib */; };
+		D1F4EFA3146D3D0B006AA425 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F4EFA1146D3D0A006AA425 /* LibraryViewController.m */; };
+		D1F4EFA4146D3D0B006AA425 /* LibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F4EFA2146D3D0A006AA425 /* LibraryViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +59,24 @@
 		857F0717146C4A9400368D8C /* ServerTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerTableViewController.xib; sourceTree = "<group>"; };
 		857F0718146C4A9400368D8C /* ServerView-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ServerView-Info.plist"; sourceTree = "<group>"; };
 		857F0719146C4A9400368D8C /* ServerView-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ServerView-Prefix.pch"; sourceTree = "<group>"; };
+		D1F4EF86146D3A62006AA425 /* PlayerInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInfoViewController.h; sourceTree = "<group>"; };
+		D1F4EF87146D3A62006AA425 /* PlayerInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInfoViewController.m; sourceTree = "<group>"; };
+		D1F4EF88146D3A62006AA425 /* PlayerInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerInfoViewController.xib; sourceTree = "<group>"; };
+		D1F4EF89146D3A62006AA425 /* PlayerStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerStatsViewController.h; sourceTree = "<group>"; };
+		D1F4EF8A146D3A62006AA425 /* PlayerStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerStatsViewController.m; sourceTree = "<group>"; };
+		D1F4EF8B146D3A62006AA425 /* PlayerStatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerStatsViewController.xib; sourceTree = "<group>"; };
+		D1F4EF8C146D3A62006AA425 /* PlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersViewController.h; sourceTree = "<group>"; };
+		D1F4EF8D146D3A62006AA425 /* PlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersViewController.m; sourceTree = "<group>"; };
+		D1F4EF8E146D3A62006AA425 /* PlayersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayersViewController.xib; sourceTree = "<group>"; };
+		D1F4EF8F146D3A62006AA425 /* PlayerTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTabController.h; sourceTree = "<group>"; };
+		D1F4EF90146D3A62006AA425 /* PlayerTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTabController.m; sourceTree = "<group>"; };
+		D1F4EF91146D3A62006AA425 /* PlayerTabController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerTabController.xib; sourceTree = "<group>"; };
+		D1F4EF9B146D3C3A006AA425 /* MainMenuTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuTabBarController.h; sourceTree = "<group>"; };
+		D1F4EF9C146D3C3A006AA425 /* MainMenuTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuTabBarController.m; sourceTree = "<group>"; };
+		D1F4EF9D146D3C3B006AA425 /* MainMenuTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuTabBarController.xib; sourceTree = "<group>"; };
+		D1F4EFA0146D3D09006AA425 /* LibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryViewController.h; sourceTree = "<group>"; };
+		D1F4EFA1146D3D0A006AA425 /* LibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryViewController.m; sourceTree = "<group>"; };
+		D1F4EFA2146D3D0A006AA425 /* LibraryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LibraryViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +125,18 @@
 		857F06F8146C497300368D8C /* ProjectStatsApp */ = {
 			isa = PBXGroup;
 			children = (
+				D1F4EF86146D3A62006AA425 /* PlayerInfoViewController.h */,
+				D1F4EF87146D3A62006AA425 /* PlayerInfoViewController.m */,
+				D1F4EF88146D3A62006AA425 /* PlayerInfoViewController.xib */,
+				D1F4EF89146D3A62006AA425 /* PlayerStatsViewController.h */,
+				D1F4EF8A146D3A62006AA425 /* PlayerStatsViewController.m */,
+				D1F4EF8B146D3A62006AA425 /* PlayerStatsViewController.xib */,
+				D1F4EF8C146D3A62006AA425 /* PlayersViewController.h */,
+				D1F4EF8D146D3A62006AA425 /* PlayersViewController.m */,
+				D1F4EF8E146D3A62006AA425 /* PlayersViewController.xib */,
+				D1F4EF8F146D3A62006AA425 /* PlayerTabController.h */,
+				D1F4EF90146D3A62006AA425 /* PlayerTabController.m */,
+				D1F4EF91146D3A62006AA425 /* PlayerTabController.xib */,
 				857F070C146C4A9400368D8C /* EditServerViewController.h */,
 				857F070D146C4A9400368D8C /* EditServerViewController.m */,
 				857F070E146C4A9400368D8C /* EditServerViewController.xib */,
@@ -107,6 +149,12 @@
 				857F0719146C4A9400368D8C /* ServerView-Prefix.pch */,
 				857F0701146C497300368D8C /* AppDelegate.h */,
 				857F0702146C497300368D8C /* AppDelegate.m */,
+				D1F4EF9B146D3C3A006AA425 /* MainMenuTabBarController.h */,
+				D1F4EF9C146D3C3A006AA425 /* MainMenuTabBarController.m */,
+				D1F4EFA0146D3D09006AA425 /* LibraryViewController.h */,
+				D1F4EFA1146D3D0A006AA425 /* LibraryViewController.m */,
+				D1F4EFA2146D3D0A006AA425 /* LibraryViewController.xib */,
+				D1F4EF9D146D3C3B006AA425 /* MainMenuTabBarController.xib */,
 				857F0704146C497300368D8C /* ProjectStatsApp.xcdatamodeld */,
 				857F06F9146C497300368D8C /* Supporting Files */,
 			);
@@ -189,6 +237,12 @@
 				857F071E146C4A9400368D8C /* README in Resources */,
 				857F0720146C4A9400368D8C /* ServerTableViewController.xib in Resources */,
 				857F0721146C4A9400368D8C /* ServerView-Info.plist in Resources */,
+				D1F4EF93146D3A62006AA425 /* PlayerInfoViewController.xib in Resources */,
+				D1F4EF95146D3A62006AA425 /* PlayerStatsViewController.xib in Resources */,
+				D1F4EF97146D3A62006AA425 /* PlayersViewController.xib in Resources */,
+				D1F4EF99146D3A62006AA425 /* PlayerTabController.xib in Resources */,
+				D1F4EF9F146D3C3B006AA425 /* MainMenuTabBarController.xib in Resources */,
+				D1F4EFA4146D3D0B006AA425 /* LibraryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +258,12 @@
 				857F0706146C497300368D8C /* ProjectStatsApp.xcdatamodeld in Sources */,
 				857F071A146C4A9400368D8C /* EditServerViewController.m in Sources */,
 				857F071F146C4A9400368D8C /* ServerTableViewController.m in Sources */,
+				D1F4EF92146D3A62006AA425 /* PlayerInfoViewController.m in Sources */,
+				D1F4EF94146D3A62006AA425 /* PlayerStatsViewController.m in Sources */,
+				D1F4EF96146D3A62006AA425 /* PlayersViewController.m in Sources */,
+				D1F4EF98146D3A62006AA425 /* PlayerTabController.m in Sources */,
+				D1F4EF9E146D3C3B006AA425 /* MainMenuTabBarController.m in Sources */,
+				D1F4EFA3146D3D0B006AA425 /* LibraryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +377,7 @@
 				857F070B146C497400368D8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
