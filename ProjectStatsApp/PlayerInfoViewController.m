@@ -10,12 +10,19 @@
 
 @implementation PlayerInfoViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+@synthesize playerName;
+@synthesize m_player;
+
+-(id)init:(NSManagedObject*)player
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"PlayerInfoViewController" bundle:nil];
+    
     if (self) {
         self.title = @"PlayerInformation";
+        self.m_player = player;
+        //self.playerName.text = [[player valueForKey:@"name"] description];
     }
+    
     return self;
 }
 
@@ -32,6 +39,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.playerName.text = [[m_player valueForKey:@"name"] description];
     // Do any additional setup after loading the view from its nib.
 }
 

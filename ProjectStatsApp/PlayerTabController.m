@@ -13,12 +13,12 @@
 
 @implementation PlayerTabController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil player:(NSManagedObject*)player
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         NSMutableArray *m_players = [NSMutableArray arrayWithCapacity:2];
-        [m_players addObject:(PlayerInfoViewController*)[[PlayerInfoViewController alloc] initWithNibName:@"PlayerInfoViewController" bundle:nil]];
+        [m_players addObject:(PlayerInfoViewController*)[[PlayerInfoViewController alloc] init:player]];
         [m_players addObject:(PlayerStatsViewController*)[[PlayerStatsViewController alloc] initWithNibName:@"PlayerStatsViewController" bundle:nil]];
         [self setViewControllers:m_players];
         [self setSelectedViewController:[[self viewControllers] objectAtIndex:0]];

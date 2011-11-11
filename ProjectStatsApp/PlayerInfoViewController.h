@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlayerInfoViewController : UIViewController
+@interface PlayerInfoViewController : UIViewController{
+}
+
+-(id)init:(NSManagedObject*)player;
+
+@property (strong, nonatomic) IBOutlet UILabel* playerName;
+@property (strong, nonatomic) NSManagedObject* m_player;
 
 @end

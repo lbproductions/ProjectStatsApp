@@ -38,6 +38,7 @@
 		85EE57CA146D647D00631678 /* PlayersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57BD146D647D00631678 /* PlayersViewController.xib */; };
 		85EE57CB146D647D00631678 /* PlayerTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EE57BF146D647D00631678 /* PlayerTabController.m */; };
 		85EE57CC146D647D00631678 /* PlayerTabController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57C0146D647D00631678 /* PlayerTabController.xib */; };
+		D1F4EFAB146D9E74006AA425 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F4EFAA146D9E73006AA425 /* player.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		85EE57BE146D647D00631678 /* PlayerTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTabController.h; sourceTree = "<group>"; };
 		85EE57BF146D647D00631678 /* PlayerTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTabController.m; sourceTree = "<group>"; };
 		85EE57C0146D647D00631678 /* PlayerTabController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerTabController.xib; sourceTree = "<group>"; };
+		D1F4EFAA146D9E73006AA425 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 		857F06F8146C497300368D8C /* ProjectStatsApp */ = {
 			isa = PBXGroup;
 			children = (
+				D1F4EFAA146D9E73006AA425 /* player.png */,
 				85EE57AF146D647D00631678 /* LibraryViewController.h */,
 				85EE57B0146D647D00631678 /* LibraryViewController.m */,
 				85EE57B1146D647D00631678 /* LibraryViewController.xib */,
@@ -281,6 +284,7 @@
 				85EE57C8146D647D00631678 /* PlayerStatsViewController.xib in Resources */,
 				85EE57CA146D647D00631678 /* PlayersViewController.xib in Resources */,
 				85EE57CC146D647D00631678 /* PlayerTabController.xib in Resources */,
+				D1F4EFAB146D9E74006AA425 /* player.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

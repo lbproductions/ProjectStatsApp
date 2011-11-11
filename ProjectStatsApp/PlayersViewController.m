@@ -182,7 +182,7 @@
     //NSLog([(NSManagedObject *)[players objectAtIndex:indexPath.row] valueForKey:@"name"]);
     // Navigation logic may go here. Create and push another view controller.
     
-    PlayerTabController* playerTab = [[PlayerTabController alloc] initWithNibName:@"PlayerTabController" bundle:nil];
+    PlayerTabController* playerTab = [[PlayerTabController alloc] initWithNibName:@"PlayerTabController" bundle:nil player:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
      //<#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.

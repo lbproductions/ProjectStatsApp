@@ -10,4 +10,6 @@
 
 @interface PlayerTabController : UITabBarController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil player:(NSManagedObject*)player;
+
 @end
