@@ -26,6 +26,18 @@
 		85EE579C146D439300631678 /* soapprojectstatsProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85EE5792146D439300631678 /* soapprojectstatsProxy.cpp */; };
 		85EE579F146D439300631678 /* stdsoap2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85EE5798146D439300631678 /* stdsoap2.cpp */; };
 		85EE57A2146D43BA00631678 /* ServerLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 85EE57A1146D43BA00631678 /* ServerLoader.mm */; };
+		85EE57C1146D647D00631678 /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EE57B0146D647D00631678 /* LibraryViewController.m */; };
+		85EE57C2146D647D00631678 /* LibraryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57B1146D647D00631678 /* LibraryViewController.xib */; };
+		85EE57C3146D647D00631678 /* MainMenuTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EE57B3146D647D00631678 /* MainMenuTabBarController.m */; };
+		85EE57C4146D647D00631678 /* MainMenuTabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57B4146D647D00631678 /* MainMenuTabBarController.xib */; };
+		85EE57C5146D647D00631678 /* PlayerInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EE57B6146D647D00631678 /* PlayerInfoViewController.m */; };
+		85EE57C6146D647D00631678 /* PlayerInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57B7146D647D00631678 /* PlayerInfoViewController.xib */; };
+		85EE57C7146D647D00631678 /* PlayerStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EE57B9146D647D00631678 /* PlayerStatsViewController.m */; };
+		85EE57C8146D647D00631678 /* PlayerStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57BA146D647D00631678 /* PlayerStatsViewController.xib */; };
+		85EE57C9146D647D00631678 /* PlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EE57BC146D647D00631678 /* PlayersViewController.m */; };
+		85EE57CA146D647D00631678 /* PlayersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57BD146D647D00631678 /* PlayersViewController.xib */; };
+		85EE57CB146D647D00631678 /* PlayerTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EE57BF146D647D00631678 /* PlayerTabController.m */; };
+		85EE57CC146D647D00631678 /* PlayerTabController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57C0146D647D00631678 /* PlayerTabController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +72,24 @@
 		85EE5799146D439300631678 /* stdsoap2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdsoap2.h; sourceTree = "<group>"; };
 		85EE57A0146D43BA00631678 /* ServerLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerLoader.h; sourceTree = "<group>"; };
 		85EE57A1146D43BA00631678 /* ServerLoader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ServerLoader.mm; sourceTree = "<group>"; };
+		85EE57AF146D647D00631678 /* LibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LibraryViewController.h; sourceTree = "<group>"; };
+		85EE57B0146D647D00631678 /* LibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LibraryViewController.m; sourceTree = "<group>"; };
+		85EE57B1146D647D00631678 /* LibraryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LibraryViewController.xib; sourceTree = "<group>"; };
+		85EE57B2146D647D00631678 /* MainMenuTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuTabBarController.h; sourceTree = "<group>"; };
+		85EE57B3146D647D00631678 /* MainMenuTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuTabBarController.m; sourceTree = "<group>"; };
+		85EE57B4146D647D00631678 /* MainMenuTabBarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuTabBarController.xib; sourceTree = "<group>"; };
+		85EE57B5146D647D00631678 /* PlayerInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInfoViewController.h; sourceTree = "<group>"; };
+		85EE57B6146D647D00631678 /* PlayerInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInfoViewController.m; sourceTree = "<group>"; };
+		85EE57B7146D647D00631678 /* PlayerInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerInfoViewController.xib; sourceTree = "<group>"; };
+		85EE57B8146D647D00631678 /* PlayerStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerStatsViewController.h; sourceTree = "<group>"; };
+		85EE57B9146D647D00631678 /* PlayerStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerStatsViewController.m; sourceTree = "<group>"; };
+		85EE57BA146D647D00631678 /* PlayerStatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerStatsViewController.xib; sourceTree = "<group>"; };
+		85EE57BB146D647D00631678 /* PlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayersViewController.h; sourceTree = "<group>"; };
+		85EE57BC146D647D00631678 /* PlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayersViewController.m; sourceTree = "<group>"; };
+		85EE57BD146D647D00631678 /* PlayersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayersViewController.xib; sourceTree = "<group>"; };
+		85EE57BE146D647D00631678 /* PlayerTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTabController.h; sourceTree = "<group>"; };
+		85EE57BF146D647D00631678 /* PlayerTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTabController.m; sourceTree = "<group>"; };
+		85EE57C0146D647D00631678 /* PlayerTabController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerTabController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +138,24 @@
 		857F06F8146C497300368D8C /* ProjectStatsApp */ = {
 			isa = PBXGroup;
 			children = (
+				85EE57AF146D647D00631678 /* LibraryViewController.h */,
+				85EE57B0146D647D00631678 /* LibraryViewController.m */,
+				85EE57B1146D647D00631678 /* LibraryViewController.xib */,
+				85EE57B2146D647D00631678 /* MainMenuTabBarController.h */,
+				85EE57B3146D647D00631678 /* MainMenuTabBarController.m */,
+				85EE57B4146D647D00631678 /* MainMenuTabBarController.xib */,
+				85EE57B5146D647D00631678 /* PlayerInfoViewController.h */,
+				85EE57B6146D647D00631678 /* PlayerInfoViewController.m */,
+				85EE57B7146D647D00631678 /* PlayerInfoViewController.xib */,
+				85EE57B8146D647D00631678 /* PlayerStatsViewController.h */,
+				85EE57B9146D647D00631678 /* PlayerStatsViewController.m */,
+				85EE57BA146D647D00631678 /* PlayerStatsViewController.xib */,
+				85EE57BB146D647D00631678 /* PlayersViewController.h */,
+				85EE57BC146D647D00631678 /* PlayersViewController.m */,
+				85EE57BD146D647D00631678 /* PlayersViewController.xib */,
+				85EE57BE146D647D00631678 /* PlayerTabController.h */,
+				85EE57BF146D647D00631678 /* PlayerTabController.m */,
+				85EE57C0146D647D00631678 /* PlayerTabController.xib */,
 				85EE578E146D3B1600631678 /* ServerLoader */,
 				85EE578D146D3ADE00631678 /* ServerChooser */,
 				857F070F146C4A9400368D8C /* en.lproj */,
@@ -227,6 +275,12 @@
 				857F071E146C4A9400368D8C /* README in Resources */,
 				857F0720146C4A9400368D8C /* ServerTableViewController.xib in Resources */,
 				85EE579A146D439300631678 /* projectstats.nsmap in Resources */,
+				85EE57C2146D647D00631678 /* LibraryViewController.xib in Resources */,
+				85EE57C4146D647D00631678 /* MainMenuTabBarController.xib in Resources */,
+				85EE57C6146D647D00631678 /* PlayerInfoViewController.xib in Resources */,
+				85EE57C8146D647D00631678 /* PlayerStatsViewController.xib in Resources */,
+				85EE57CA146D647D00631678 /* PlayersViewController.xib in Resources */,
+				85EE57CC146D647D00631678 /* PlayerTabController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +300,12 @@
 				85EE579C146D439300631678 /* soapprojectstatsProxy.cpp in Sources */,
 				85EE579F146D439300631678 /* stdsoap2.cpp in Sources */,
 				85EE57A2146D43BA00631678 /* ServerLoader.mm in Sources */,
+				85EE57C1146D647D00631678 /* LibraryViewController.m in Sources */,
+				85EE57C3146D647D00631678 /* MainMenuTabBarController.m in Sources */,
+				85EE57C5146D647D00631678 /* PlayerInfoViewController.m in Sources */,
+				85EE57C7146D647D00631678 /* PlayerStatsViewController.m in Sources */,
+				85EE57C9146D647D00631678 /* PlayersViewController.m in Sources */,
+				85EE57CB146D647D00631678 /* PlayerTabController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

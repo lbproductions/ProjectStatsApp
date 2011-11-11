@@ -89,7 +89,7 @@
     [UIView 
      transitionWithView:self.navigationController.view
      duration:0.7
-     options:UIViewAnimationOptionTransitionFlipFromLeft
+     options:UIViewAnimationOptionTransitionFlipFromRight
      animations:^{ 
          [self.navigationController popViewControllerAnimated:NO];
      }
@@ -103,7 +103,8 @@
     
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissChanges)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveChanges)];}
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveChanges)];
+}
 
 - (void)viewDidUnload
 {

@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ServerLoader : NSObject
+@interface ServerLoader : NSObject <NSFetchedResultsControllerDelegate>
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 - (id)init;
 - (void)repopulatePlayerList;

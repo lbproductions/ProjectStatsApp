@@ -7,6 +7,7 @@
 //
 
 #import "ServerTableViewController.h"
+#import "MainMenuTabBarController.h"
 
 @implementation ServerTableViewController
 
@@ -48,6 +49,7 @@
 {
     [super viewDidLoad];
     self.serverLoader = [[ServerLoader alloc ] init];
+    self.serverLoader.managedObjectContext = self.managedObjectContext;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -224,7 +226,8 @@
          completion:NULL];
     }
     else {
-        [self.serverLoader repopulatePlayerList];
+        MainMenuTabBarController* mainMenuTabBarController = [[MainMenuTabBarController alloc] initWithNibName:@"MainMenuTabBarController" bundle:[NSBundle mainBundle] managedObjectContext:self.managedObjectContext];
+        [self.navigationController pushViewController:mainMenuTabBarController animated:YES];
     }
 }
 
