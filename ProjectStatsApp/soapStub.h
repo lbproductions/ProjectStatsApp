@@ -51,6 +51,9 @@ public:
 	char *name;	/* optional element of type xsd:string */
     int games;
     int wins;
+    int losses;
+    int points;
+    double average;
 public:
 	virtual int soap_type() const { return 9; } /* = unique id SOAP_TYPE_PlayerInformation */
 	virtual void soap_default(struct soap*);

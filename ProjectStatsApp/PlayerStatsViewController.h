@@ -15,5 +15,8 @@
 @property (nonatomic, retain) IBOutlet NSManagedObject* m_player;
 @property (nonatomic, retain) IBOutlet UITableViewCell *gamesCell;
 @property (nonatomic, retain) IBOutlet UITableViewCell *winsCell;
+@property (nonatomic, retain) IBOutlet UITableViewCell *lossesCell;
+@property (nonatomic, retain) IBOutlet UITableViewCell *pointsCell;
+@property (nonatomic, retain) IBOutlet UITableViewCell *averageCell;
 
 @end

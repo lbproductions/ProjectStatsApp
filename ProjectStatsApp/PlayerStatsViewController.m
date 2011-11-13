@@ -12,6 +12,9 @@
 
 @synthesize gamesCell;
 @synthesize winsCell;
+@synthesize lossesCell;
+@synthesize averageCell;
+@synthesize pointsCell;
 @synthesize m_player;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil player:(NSManagedObject*)player
@@ -39,6 +42,9 @@
     [super viewDidLoad];
     self.gamesCell.detailTextLabel.text = [[self.m_player valueForKey:@"games"] stringValue]; 
     self.winsCell.detailTextLabel.text = [[self.m_player valueForKey:@"wins"] stringValue];
+    self.lossesCell.detailTextLabel.text = [[self.m_player valueForKey:@"losses"] stringValue];
+    self.pointsCell.detailTextLabel.text = [[self.m_player valueForKey:@"points"] stringValue];
+    self.averageCell.detailTextLabel.text = [[self.m_player valueForKey:@"average"] stringValue];
 }
 
 - (void)viewDidUnload
@@ -61,7 +67,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,7 +84,15 @@
                     case 1:
                         cell = self.winsCell;
                         break;
-                        
+                    case 2:
+                        cell = self.lossesCell;
+                        break;
+                    case 3:
+                        cell = self.pointsCell;
+                        break;
+                    case 4:
+                        cell = self.averageCell;
+                        break;
                     default:
                         break;
                 }

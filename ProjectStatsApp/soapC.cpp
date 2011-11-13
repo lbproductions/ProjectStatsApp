@@ -630,6 +630,43 @@ SOAP_FMAC3 int * SOAP_FMAC4 soap_get_int(struct soap *soap, int *p, const char *
 	return p;
 }
 
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_double(struct soap *soap, double *a)
+{
+	(void)soap; /* appease -Wall -Werror */
+#ifdef SOAP_DEFAULT_double
+	*a = SOAP_DEFAULT_double;
+#else
+	*a = (double)0;
+#endif
+}
+
+SOAP_FMAC3 double SOAP_FMAC4 soap_out_double(struct soap *soap, const char *tag, double id, const double *a, const char *type)
+{	(void)soap; (void)type; (void)tag; (void)id;
+	return soap_outdouble(soap, tag, id, a, type, SOAP_TYPE_double);
+}
+
+SOAP_FMAC3 double * SOAP_FMAC4 soap_in_double(struct soap *soap, const char *tag, double *a, const char *type)
+{	double *p;
+	p = soap_indouble(soap, tag, a, type, SOAP_TYPE_double);
+	return p;
+}
+
+SOAP_FMAC3 double SOAP_FMAC4 soap_put_double(struct soap *soap, const double *a, const char *tag, const char *type)
+{
+	register double id = soap_embed(soap, (void*)a, NULL, 0, tag, SOAP_TYPE_double);
+	if (soap_out_double(soap, tag?tag:"double", id, a, type))
+		return soap->error;
+	return soap_putindependent(soap);
+}
+
+SOAP_FMAC3 double * SOAP_FMAC4 soap_get_double(struct soap *soap, double *p, const char *tag, const char *type)
+{
+	if ((p = soap_in_double(soap, tag, p, type)))
+		if (soap_getindependent(soap))
+			return NULL;
+	return p;
+}
+
 void PlayerList::soap_default(struct soap *soap)
 {
 	(void)soap; /* appease -Wall -Werror */
@@ -761,6 +798,9 @@ void PlayerInformation::soap_default(struct soap *soap)
 	soap_default_xsd__string(soap, &this->PlayerInformation::name);
     soap_default_int(soap, &this->PlayerInformation::games);
     soap_default_int(soap, &this->PlayerInformation::wins);
+    soap_default_int(soap, &this->PlayerInformation::losses);
+    soap_default_int(soap, &this->PlayerInformation::points);
+    soap_default_double(soap, &this->PlayerInformation::average);
 }
 
 void PlayerInformation::soap_serialize(struct soap *soap) const
@@ -785,6 +825,12 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_out_PlayerInformation(struct soap *soap, const ch
     if (soap_out_int(soap, "games", -1, &(a->PlayerInformation::games), ""))
         return soap->error;
     if (soap_out_int(soap, "wins", -1, &(a->PlayerInformation::wins), ""))
+        return soap->error;
+    if (soap_out_int(soap, "losses", -1, &(a->PlayerInformation::losses), ""))
+        return soap->error;
+    if (soap_out_int(soap, "points", -1, &(a->PlayerInformation::points), ""))
+        return soap->error;
+    if (soap_out_double(soap, "average", -1, &(a->PlayerInformation::average), ""))
         return soap->error;
 	return soap_element_end_out(soap, tag);
 }
@@ -813,6 +859,9 @@ SOAP_FMAC3 PlayerInformation * SOAP_FMAC4 soap_in_PlayerInformation(struct soap 
 	size_t soap_flag_name1 = 1;
     size_t soap_flag_games1 = 1;
     size_t soap_flag_wins1 = 1;
+    size_t soap_flag_losses1 = 1;
+    size_t soap_flag_points1 = 1;
+    size_t soap_flag_average1 = 1;
 	if (soap->body && !*soap->href)
 	{
 		for (;;)
@@ -828,15 +877,30 @@ SOAP_FMAC3 PlayerInformation * SOAP_FMAC4 soap_in_PlayerInformation(struct soap 
 					continue;
 				}
             if (soap_flag_games1 && soap->error == SOAP_TAG_MISMATCH)
-				if (soap_in_int(soap, "games", &(a->PlayerInformation::games), "xsd:int"))
-				{	soap_flag_games1--;
-					continue;
-				}
+                if (soap_in_int(soap, "games", &(a->PlayerInformation::games), "xsd:int"))
+                {	soap_flag_games1--;
+                    continue;
+                }
             if (soap_flag_wins1 && soap->error == SOAP_TAG_MISMATCH)
-				if (soap_in_int(soap, "wins", &(a->PlayerInformation::wins), "xsd:int"))
-				{	soap_flag_wins1--;
-					continue;
-				}
+                if (soap_in_int(soap, "wins", &(a->PlayerInformation::wins), "xsd:int"))
+                {	soap_flag_wins1--;
+                    continue;
+                }
+            if (soap_flag_losses1 && soap->error == SOAP_TAG_MISMATCH)
+                if (soap_in_int(soap, "losses", &(a->PlayerInformation::losses), "xsd:int"))
+                {	soap_flag_losses1--;
+                    continue;
+                }
+            if (soap_flag_points1 && soap->error == SOAP_TAG_MISMATCH)
+                if (soap_in_int(soap, "points", &(a->PlayerInformation::points), "xsd:int"))
+                {	soap_flag_points1--;
+                    continue;
+                }
+            if (soap_flag_average1 && soap->error == SOAP_TAG_MISMATCH)
+                if (soap_in_double(soap, "average", &(a->PlayerInformation::average), "xsd:double"))
+                {	soap_flag_average1--;
+                    continue;
+                }
 			if (soap->error == SOAP_TAG_MISMATCH)
 				soap->error = soap_ignore_element(soap);
 			if (soap->error == SOAP_NO_TAG)

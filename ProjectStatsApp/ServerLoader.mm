@@ -45,14 +45,17 @@
         NSNumber* identifier = [NSNumber numberWithInt:it->id];
         NSNumber* games = [NSNumber numberWithInt:it->games];
         NSNumber* wins = [NSNumber numberWithInt:it->wins];
-        NSLog([identifier stringValue]);
-        NSLog(name);
-        NSLog([games stringValue]);
-        NSLog([wins stringValue]); 
+        NSNumber* losses = [NSNumber numberWithInt:it->losses];
+        NSNumber* points = [NSNumber numberWithInt:it->points];
+        NSNumber* average = [NSNumber numberWithInt:it->average];
         [newManagedObject setValue:name forKey:@"name"];
         [newManagedObject setValue:identifier forKey:@"id"];
         [newManagedObject setValue:games forKey:@"games"];
         [newManagedObject setValue:wins forKey:@"wins"];
+        [newManagedObject setValue:losses forKey:@"losses"];
+        [newManagedObject setValue:points forKey:@"points"];
+        [newManagedObject setValue:average forKey:@"average"];
+        
     }
     
     NSError* error = nil;
