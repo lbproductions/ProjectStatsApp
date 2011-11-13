@@ -4,8 +4,10 @@
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <entity name="Player" syncable="YES">
+        <attribute name="games" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wins" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="Server" syncable="YES">
         <attribute name="displayName" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,8 +16,8 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Player" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="Server" positionX="-47" positionY="156" width="128" height="105"/>
+        <element name="Player" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Server" positionX="160" positionY="192" width="128" height="105"/>
         <element name="Game" positionX="54" positionY="189" width="128" height="60"/>
     </elements>
 </model>

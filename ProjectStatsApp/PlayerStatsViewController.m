@@ -10,11 +10,16 @@
 
 @implementation PlayerStatsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+@synthesize gamesCell;
+@synthesize winsCell;
+@synthesize m_player;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil player:(NSManagedObject*)player
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"PlayerStats";
+        self.m_player = player;
+        self.title = @"PlayerStats";      
     }
     return self;
 }
@@ -32,7 +37,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.gamesCell.detailTextLabel.text = [[self.m_player valueForKey:@"games"] stringValue]; 
+    self.winsCell.detailTextLabel.text = [[self.m_player valueForKey:@"wins"] stringValue];
 }
 
 - (void)viewDidUnload
@@ -47,5 +53,52 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"CellIdentifier";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {          
+                switch (indexPath.row) {
+                    case 0:
+                        cell = self.gamesCell;
+                        break;
+                        
+                    case 1:
+                        cell = self.winsCell;
+                        break;
+                        
+                    default:
+                        break;
+                }
+
+        }
+        
+    return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+	
+	NSString *sectionHeader = nil;
+	
+	if(section == 0) {
+		sectionHeader = @"Stats";
+	}
+	
+	return sectionHeader;
+}
+
+
 
 @end

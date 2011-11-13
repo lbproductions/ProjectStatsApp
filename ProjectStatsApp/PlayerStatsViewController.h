@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlayerStatsViewController : UIViewController
+@interface PlayerStatsViewController : UITableViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil player:(NSManagedObject*)player;
+
+@property (nonatomic, retain) IBOutlet NSManagedObject* m_player;
+@property (nonatomic, retain) IBOutlet UITableViewCell *gamesCell;
+@property (nonatomic, retain) IBOutlet UITableViewCell *winsCell;
 
 @end

@@ -43,8 +43,16 @@
         NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
         NSString* name = [NSString stringWithUTF8String:it->name];
         NSNumber* identifier = [NSNumber numberWithInt:it->id];
+        NSNumber* games = [NSNumber numberWithInt:it->games];
+        NSNumber* wins = [NSNumber numberWithInt:it->wins];
+        NSLog([identifier stringValue]);
+        NSLog(name);
+        NSLog([games stringValue]);
+        NSLog([wins stringValue]); 
         [newManagedObject setValue:name forKey:@"name"];
         [newManagedObject setValue:identifier forKey:@"id"];
+        [newManagedObject setValue:games forKey:@"games"];
+        [newManagedObject setValue:wins forKey:@"wins"];
     }
     
     NSError* error = nil;

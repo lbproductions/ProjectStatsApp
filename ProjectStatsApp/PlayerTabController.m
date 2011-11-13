@@ -19,7 +19,7 @@
     if (self) {
         NSMutableArray *m_players = [NSMutableArray arrayWithCapacity:2];
         [m_players addObject:(PlayerInfoViewController*)[[PlayerInfoViewController alloc] init:player]];
-        [m_players addObject:(PlayerStatsViewController*)[[PlayerStatsViewController alloc] initWithNibName:@"PlayerStatsViewController" bundle:nil]];
+        [m_players addObject:(PlayerStatsViewController*)[[PlayerStatsViewController alloc] initWithNibName:@"PlayerStatsViewController" bundle:nil player:player]];
         [self setViewControllers:m_players];
         [self setSelectedViewController:[[self viewControllers] objectAtIndex:0]];
     }

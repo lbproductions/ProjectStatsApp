@@ -49,6 +49,8 @@ class SOAP_CMAC PlayerInformation
 public:
 	int id;	/* required element of type xsd:int */
 	char *name;	/* optional element of type xsd:string */
+    int games;
+    int wins;
 public:
 	virtual int soap_type() const { return 9; } /* = unique id SOAP_TYPE_PlayerInformation */
 	virtual void soap_default(struct soap*);
