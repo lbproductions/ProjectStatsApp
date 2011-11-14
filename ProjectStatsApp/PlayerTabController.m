@@ -22,6 +22,8 @@
         [m_players addObject:(PlayerStatsViewController*)[[PlayerStatsViewController alloc] initWithNibName:@"PlayerStatsViewController" bundle:nil player:player]];
         [self setViewControllers:m_players];
         [self setSelectedViewController:[[self viewControllers] objectAtIndex:0]];
+        
+        self.title = @"PlayerDetails";
     }
     return self;
 }

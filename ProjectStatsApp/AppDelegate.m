@@ -27,7 +27,7 @@
 //    self.window.backgroundColor = [UIColor whiteColor];
 //    [self.window makeKeyAndVisible];
     
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    //if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
 //        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
 //        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
 //        splitViewController.delegate = (id)navigationController.topViewController;
@@ -35,7 +35,7 @@
 //        UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
 //        MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
 //        controller.managedObjectContext = self.managedObjectContext;
-    } else {
+    //} else {
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         
         ServerTableViewController *serverTableViewController = [[ServerTableViewController alloc] init];
@@ -47,7 +47,7 @@
         [self.navigationController pushViewController:serverTableViewController animated:NO];
         [self.window addSubview:navigationController.view];
         [self.window makeKeyAndVisible];
-    }
+    //}
     return YES;
 }
 

@@ -8,6 +8,8 @@
 
 #import "PlayerStatsViewController.h"
 
+#import "PlayerGamesViewController.h"
+
 @implementation PlayerStatsViewController
 
 @synthesize gamesCell;
@@ -40,11 +42,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.gamesCell.detailTextLabel.text = [[self.m_player valueForKey:@"games"] stringValue]; 
-    self.winsCell.detailTextLabel.text = [[self.m_player valueForKey:@"wins"] stringValue];
-    self.lossesCell.detailTextLabel.text = [[self.m_player valueForKey:@"losses"] stringValue];
-    self.pointsCell.detailTextLabel.text = [[self.m_player valueForKey:@"points"] stringValue];
-    self.averageCell.detailTextLabel.text = [[self.m_player valueForKey:@"average"] stringValue];
+    //self.gamesCell.detailTextLabel.text = [[self.m_player valueForKey:@"games"] stringValue]; 
+    self.gamesCell.detailTextLabel.text = [[(NSMutableDictionary*)[self.m_player valueForKey:@"games"]objectForKey:@"General"] stringValue]; 
+    self.winsCell.detailTextLabel.text = [[(NSMutableDictionary*)[self.m_player valueForKey:@"wins"]objectForKey:@"General"] stringValue]; 
+    self.lossesCell.detailTextLabel.text = [[(NSMutableDictionary*)[self.m_player valueForKey:@"losses"]objectForKey:@"General"] stringValue]; 
+    self.pointsCell.detailTextLabel.text = [[(NSMutableDictionary*)[self.m_player valueForKey:@"points"]objectForKey:@"General"] stringValue]; 
+    self.averageCell.detailTextLabel.text = [[(NSMutableDictionary*)[self.m_player valueForKey:@"average"]objectForKey:@"General"] stringValue]; 
 }
 
 - (void)viewDidUnload
@@ -111,6 +114,37 @@
 	}
 	
 	return sectionHeader;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString* context;
+    NSString* display;
+    if(indexPath.row == 0){
+        context = @"games";
+        display = @"Games";
+    }
+    if(indexPath.row == 1){
+        context = @"wins";
+        display = @"Wins";
+    }
+    if(indexPath.row == 2){
+        context = @"losses";
+        display = @"Losses";
+    }
+    if(indexPath.row == 3){
+        context = @"points";
+        display = @"Points";
+    }
+    if(indexPath.row == 4){
+        context = @"average";
+        display = @"Average";
+    }
+    
+    PlayerGamesViewController* gamesView = [[PlayerGamesViewController alloc] initWithNibName:@"PlayerGamesViewController" bundle:nil player:self.m_player context:context displayTitle:display];
+    
+    [self.navigationController pushViewController:gamesView animated:YES];
+    
 }
 
 

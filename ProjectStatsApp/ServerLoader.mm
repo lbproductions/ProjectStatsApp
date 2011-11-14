@@ -9,6 +9,35 @@
 #import "ServerLoader.h"
 #import "soapprojectstatsProxy.h"
 
+@interface NSDictionary (MWBDictionary)
+
++ (id)dictionaryWithData:(NSData *)data;
+- (id)initWithData:(NSData *)data;
+
+@end
+
+@implementation NSDictionary (MWBDictionary)
+
++ (id)dictionaryWithData:(NSData *)data {
+    return [[NSDictionary alloc] initWithData:data];
+}
+
+- (id)initWithData:(NSData *)data {
+    NSString *tmp = nil;
+    
+    self = (NSDictionary *)[NSPropertyListSerialization
+                            propertyListFromData:data
+                            mutabilityOption:NSPropertyListImmutable
+                            format:NULL
+                            errorDescription:&tmp];
+    
+    NSAssert1(tmp == nil,@"Fehler in plist: %@",tmp);
+    
+    return self;
+}
+
+@end
+
 @implementation ServerLoader
 
 @synthesize managedObjectContext = __managedObjectContext;
@@ -43,18 +72,38 @@
         NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
         NSString* name = [NSString stringWithUTF8String:it->name];
         NSNumber* identifier = [NSNumber numberWithInt:it->id];
-        NSNumber* games = [NSNumber numberWithInt:it->games];
-        NSNumber* wins = [NSNumber numberWithInt:it->wins];
-        NSNumber* losses = [NSNumber numberWithInt:it->losses];
-        NSNumber* points = [NSNumber numberWithInt:it->points];
-        NSNumber* average = [NSNumber numberWithInt:it->average];
+        std::vector<StringIntPair>  gameHash = it->games;
+        NSMutableDictionary* gamesDict = [NSMutableDictionary dictionary];
+        for(std::vector<StringIntPair>::const_iterator ite = gameHash.begin(); ite != gameHash.end(); ite++) {
+            [gamesDict setObject:[NSNumber numberWithInt:ite->value] forKey:[NSString stringWithUTF8String:ite->key]];
+        }
+        std::vector<StringIntPair> wins = it->wins;
+        NSMutableDictionary* winsDict = [NSMutableDictionary dictionary];
+        for(std::vector<StringIntPair>::const_iterator ite = wins.begin(); ite != wins.end(); ite++) {
+            [winsDict setObject:[NSNumber numberWithInt:ite->value] forKey:[NSString stringWithUTF8String:ite->key]];
+        }
+        std::vector<StringIntPair> losses = it->losses;
+        NSMutableDictionary* lossesDict = [NSMutableDictionary dictionary];
+        for(std::vector<StringIntPair>::const_iterator ite = losses.begin(); ite != losses.end(); ite++) {
+            [lossesDict setObject:[NSNumber numberWithInt:ite->value] forKey:[NSString stringWithUTF8String:ite->key]];
+        }
+        std::vector<StringIntPair> points = it->points;
+        NSMutableDictionary* pointsDict = [NSMutableDictionary dictionary];
+        for(std::vector<StringIntPair>::const_iterator ite = points.begin(); ite != points.end(); ite++) {
+            [pointsDict setObject:[NSNumber numberWithInt:ite->value] forKey:[NSString stringWithUTF8String:ite->key]];
+        }
+        std::vector<StringDoublePair> average = it->average;
+        NSMutableDictionary* averageDict = [NSMutableDictionary dictionary];
+        for(std::vector<StringDoublePair>::const_iterator ite = average.begin(); ite != average.end(); ite++) {
+            [averageDict setObject:[NSNumber numberWithDouble:ite->value] forKey:[NSString stringWithUTF8String:ite->key]];
+        }
         [newManagedObject setValue:name forKey:@"name"];
         [newManagedObject setValue:identifier forKey:@"id"];
-        [newManagedObject setValue:games forKey:@"games"];
-        [newManagedObject setValue:wins forKey:@"wins"];
-        [newManagedObject setValue:losses forKey:@"losses"];
-        [newManagedObject setValue:points forKey:@"points"];
-        [newManagedObject setValue:average forKey:@"average"];
+        [newManagedObject setValue:winsDict forKey:@"wins"];
+        [newManagedObject setValue:lossesDict forKey:@"losses"];
+        [newManagedObject setValue:pointsDict forKey:@"points"];
+        [newManagedObject setValue:averageDict forKey:@"average"];
+        [newManagedObject setValue:gamesDict forKey:@"games"];
         
     }
     

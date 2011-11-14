@@ -39,6 +39,8 @@
 		85EE57CB146D647D00631678 /* PlayerTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EE57BF146D647D00631678 /* PlayerTabController.m */; };
 		85EE57CC146D647D00631678 /* PlayerTabController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57C0146D647D00631678 /* PlayerTabController.xib */; };
 		D1F4EFAB146D9E74006AA425 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F4EFAA146D9E73006AA425 /* player.png */; };
+		D1F4EFBD14701F2C006AA425 /* PlayerGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F4EFBB14701F2C006AA425 /* PlayerGamesViewController.m */; };
+		D1F4EFBE14701F2C006AA425 /* PlayerGamesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F4EFBC14701F2C006AA425 /* PlayerGamesViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +94,9 @@
 		85EE57BF146D647D00631678 /* PlayerTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTabController.m; sourceTree = "<group>"; };
 		85EE57C0146D647D00631678 /* PlayerTabController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerTabController.xib; sourceTree = "<group>"; };
 		D1F4EFAA146D9E73006AA425 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
+		D1F4EFBA14701F2C006AA425 /* PlayerGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerGamesViewController.h; sourceTree = "<group>"; };
+		D1F4EFBB14701F2C006AA425 /* PlayerGamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerGamesViewController.m; sourceTree = "<group>"; };
+		D1F4EFBC14701F2C006AA425 /* PlayerGamesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerGamesViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,25 +145,8 @@
 		857F06F8146C497300368D8C /* ProjectStatsApp */ = {
 			isa = PBXGroup;
 			children = (
+				D1F4EFB714701CAF006AA425 /* Library */,
 				D1F4EFAA146D9E73006AA425 /* player.png */,
-				85EE57AF146D647D00631678 /* LibraryViewController.h */,
-				85EE57B0146D647D00631678 /* LibraryViewController.m */,
-				85EE57B1146D647D00631678 /* LibraryViewController.xib */,
-				85EE57B2146D647D00631678 /* MainMenuTabBarController.h */,
-				85EE57B3146D647D00631678 /* MainMenuTabBarController.m */,
-				85EE57B4146D647D00631678 /* MainMenuTabBarController.xib */,
-				85EE57B5146D647D00631678 /* PlayerInfoViewController.h */,
-				85EE57B6146D647D00631678 /* PlayerInfoViewController.m */,
-				85EE57B7146D647D00631678 /* PlayerInfoViewController.xib */,
-				85EE57B8146D647D00631678 /* PlayerStatsViewController.h */,
-				85EE57B9146D647D00631678 /* PlayerStatsViewController.m */,
-				85EE57BA146D647D00631678 /* PlayerStatsViewController.xib */,
-				85EE57BB146D647D00631678 /* PlayersViewController.h */,
-				85EE57BC146D647D00631678 /* PlayersViewController.m */,
-				85EE57BD146D647D00631678 /* PlayersViewController.xib */,
-				85EE57BE146D647D00631678 /* PlayerTabController.h */,
-				85EE57BF146D647D00631678 /* PlayerTabController.m */,
-				85EE57C0146D647D00631678 /* PlayerTabController.xib */,
 				85EE578E146D3B1600631678 /* ServerLoader */,
 				85EE578D146D3ADE00631678 /* ServerChooser */,
 				857F070F146C4A9400368D8C /* en.lproj */,
@@ -219,6 +207,50 @@
 				85EE57A1146D43BA00631678 /* ServerLoader.mm */,
 			);
 			name = ServerLoader;
+			sourceTree = "<group>";
+		};
+		D1F4EFB714701CAF006AA425 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D1F4EFB814701CDB006AA425 /* Players */,
+				85EE57AF146D647D00631678 /* LibraryViewController.h */,
+				85EE57B0146D647D00631678 /* LibraryViewController.m */,
+				85EE57B1146D647D00631678 /* LibraryViewController.xib */,
+				85EE57B2146D647D00631678 /* MainMenuTabBarController.h */,
+				85EE57B3146D647D00631678 /* MainMenuTabBarController.m */,
+				85EE57B4146D647D00631678 /* MainMenuTabBarController.xib */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		D1F4EFB814701CDB006AA425 /* Players */ = {
+			isa = PBXGroup;
+			children = (
+				D1F4EFB914701EF3006AA425 /* Stats */,
+				85EE57B5146D647D00631678 /* PlayerInfoViewController.h */,
+				85EE57B6146D647D00631678 /* PlayerInfoViewController.m */,
+				85EE57B7146D647D00631678 /* PlayerInfoViewController.xib */,
+				85EE57B8146D647D00631678 /* PlayerStatsViewController.h */,
+				85EE57B9146D647D00631678 /* PlayerStatsViewController.m */,
+				85EE57BA146D647D00631678 /* PlayerStatsViewController.xib */,
+				85EE57BB146D647D00631678 /* PlayersViewController.h */,
+				85EE57BC146D647D00631678 /* PlayersViewController.m */,
+				85EE57BD146D647D00631678 /* PlayersViewController.xib */,
+				85EE57BE146D647D00631678 /* PlayerTabController.h */,
+				85EE57BF146D647D00631678 /* PlayerTabController.m */,
+				85EE57C0146D647D00631678 /* PlayerTabController.xib */,
+			);
+			name = Players;
+			sourceTree = "<group>";
+		};
+		D1F4EFB914701EF3006AA425 /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				D1F4EFBA14701F2C006AA425 /* PlayerGamesViewController.h */,
+				D1F4EFBB14701F2C006AA425 /* PlayerGamesViewController.m */,
+				D1F4EFBC14701F2C006AA425 /* PlayerGamesViewController.xib */,
+			);
+			name = Stats;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +317,7 @@
 				85EE57CA146D647D00631678 /* PlayersViewController.xib in Resources */,
 				85EE57CC146D647D00631678 /* PlayerTabController.xib in Resources */,
 				D1F4EFAB146D9E74006AA425 /* player.png in Resources */,
+				D1F4EFBE14701F2C006AA425 /* PlayerGamesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +343,7 @@
 				85EE57C7146D647D00631678 /* PlayerStatsViewController.m in Sources */,
 				85EE57C9146D647D00631678 /* PlayersViewController.m in Sources */,
 				85EE57CB146D647D00631678 /* PlayerTabController.m in Sources */,
+				D1F4EFBD14701F2C006AA425 /* PlayerGamesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
