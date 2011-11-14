@@ -248,7 +248,7 @@
     cell.textLabel.text = [[managedObject valueForKey:@"name"] description];
     //cell.editingAccessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    [cell.imageView setImage:[[UIImage alloc] initWithContentsOfFile:@"player.png"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"player.png"]];
 }
 
 @end
