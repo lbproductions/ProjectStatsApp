@@ -199,7 +199,7 @@
     cell.textLabel.text = [[managedObject valueForKey:@"name"] description];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd.mm.yyyy"];
+    [formatter setDateFormat:@"dd.MM.yyyy"];
     
     //Optionally for time zone converstions
     [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];

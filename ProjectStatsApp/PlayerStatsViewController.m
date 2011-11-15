@@ -44,10 +44,15 @@
     [super viewDidLoad];
     //self.gamesCell.detailTextLabel.text = [[self.m_player valueForKey:@"games"] stringValue]; 
     self.gamesCell.detailTextLabel.text = [[(NSMutableDictionary*)[self.m_player valueForKey:@"games"]objectForKey:@"General"] stringValue]; 
-    self.winsCell.detailTextLabel.text = [[(NSMutableDictionary*)[self.m_player valueForKey:@"wins"]objectForKey:@"General"] stringValue]; 
+    self.gamesCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    self.winsCell.detailTextLabel.text = [[(NSMutableDictionary*)[self.m_player valueForKey:@"wins"]objectForKey:@"General"] stringValue];
+    self.winsCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     self.lossesCell.detailTextLabel.text = [[(NSMutableDictionary*)[self.m_player valueForKey:@"losses"]objectForKey:@"General"] stringValue]; 
+    self.lossesCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     self.pointsCell.detailTextLabel.text = [[(NSMutableDictionary*)[self.m_player valueForKey:@"points"]objectForKey:@"General"] stringValue]; 
+    self.pointsCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     self.averageCell.detailTextLabel.text = [[(NSMutableDictionary*)[self.m_player valueForKey:@"average"]objectForKey:@"General"] stringValue]; 
+    self.averageCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 
 - (void)viewDidUnload

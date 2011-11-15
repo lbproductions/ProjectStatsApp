@@ -8,6 +8,8 @@
 
 #import "PlaceViewController.h"
 
+#import "PlaceInfoViewController.h"
+
 @implementation PlaceViewController
 
 @synthesize fetchedResultsController = __fetchedResultsController;
@@ -146,8 +148,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {   
-    //DrinkInfoViewController* drinkController = [[DrinkInfoViewController alloc] init:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
-    //[self.navigationController pushViewController:drinkController animated:YES];
+    PlaceInfoViewController* placeController = [[PlaceInfoViewController alloc] init:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
+    [self.navigationController pushViewController:placeController animated:YES];
 }
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -167,7 +169,7 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"gameCount" ascending:NO];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -196,7 +198,6 @@
 {
     NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [[managedObject valueForKey:@"name"] description];
-
     //cell.editingAccessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     //[cell.imageView setImage:[UIImage imageNamed:@"beer_default.png"]];

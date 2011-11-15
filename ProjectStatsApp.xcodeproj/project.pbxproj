@@ -44,6 +44,9 @@
 		85EE57CA146D647D00631678 /* PlayersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57BD146D647D00631678 /* PlayersViewController.xib */; };
 		85EE57CB146D647D00631678 /* PlayerTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EE57BF146D647D00631678 /* PlayerTabController.m */; };
 		85EE57CC146D647D00631678 /* PlayerTabController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57C0146D647D00631678 /* PlayerTabController.xib */; };
+		D1954B721472BC2C00D26790 /* PlaceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1954B701472BC2C00D26790 /* PlaceInfoViewController.m */; };
+		D1954B731472BC2C00D26790 /* PlaceInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1954B711472BC2C00D26790 /* PlaceInfoViewController.xib */; };
+		D1954B761472C53600D26790 /* wappen_dortmund.png in Resources */ = {isa = PBXBuildFile; fileRef = D1954B751472C53500D26790 /* wappen_dortmund.png */; };
 		D1AA37EB1472AE47001FE9A5 /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1AA37E91472AE47001FE9A5 /* PlaceViewController.m */; };
 		D1AA37EC1472AE47001FE9A5 /* PlaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1AA37EA1472AE47001FE9A5 /* PlaceViewController.xib */; };
 		D1DB81311471B9B400F68BE8 /* DrinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DB812F1471B9B400F68BE8 /* DrinkViewController.m */; };
@@ -115,6 +118,10 @@
 		85EE57BE146D647D00631678 /* PlayerTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTabController.h; sourceTree = "<group>"; };
 		85EE57BF146D647D00631678 /* PlayerTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTabController.m; sourceTree = "<group>"; };
 		85EE57C0146D647D00631678 /* PlayerTabController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerTabController.xib; sourceTree = "<group>"; };
+		D1954B6F1472BC2C00D26790 /* PlaceInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceInfoViewController.h; sourceTree = "<group>"; };
+		D1954B701472BC2C00D26790 /* PlaceInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceInfoViewController.m; sourceTree = "<group>"; };
+		D1954B711472BC2C00D26790 /* PlaceInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceInfoViewController.xib; sourceTree = "<group>"; };
+		D1954B751472C53500D26790 /* wappen_dortmund.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wappen_dortmund.png; sourceTree = "<group>"; };
 		D1AA37E81472AE47001FE9A5 /* PlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
 		D1AA37E91472AE47001FE9A5 /* PlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
 		D1AA37EA1472AE47001FE9A5 /* PlaceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceViewController.xib; sourceTree = "<group>"; };
@@ -204,6 +211,7 @@
 				D1F4EFB714701CAF006AA425 /* Library */,
 				D1F4EFAA146D9E73006AA425 /* player.png */,
 				D1DB813814724A7E00F68BE8 /* beer_default.png */,
+				D1954B751472C53500D26790 /* wappen_dortmund.png */,
 				85EE578E146D3B1600631678 /* ServerLoader */,
 				85EE578D146D3ADE00631678 /* ServerChooser */,
 				857F070F146C4A9400368D8C /* en.lproj */,
@@ -272,6 +280,9 @@
 				D1AA37E81472AE47001FE9A5 /* PlaceViewController.h */,
 				D1AA37E91472AE47001FE9A5 /* PlaceViewController.m */,
 				D1AA37EA1472AE47001FE9A5 /* PlaceViewController.xib */,
+				D1954B6F1472BC2C00D26790 /* PlaceInfoViewController.h */,
+				D1954B701472BC2C00D26790 /* PlaceInfoViewController.m */,
+				D1954B711472BC2C00D26790 /* PlaceInfoViewController.xib */,
 			);
 			name = Places;
 			sourceTree = "<group>";
@@ -408,6 +419,8 @@
 				853BC7031472B6F2008B7C6B /* AddSchmeissereiController.xib in Resources */,
 				853BC7051472B6F2008B7C6B /* RemoteControl.xib in Resources */,
 				855E23B31472C80500220B22 /* GameViewController.xib in Resources */,
+				D1954B731472BC2C00D26790 /* PlaceInfoViewController.xib in Resources */,
+				D1954B761472C53600D26790 /* wappen_dortmund.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +453,7 @@
 				853BC7021472B6F2008B7C6B /* AddSchmeissereiController.m in Sources */,
 				853BC7041472B6F2008B7C6B /* RemoteControl.m in Sources */,
 				855E23B21472C80500220B22 /* GameViewController.m in Sources */,
+				D1954B721472BC2C00D26790 /* PlaceInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
