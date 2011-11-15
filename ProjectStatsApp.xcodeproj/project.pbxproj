@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		853BC7021472B6F2008B7C6B /* AddSchmeissereiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 853BC6FD1472B6F2008B7C6B /* AddSchmeissereiController.m */; };
+		853BC7031472B6F2008B7C6B /* AddSchmeissereiController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 853BC6FE1472B6F2008B7C6B /* AddSchmeissereiController.xib */; };
+		853BC7041472B6F2008B7C6B /* RemoteControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 853BC7001472B6F2008B7C6B /* RemoteControl.m */; };
+		853BC7051472B6F2008B7C6B /* RemoteControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 853BC7011472B6F2008B7C6B /* RemoteControl.xib */; };
 		857F06F1146C497300368D8C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F06F0146C497300368D8C /* UIKit.framework */; };
 		857F06F3146C497300368D8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F06F2146C497300368D8C /* Foundation.framework */; };
 		857F06F5146C497300368D8C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F06F4146C497300368D8C /* CoreGraphics.framework */; };
@@ -51,6 +55,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		853BC6FC1472B6F2008B7C6B /* AddSchmeissereiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSchmeissereiController.h; sourceTree = "<group>"; };
+		853BC6FD1472B6F2008B7C6B /* AddSchmeissereiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSchmeissereiController.m; sourceTree = "<group>"; };
+		853BC6FE1472B6F2008B7C6B /* AddSchmeissereiController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSchmeissereiController.xib; sourceTree = "<group>"; };
+		853BC6FF1472B6F2008B7C6B /* RemoteControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteControl.h; sourceTree = "<group>"; };
+		853BC7001472B6F2008B7C6B /* RemoteControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteControl.m; sourceTree = "<group>"; };
+		853BC7011472B6F2008B7C6B /* RemoteControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RemoteControl.xib; sourceTree = "<group>"; };
 		857F06EC146C497300368D8C /* ProjectStatsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectStatsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		857F06F0146C497300368D8C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		857F06F2146C497300368D8C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -131,6 +141,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		853BC6FA1472B6A3008B7C6B /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				853BC6FB1472B6AB008B7C6B /* RemoteControl */,
+			);
+			name = Games;
+			sourceTree = "<group>";
+		};
+		853BC6FB1472B6AB008B7C6B /* RemoteControl */ = {
+			isa = PBXGroup;
+			children = (
+				853BC6FC1472B6F2008B7C6B /* AddSchmeissereiController.h */,
+				853BC6FD1472B6F2008B7C6B /* AddSchmeissereiController.m */,
+				853BC6FE1472B6F2008B7C6B /* AddSchmeissereiController.xib */,
+				853BC6FF1472B6F2008B7C6B /* RemoteControl.h */,
+				853BC7001472B6F2008B7C6B /* RemoteControl.m */,
+				853BC7011472B6F2008B7C6B /* RemoteControl.xib */,
+			);
+			name = RemoteControl;
+			sourceTree = "<group>";
+		};
 		857F06E1146C497200368D8C = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +284,7 @@
 		D1F4EFB714701CAF006AA425 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				853BC6FA1472B6A3008B7C6B /* Games */,
 				D1AA37E61472AE13001FE9A5 /* Places */,
 				D1DB812C1471B97B00F68BE8 /* Drinks */,
 				D1F4EFB814701CDB006AA425 /* Players */,
@@ -365,6 +397,8 @@
 				D1DB8137147249D600F68BE8 /* DrinkInfoViewController.xib in Resources */,
 				D1DB813914724A7E00F68BE8 /* beer_default.png in Resources */,
 				D1AA37EC1472AE47001FE9A5 /* PlaceViewController.xib in Resources */,
+				853BC7031472B6F2008B7C6B /* AddSchmeissereiController.xib in Resources */,
+				853BC7051472B6F2008B7C6B /* RemoteControl.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +428,8 @@
 				D1DB81311471B9B400F68BE8 /* DrinkViewController.m in Sources */,
 				D1DB8136147249D600F68BE8 /* DrinkInfoViewController.m in Sources */,
 				D1AA37EB1472AE47001FE9A5 /* PlaceViewController.m in Sources */,
+				853BC7021472B6F2008B7C6B /* AddSchmeissereiController.m in Sources */,
+				853BC7041472B6F2008B7C6B /* RemoteControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

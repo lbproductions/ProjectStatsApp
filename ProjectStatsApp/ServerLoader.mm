@@ -62,6 +62,8 @@
 
 - (void) repopulateLibrary
 {
+    const char* host = [[self.server valueForKey:@"host"] UTF8String];
+    NSLog(@"Repopulating from server: %s", host);
     [self repopulateDrinkList];
     [self repopulatePlayerList];
     [self repopulatePlaceList];
@@ -82,7 +84,9 @@
     projectstatsProxy proxy;
     PlayerList playerList;
     const char* host = [[self.server valueForKey:@"host"] UTF8String];
-    proxy.playerList(host,"urn:projectstats:playerList",playerList);
+    if(proxy.playerList(host,"urn:projectstats:playerList",playerList) != SOAP_OK) {
+        proxy.soap_print_fault(stderr);
+    }
     
     
     for(std::vector<PlayerInformation>::const_iterator it = playerList.playerList.begin(); it != playerList.playerList.end(); it++) {

@@ -1,24 +1,22 @@
 //
-//  PlaceViewController.m
+//  AddSchmeissereiController.m
 //  ProjectStatsApp
 //
-//  Created by Niclas Raabe on 15.11.11.
+//  Created by Niklas Wulf on 15.11.11.
 //  Copyright (c) 2011 Technische Universität Dortmund. All rights reserved.
 //
 
-#import "PlaceViewController.h"
+#import "AddSchmeissereiController.h"
 
-@implementation PlaceViewController
+@implementation AddSchmeissereiController
 
-@synthesize fetchedResultsController = __fetchedResultsController;
-@synthesize managedObjectContext = __managedObjectContext;
+@synthesize saveCell = _saveCell;
 
-- (id)init:(NSManagedObjectContext*)context
+- (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithNibName:@"PlaceViewController" bundle:nil];
+    self = [super initWithStyle:style];
     if (self) {
-        self.managedObjectContext = context;
-        self.title = @"Places";
+        // Custom initialization
     }
     return self;
 }
@@ -36,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSBundle mainBundle] loadNibNamed:@"AddSchmeissereiController" owner:self options:nil];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -81,14 +80,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+    if(section == 0) return 4;
+    if(section == 1) return 3;
+    if(section == 2) return 1;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -96,10 +96,59 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if(cell == nil) {
+    if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    [self configureCell:cell atIndexPath:indexPath];
+    
+    switch (indexPath.section) {
+        case 0:
+            switch (indexPath.row) {
+                case 0:
+                    cell.textLabel.text = @"Spieler 1";
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                    break;
+                case 1:
+                    
+                    cell.textLabel.text = @"Spieler 2";
+                    break;
+                case 2:
+                    
+                    cell.textLabel.text = @"Spieler 3";
+                    break;
+                case 3:
+                    
+                    cell.textLabel.text = @"Spieler 4";
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
+            
+        case 1:
+            switch (indexPath.row) {
+                case 0:
+                    cell.textLabel.text = @"5 Könige";
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                    break;
+                    
+                case 1:
+                    cell.textLabel.text = @"> 90 Punkte";
+                    break;
+                case 2:
+                    cell.textLabel.text = @"< 3 Trumpf";
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 2:
+            cell = self.saveCell;
+            _saveCell = nil;
+        default:
+            break;
+    }
+    
     return cell;
 }
 
@@ -145,62 +194,11 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{   
-    //DrinkInfoViewController* drinkController = [[DrinkInfoViewController alloc] init:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
-    //[self.navigationController pushViewController:drinkController animated:YES];
-}
-
-- (NSFetchedResultsController *)fetchedResultsController
 {
-    if (__fetchedResultsController != nil) {
-        return __fetchedResultsController;
+    if(indexPath.section == 0) {
+        for (int i = 0; i < [self tableView:self.tableView numberOfRowsInSection:0]; ++i) {
+        }
     }
-    
-    // Set up the fetched results controller.
-    // Create the fetch request for the entity.
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Place" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:20];
-    
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
-    
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Places"];
-    aFetchedResultsController.delegate = self;
-    self.fetchedResultsController = aFetchedResultsController;
-    
-	NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error]) {
-	    /*
-	     Replace this implementation with code to handle the error appropriately.
-         
-	     abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-	     */
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
-    
-    return __fetchedResultsController;
-}   
-
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[managedObject valueForKey:@"name"] description];
-
-    //cell.editingAccessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    //[cell.imageView setImage:[UIImage imageNamed:@"beer_default.png"]];
 }
-
 
 @end

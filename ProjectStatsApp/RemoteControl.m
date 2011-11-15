@@ -1,24 +1,22 @@
 //
-//  PlaceViewController.m
+//  RemoteControl.m
 //  ProjectStatsApp
 //
-//  Created by Niclas Raabe on 15.11.11.
+//  Created by Niklas Wulf on 15.11.11.
 //  Copyright (c) 2011 Technische Universität Dortmund. All rights reserved.
 //
 
-#import "PlaceViewController.h"
+#import "RemoteControl.h"
+#import "AddSchmeissereiController.h"
 
-@implementation PlaceViewController
+@implementation RemoteControl
 
-@synthesize fetchedResultsController = __fetchedResultsController;
-@synthesize managedObjectContext = __managedObjectContext;
 
-- (id)init:(NSManagedObjectContext*)context
+- (id)init
 {
-    self = [super initWithNibName:@"PlaceViewController" bundle:nil];
+    self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        self.managedObjectContext = context;
-        self.title = @"Places";
+        // Custom initialization
     }
     return self;
 }
@@ -81,14 +79,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[self.fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects];
+    if(section == 0) return 1;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -96,10 +93,25 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if(cell == nil) {
+    if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }          
+    switch (indexPath.section) {
+        case 0:
+            switch (indexPath.row) {
+                case 0:
+                    cell.textLabel.text = @"Add Schmeisserei";
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;
+            
+        default:
+            break;
     }
-    [self configureCell:cell atIndexPath:indexPath];
+        
     return cell;
 }
 
@@ -145,62 +157,10 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{   
-    //DrinkInfoViewController* drinkController = [[DrinkInfoViewController alloc] init:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
-    //[self.navigationController pushViewController:drinkController animated:YES];
-}
-
-- (NSFetchedResultsController *)fetchedResultsController
 {
-    if (__fetchedResultsController != nil) {
-        return __fetchedResultsController;
-    }
+     AddSchmeissereiController *addSchmeissereiController = [[AddSchmeissereiController alloc] initWithNibName:@"AddSchmeissereiController" bundle:nil];
     
-    // Set up the fetched results controller.
-    // Create the fetch request for the entity.
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Place" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
-    // Set the batch size to a suitable number.
-    [fetchRequest setFetchBatchSize:20];
-    
-    // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
-    
-    [fetchRequest setSortDescriptors:sortDescriptors];
-    
-    // Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Places"];
-    aFetchedResultsController.delegate = self;
-    self.fetchedResultsController = aFetchedResultsController;
-    
-	NSError *error = nil;
-	if (![self.fetchedResultsController performFetch:&error]) {
-	    /*
-	     Replace this implementation with code to handle the error appropriately.
-         
-	     abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-	     */
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-	    abort();
-	}
-    
-    return __fetchedResultsController;
-}   
-
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-{
-    NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[managedObject valueForKey:@"name"] description];
-
-    //cell.editingAccessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    //[cell.imageView setImage:[UIImage imageNamed:@"beer_default.png"]];
+     [self.navigationController pushViewController:addSchmeissereiController animated:YES];
 }
-
 
 @end

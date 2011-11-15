@@ -11,6 +11,7 @@
 #import "PlayersViewController.h"
 #import "DrinkViewController.h"
 #import "PlaceViewController.h"
+#import "RemoteControl.h"
 
 @implementation LibraryViewController
 
@@ -191,10 +192,16 @@ NSMutableArray *listOfItems;
         PlayersViewController* playerController = [[PlayersViewController alloc] init:self.managedObjectContext];
         [self.navigationController pushViewController:playerController animated:YES];
     }
+    
+    if(indexPath.row == 1) {
+        RemoteControl* remoteControl = [[RemoteControl alloc] init];
+        [self.navigationController pushViewController:remoteControl animated:YES];
+    }
     if(indexPath.row == 2){
         PlaceViewController* placeController = [[PlaceViewController alloc] init:self.managedObjectContext];
         [self.navigationController pushViewController:placeController animated:YES];
     }
+    
     if(indexPath.row == 3){
         DrinkViewController* drinkController = [[DrinkViewController alloc] init:self.managedObjectContext];
         [self.navigationController pushViewController:drinkController animated:YES];
