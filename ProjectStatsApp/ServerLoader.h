@@ -14,5 +14,6 @@
 
 - (id)init;
 - (void)repopulatePlayerList;
+- (void)repopulateDrinkList;
 
 @end

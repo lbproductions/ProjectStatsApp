@@ -111,4 +111,49 @@
     [context save:&error];
 }  
 
+- (void)repopulateDrinkList
+{
+    //clear all drinks:
+    NSManagedObjectContext * context = [self managedObjectContext];
+    NSFetchRequest * fetch = [[NSFetchRequest alloc] init];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Drink" inManagedObjectContext:context];
+    [fetch setEntity:entity];
+    NSArray * result = [context executeFetchRequest:fetch error:nil];
+    for (id drink in result) {
+        [context deleteObject:drink];
+    }
+    
+    projectstatsProxy proxy;
+    DrinkList drinkList;
+    proxy.drinkList("127.0.0.1:1332","urn:projectstats:drinkList",drinkList);
+    
+    
+    
+    for(std::vector<DrinkInformation>::const_iterator it = drinkList.drinkList.begin(); it != drinkList.drinkList.end(); it++) {
+        NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+        NSString* name = [NSString stringWithUTF8String:it->name];
+        NSNumber* identifier = [NSNumber numberWithInt:it->id];
+        std::vector<StringIntPair> drinksPerPlayer = it->drinksPerPlayer;
+        NSMutableDictionary* drinksPerPlayerDict = [NSMutableDictionary dictionary];
+        for(std::vector<StringIntPair>::const_iterator ite = drinksPerPlayer.begin(); ite != drinksPerPlayer.end(); ite++) {
+            [drinksPerPlayerDict setObject:[NSNumber numberWithInt:ite->value] forKey:[NSString stringWithUTF8String:ite->key]];
+        }
+        NSNumber* size = [NSNumber numberWithDouble:it->size];
+        NSNumber* alc = [NSNumber numberWithDouble:it->alc];
+        NSNumber* drinkCount = [NSNumber numberWithInt:it->drinkCount];
+        NSString* type = [NSString stringWithUTF8String:it->type];
+        [newManagedObject setValue:name forKey:@"name"];
+        [newManagedObject setValue:identifier forKey:@"id"];
+        [newManagedObject setValue:drinksPerPlayerDict forKey:@"drinksPerPlayer"];
+        [newManagedObject setValue:size forKey:@"size"];
+        [newManagedObject setValue:alc forKey:@"alc"];
+        [newManagedObject setValue:type forKey:@"type"];
+        [newManagedObject setValue:drinkCount forKey:@"drinkCount"];
+        
+    }
+    
+    NSError* error = nil;
+    [context save:&error];
+} 
+
 @end
