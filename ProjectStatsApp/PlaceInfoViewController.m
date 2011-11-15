@@ -66,11 +66,14 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 6;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if(section == 0){
+        return 4;
+    }
     /*
     if(section == 4){
         return self.m_keys.count; 
@@ -115,35 +118,16 @@
                 case 0:
                     cell.textLabel.text = @"Straße";
                     cell.detailTextLabel.text = [[managedObject valueForKey:@"strasse"] description];
-                    break;                    
-                default:
-                    break;
-            }
-            break;
-            
-        case 1:
-            switch (indexPath.row) {
-                case 0:
+                    break;  
+                case 1:
                     cell.textLabel.text = @"Number";
                     cell.detailTextLabel.text = [[managedObject valueForKey:@"number"] description];
-                    break; 
-                default:
                     break;
-            }
-            break;
-        case 2:
-            switch (indexPath.row) {
-                case 0:
+                case 2:
                     cell.textLabel.text = @"PLZ";
                     cell.detailTextLabel.text = [[managedObject valueForKey:@"plz"] description];
-                    break; 
-                default:
                     break;
-            }
-            break;
-        case 3:
-            switch (indexPath.row) {
-                case 0:
+                case 3:
                     cell.textLabel.text = @"Town";
                     cell.detailTextLabel.text = [[managedObject valueForKey:@"ort"] description];
                     break; 
@@ -151,7 +135,7 @@
                     break;
             }
             break;
-        case 4:
+        case 1:
             switch (indexPath.row) {
                 case 0:
                     cell.textLabel.text = @"Comment";
@@ -161,7 +145,7 @@
                     break;
             }
             break; 
-        case 5:
+        case 2:
             switch (indexPath.row) {
                 case 0:
                     cell.textLabel.text = @"Games";
