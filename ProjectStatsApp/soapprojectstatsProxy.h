@@ -68,5 +68,9 @@ class SOAP_CMAC projectstatsProxy : public soap
 	/// Web service operation 'drinkList' (returns error code or SOAP_OK)
 	virtual	int drinkList(DrinkList &result) { return drinkList(NULL, NULL, result); }
 	virtual	int drinkList(const char *endpoint, const char *soap_action, DrinkList &result);
+
+	/// Web service operation 'placeList' (returns error code or SOAP_OK)
+	virtual	int placeList(PlaceList &result) { return placeList(NULL, NULL, result); }
+	virtual	int placeList(const char *endpoint, const char *soap_action, PlaceList &result);
 };
 #endif

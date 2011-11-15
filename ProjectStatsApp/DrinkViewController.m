@@ -12,7 +12,6 @@
 
 @implementation DrinkViewController
 
-@synthesize drinks;
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
 

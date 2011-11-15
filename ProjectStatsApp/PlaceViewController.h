@@ -1,8 +1,8 @@
 //
-//  DrinkViewController.h
+//  PlaceViewController.h
 //  ProjectStatsApp
 //
-//  Created by Niclas Raabe on 14.11.11.
+//  Created by Niclas Raabe on 15.11.11.
 //  Copyright (c) 2011 Technische Universität Dortmund. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 #import <CoreData/CoreData.h>
 
-@interface DrinkViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface PlaceViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 - (id)init:(NSManagedObjectContext*)context;
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;

@@ -64,6 +64,7 @@
 {
     [self repopulateDrinkList];
     [self repopulatePlayerList];
+    [self repopulatePlaceList];
 }
 
 - (void)repopulatePlayerList
@@ -166,6 +167,58 @@
         [newManagedObject setValue:alc forKey:@"alc"];
         [newManagedObject setValue:type forKey:@"type"];
         [newManagedObject setValue:drinkCount forKey:@"drinkCount"];
+        
+    }
+    
+    NSError* error = nil;
+    [context save:&error];
+} 
+
+- (void)repopulatePlaceList
+{
+    //clear all drinks:
+    NSManagedObjectContext * context = [self managedObjectContext];
+    NSFetchRequest * fetch = [[NSFetchRequest alloc] init];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Place" inManagedObjectContext:context];
+    [fetch setEntity:entity];
+    NSArray * result = [context executeFetchRequest:fetch error:nil];
+    for (id place in result) {
+        [context deleteObject:place];
+    }
+    
+    projectstatsProxy proxy;
+    PlaceList placeList;
+    const char* host = [[self.server valueForKey:@"host"] UTF8String];
+    proxy.placeList(host ,"urn:projectstats:placeList",placeList);
+    
+    
+    
+    for(std::vector<PlaceInformation>::const_iterator it = placeList.placeList.begin(); it != placeList.placeList.end(); it++) {
+        NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+        NSString* name = [NSString stringWithUTF8String:it->name];
+        NSNumber* identifier = [NSNumber numberWithInt:it->id];
+        /*
+        std::vector<char*> players = it->players;
+        NSMutableArray* playersList = [[NSMutableArray alloc] init];
+        for(std::vector<char*>::const_iterator ite = players.begin(); ite != players.end(); ite++) {
+            //[playersList addObject:[NSString stringWithUTF8String:ite]];
+        }
+         */
+        NSNumber* number = [NSNumber numberWithInt:it->number];
+        NSNumber* plz = [NSNumber numberWithInt:it->plz];
+        NSNumber* gameCount = [NSNumber numberWithInt:it->gameCount];
+        NSString* strasse = [NSString stringWithUTF8String:it->strasse];
+        NSString* comment = [NSString stringWithUTF8String:it->comment];
+        NSString* ort = [NSString stringWithUTF8String:it->ort];
+        [newManagedObject setValue:name forKey:@"name"];
+        [newManagedObject setValue:identifier forKey:@"id"];
+        //[newManagedObject setValue:playersList forKey:@"players"];
+        [newManagedObject setValue:plz forKey:@"plz"];
+        [newManagedObject setValue:number forKey:@"number"];
+        [newManagedObject setValue:gameCount forKey:@"gameCount"];
+        [newManagedObject setValue:comment forKey:@"comment"];
+        [newManagedObject setValue:strasse forKey:@"strasse"];
+        [newManagedObject setValue:ort forKey:@"ort"];
         
     }
     

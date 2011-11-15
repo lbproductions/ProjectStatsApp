@@ -175,8 +175,56 @@ public:
 };
 #endif
 
+#ifndef SOAP_TYPE_PlaceInformation
+#define SOAP_TYPE_PlaceInformation (20)
+/* PlaceInformation */
+class SOAP_CMAC PlaceInformation
+{
+public:
+	int id;	/* required element of type xsd:int */
+	char *name;	/* optional element of type xsd:string */
+	int plz;	/* required element of type xsd:int */
+	char *ort;	/* optional element of type xsd:string */
+	char *strasse;	/* optional element of type xsd:string */
+	int number;	/* required element of type xsd:int */
+	char *comment;	/* optional element of type xsd:string */
+	int gameCount;	/* required element of type xsd:int */
+	std::vector<char * >players;	/* optional element of type xsd:string */
+public:
+	virtual int soap_type() const { return 20; } /* = unique id SOAP_TYPE_PlaceInformation */
+	virtual void soap_default(struct soap*);
+	virtual void soap_serialize(struct soap*) const;
+	virtual int soap_put(struct soap*, const char*, const char*) const;
+	virtual int soap_out(struct soap*, const char*, int, const char*) const;
+	virtual void *soap_get(struct soap*, const char*, const char*);
+	virtual void *soap_in(struct soap*, const char*, const char*);
+	         PlaceInformation() { PlaceInformation::soap_default(NULL); }
+	virtual ~PlaceInformation() { }
+};
+#endif
+
+#ifndef SOAP_TYPE_PlaceList
+#define SOAP_TYPE_PlaceList (22)
+/* PlaceList */
+class SOAP_CMAC PlaceList
+{
+public:
+	std::vector<PlaceInformation >placeList;	/* optional element of type PlaceInformation */
+public:
+	virtual int soap_type() const { return 22; } /* = unique id SOAP_TYPE_PlaceList */
+	virtual void soap_default(struct soap*);
+	virtual void soap_serialize(struct soap*) const;
+	virtual int soap_put(struct soap*, const char*, const char*) const;
+	virtual int soap_out(struct soap*, const char*, int, const char*) const;
+	virtual void *soap_get(struct soap*, const char*, const char*);
+	virtual void *soap_in(struct soap*, const char*, const char*);
+	         PlaceList() { PlaceList::soap_default(NULL); }
+	virtual ~PlaceList() { }
+};
+#endif
+
 #ifndef SOAP_TYPE_ps__playerByIdResponse
-#define SOAP_TYPE_ps__playerByIdResponse (22)
+#define SOAP_TYPE_ps__playerByIdResponse (26)
 /* ps:playerByIdResponse */
 struct ps__playerByIdResponse
 {
@@ -186,7 +234,7 @@ public:
 #endif
 
 #ifndef SOAP_TYPE_ps__playerById
-#define SOAP_TYPE_ps__playerById (23)
+#define SOAP_TYPE_ps__playerById (27)
 /* ps:playerById */
 struct ps__playerById
 {
@@ -196,7 +244,7 @@ public:
 #endif
 
 #ifndef SOAP_TYPE_ps__playerListResponse
-#define SOAP_TYPE_ps__playerListResponse (26)
+#define SOAP_TYPE_ps__playerListResponse (30)
 /* ps:playerListResponse */
 struct ps__playerListResponse
 {
@@ -206,7 +254,7 @@ public:
 #endif
 
 #ifndef SOAP_TYPE_ps__playerList
-#define SOAP_TYPE_ps__playerList (27)
+#define SOAP_TYPE_ps__playerList (31)
 /* ps:playerList */
 struct ps__playerList
 {
@@ -218,7 +266,7 @@ private:
 #endif
 
 #ifndef SOAP_TYPE_ps__drinkListResponse
-#define SOAP_TYPE_ps__drinkListResponse (30)
+#define SOAP_TYPE_ps__drinkListResponse (34)
 /* ps:drinkListResponse */
 struct ps__drinkListResponse
 {
@@ -228,9 +276,31 @@ public:
 #endif
 
 #ifndef SOAP_TYPE_ps__drinkList
-#define SOAP_TYPE_ps__drinkList (31)
+#define SOAP_TYPE_ps__drinkList (35)
 /* ps:drinkList */
 struct ps__drinkList
+{
+#ifdef WITH_NOEMPTYSTRUCT
+private:
+	char dummy;	/* dummy member to enable compilation */
+#endif
+};
+#endif
+
+#ifndef SOAP_TYPE_ps__placeListResponse
+#define SOAP_TYPE_ps__placeListResponse (38)
+/* ps:placeListResponse */
+struct ps__placeListResponse
+{
+public:
+	PlaceList result;	/* SOAP 1.2 RPC return element (when namespace qualified) */	/* required element of type PlaceList */
+};
+#endif
+
+#ifndef SOAP_TYPE_ps__placeList
+#define SOAP_TYPE_ps__placeList (39)
+/* ps:placeList */
+struct ps__placeList
 {
 #ifdef WITH_NOEMPTYSTRUCT
 private:
@@ -242,7 +312,7 @@ private:
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Header
-#define SOAP_TYPE_SOAP_ENV__Header (32)
+#define SOAP_TYPE_SOAP_ENV__Header (40)
 /* SOAP Header: */
 struct SOAP_ENV__Header
 {
@@ -258,7 +328,7 @@ private:
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Code
-#define SOAP_TYPE_SOAP_ENV__Code (33)
+#define SOAP_TYPE_SOAP_ENV__Code (41)
 /* SOAP Fault Code: */
 struct SOAP_ENV__Code
 {
@@ -273,7 +343,7 @@ public:
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Detail
-#define SOAP_TYPE_SOAP_ENV__Detail (35)
+#define SOAP_TYPE_SOAP_ENV__Detail (43)
 /* SOAP-ENV:Detail */
 struct SOAP_ENV__Detail
 {
@@ -289,7 +359,7 @@ public:
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Reason
-#define SOAP_TYPE_SOAP_ENV__Reason (38)
+#define SOAP_TYPE_SOAP_ENV__Reason (46)
 /* SOAP-ENV:Reason */
 struct SOAP_ENV__Reason
 {
@@ -303,7 +373,7 @@ public:
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Fault
-#define SOAP_TYPE_SOAP_ENV__Fault (39)
+#define SOAP_TYPE_SOAP_ENV__Fault (47)
 /* SOAP Fault: */
 struct SOAP_ENV__Fault
 {

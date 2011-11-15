@@ -12,6 +12,17 @@
     <entity name="Game" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
+    <entity name="Place" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gameCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="ort" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="players" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="plz" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="strasse" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Player" syncable="YES">
         <attribute name="average" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="games" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -28,9 +39,10 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Drink" positionX="160" positionY="192" width="128" height="150"/>
         <element name="Game" positionX="54" positionY="189" width="128" height="60"/>
         <element name="Player" positionX="160" positionY="192" width="128" height="165"/>
         <element name="Server" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="Drink" positionX="160" positionY="192" width="128" height="150"/>
+        <element name="Place" positionX="160" positionY="192" width="128" height="180"/>
     </elements>
 </model>
