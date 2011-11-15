@@ -168,7 +168,7 @@
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
     NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -204,7 +204,7 @@
     //Optionally for time zone converstions
     [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
     
-    NSString *stringFromDate = [formatter stringFromDate:[NSDate date]];
+    NSString *stringFromDate = [formatter stringFromDate:[managedObject valueForKey:@"date"]];
     cell.detailTextLabel.text = stringFromDate;
     
     //cell.editingAccessoryType = UITableViewCellAccessoryDetailDisclosureButton;

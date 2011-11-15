@@ -257,6 +257,12 @@
         
         [newManagedObject setValue:name forKey:@"name"];
         [newManagedObject setValue:identifier forKey:@"id"];
+        NSDateFormatter *df = [[NSDateFormatter alloc] init];
+        
+        [df setDateFormat:@"dd.MM.yyyy"];
+        NSDate *myDate = [df dateFromString: [NSString stringWithUTF8String:it->date]];
+        
+        [newManagedObject setValue:myDate forKey:@"date"];
     }
     
     NSError* error = nil;
