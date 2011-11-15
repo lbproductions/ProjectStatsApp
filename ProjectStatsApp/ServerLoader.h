@@ -18,5 +18,6 @@
 - (void)repopulatePlayerList;
 - (void)repopulateDrinkList;
 - (void)repopulatePlaceList;
+- (void)repopulateGameList;
 
 @end

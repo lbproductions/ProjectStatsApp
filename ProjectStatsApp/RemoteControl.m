@@ -11,12 +11,13 @@
 
 @implementation RemoteControl
 
+@synthesize game;
 
-- (id)init
+- (id)initWithGame:(NSManagedObject*)somegame
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        // Custom initialization
+        self.game = somegame;
     }
     return self;
 }
@@ -160,6 +161,7 @@
 {
      AddSchmeissereiController *addSchmeissereiController = [[AddSchmeissereiController alloc] initWithNibName:@"AddSchmeissereiController" bundle:nil];
     
+    addSchmeissereiController.game = self.game;
      [self.navigationController pushViewController:addSchmeissereiController animated:YES];
 }
 

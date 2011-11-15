@@ -11,6 +11,8 @@
 		853BC7031472B6F2008B7C6B /* AddSchmeissereiController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 853BC6FE1472B6F2008B7C6B /* AddSchmeissereiController.xib */; };
 		853BC7041472B6F2008B7C6B /* RemoteControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 853BC7001472B6F2008B7C6B /* RemoteControl.m */; };
 		853BC7051472B6F2008B7C6B /* RemoteControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 853BC7011472B6F2008B7C6B /* RemoteControl.xib */; };
+		855E23B21472C80500220B22 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 855E23B01472C80400220B22 /* GameViewController.m */; };
+		855E23B31472C80500220B22 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 855E23B11472C80400220B22 /* GameViewController.xib */; };
 		857F06F1146C497300368D8C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F06F0146C497300368D8C /* UIKit.framework */; };
 		857F06F3146C497300368D8C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F06F2146C497300368D8C /* Foundation.framework */; };
 		857F06F5146C497300368D8C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857F06F4146C497300368D8C /* CoreGraphics.framework */; };
@@ -61,6 +63,9 @@
 		853BC6FF1472B6F2008B7C6B /* RemoteControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoteControl.h; sourceTree = "<group>"; };
 		853BC7001472B6F2008B7C6B /* RemoteControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoteControl.m; sourceTree = "<group>"; };
 		853BC7011472B6F2008B7C6B /* RemoteControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RemoteControl.xib; sourceTree = "<group>"; };
+		855E23AF1472C80400220B22 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		855E23B01472C80400220B22 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		855E23B11472C80400220B22 /* GameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
 		857F06EC146C497300368D8C /* ProjectStatsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectStatsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		857F06F0146C497300368D8C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		857F06F2146C497300368D8C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -145,6 +150,9 @@
 			isa = PBXGroup;
 			children = (
 				853BC6FB1472B6AB008B7C6B /* RemoteControl */,
+				855E23AF1472C80400220B22 /* GameViewController.h */,
+				855E23B01472C80400220B22 /* GameViewController.m */,
+				855E23B11472C80400220B22 /* GameViewController.xib */,
 			);
 			name = Games;
 			sourceTree = "<group>";
@@ -399,6 +407,7 @@
 				D1AA37EC1472AE47001FE9A5 /* PlaceViewController.xib in Resources */,
 				853BC7031472B6F2008B7C6B /* AddSchmeissereiController.xib in Resources */,
 				853BC7051472B6F2008B7C6B /* RemoteControl.xib in Resources */,
+				855E23B31472C80500220B22 /* GameViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +439,7 @@
 				D1AA37EB1472AE47001FE9A5 /* PlaceViewController.m in Sources */,
 				853BC7021472B6F2008B7C6B /* AddSchmeissereiController.m in Sources */,
 				853BC7041472B6F2008B7C6B /* RemoteControl.m in Sources */,
+				855E23B21472C80500220B22 /* GameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,13 +465,52 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		853BC7081472BB3F008B7C6B /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = developer;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-DWITH_NONAMESPACES",
+					"$(OTHER_CFLAGS)",
+				);
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Ad Hoc";
+		};
+		853BC7091472BB3F008B7C6B /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ProjectStatsApp/ProjectStatsApp-Prefix.pch";
+				INFOPLIST_FILE = "ProjectStatsApp/ProjectStatsApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = "Ad Hoc";
+		};
 		857F0707146C497400368D8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = developer;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -470,12 +519,14 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "$(OTHER_CFLAGS)";
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -487,15 +538,17 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = developer;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -538,6 +591,7 @@
 			buildConfigurations = (
 				857F0707146C497400368D8C /* Debug */,
 				857F0708146C497400368D8C /* Release */,
+				853BC7081472BB3F008B7C6B /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -547,6 +601,7 @@
 			buildConfigurations = (
 				857F070A146C497400368D8C /* Debug */,
 				857F070B146C497400368D8C /* Release */,
+				853BC7091472BB3F008B7C6B /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

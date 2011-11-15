@@ -11,6 +11,7 @@
 @implementation AddSchmeissereiController
 
 @synthesize saveCell = _saveCell;
+@synthesize game;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

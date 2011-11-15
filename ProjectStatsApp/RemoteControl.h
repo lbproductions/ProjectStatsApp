@@ -10,4 +10,8 @@
 
 @interface RemoteControl : UITableViewController
 
+@property (strong, nonatomic) NSManagedObject* game;
+
+- (id)initWithGame:(NSManagedObject*)somegame;
+
 @end

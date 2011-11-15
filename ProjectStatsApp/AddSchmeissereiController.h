@@ -13,5 +13,6 @@
 }
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *saveCell;
+@property (strong, nonatomic) NSManagedObject* game;
 
 @end

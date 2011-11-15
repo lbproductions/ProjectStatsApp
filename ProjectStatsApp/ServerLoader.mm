@@ -67,6 +67,7 @@
     [self repopulateDrinkList];
     [self repopulatePlayerList];
     [self repopulatePlaceList];
+    [self repopulateGameList];
 }
 
 - (void)repopulatePlayerList
@@ -230,4 +231,35 @@
     [context save:&error];
 } 
 
+- (void)repopulateGameList
+{
+    //clear all games:
+    NSManagedObjectContext * context = [self managedObjectContext];
+    NSFetchRequest * fetch = [[NSFetchRequest alloc] init];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Game" inManagedObjectContext:context];
+    [fetch setEntity:entity];
+    NSArray * result = [context executeFetchRequest:fetch error:nil];
+    for (id game in result) {
+        [context deleteObject:game];
+    }
+    
+    projectstatsProxy proxy;
+    GameList gameList;
+    const char* host = [[self.server valueForKey:@"host"] UTF8String];
+    proxy.gameList(host ,"urn:projectstats:gameList",gameList);
+    
+    
+    
+    for(std::vector<GameInformation>::const_iterator it = gameList.gameList.begin(); it != gameList.gameList.end(); it++) {
+        NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+        NSString* name = [NSString stringWithUTF8String:it->name];
+        NSNumber* identifier = [NSNumber numberWithInt:it->id];
+        
+        [newManagedObject setValue:name forKey:@"name"];
+        [newManagedObject setValue:identifier forKey:@"id"];
+    }
+    
+    NSError* error = nil;
+    [context save:&error];
+} 
 @end
