@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LibraryViewController.h"
 
 @interface MainMenuTabBarController : UITabBarController  <NSFetchedResultsControllerDelegate>
 
@@ -14,5 +15,6 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) LibraryViewController* libraryViewController;
 
 @end

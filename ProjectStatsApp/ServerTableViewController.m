@@ -8,6 +8,7 @@
 
 #import "ServerTableViewController.h"
 #import "MainMenuTabBarController.h"
+#import "LibraryViewController.h"
 
 @implementation ServerTableViewController
 
@@ -15,6 +16,7 @@
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize editServerViewController = __editServerViewController;
 @synthesize serverLoader = _serverLoader;
+@synthesize mainMenuTabBarController;
 
 - (id)init
 {
@@ -50,8 +52,7 @@
     [super viewDidLoad];
     self.serverLoader = [[ServerLoader alloc ] init];
     self.serverLoader.managedObjectContext = self.managedObjectContext;
-    [self.serverLoader repopulatePlayerList];
-    [self.serverLoader repopulateDrinkList];
+    self.mainMenuTabBarController = [[MainMenuTabBarController alloc] initWithNibName:@"MainMenuTabBarController" bundle:[NSBundle mainBundle] managedObjectContext:self.managedObjectContext];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -214,8 +215,9 @@
 //    }
     //TODO: connect to server
     
+    NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+    
     if(self.editing) {
-        NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         self.editServerViewController.server = selectedObject;
         
         [UIView 
@@ -228,7 +230,8 @@
          completion:NULL];
     }
     else {
-        MainMenuTabBarController* mainMenuTabBarController = [[MainMenuTabBarController alloc] initWithNibName:@"MainMenuTabBarController" bundle:[NSBundle mainBundle] managedObjectContext:self.managedObjectContext];
+        self.serverLoader.server = selectedObject;
+        mainMenuTabBarController.libraryViewController.serverLoader = self.serverLoader;
         [self.navigationController pushViewController:mainMenuTabBarController animated:YES];
     }
 }

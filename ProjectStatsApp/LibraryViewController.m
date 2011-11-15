@@ -15,6 +15,7 @@
 
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
+@synthesize serverLoader = __serverLoader;
 
 NSMutableArray *listOfItems;
 
@@ -52,12 +53,24 @@ NSMutableArray *listOfItems;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.tabBarController.title = self.title;
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)setServerLoader:(ServerLoader *)newserverLoader
+{
+    if(__serverLoader != newserverLoader) {
+        __serverLoader = nil;
+        __serverLoader = newserverLoader;
+        
+        self.tabBarController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self.serverLoader action:@selector(repopulateLibrary)];
+    }
 }
 
 - (void)viewDidUnload

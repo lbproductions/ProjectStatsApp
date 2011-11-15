@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EditServerViewController.h"
 #import "ServerLoader.h"
+#import "MainMenuTabBarController.h"
 
 @interface ServerTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
@@ -16,6 +17,7 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) EditServerViewController* editServerViewController;
 @property (strong, nonatomic) ServerLoader *serverLoader;
+@property (strong, nonatomic) MainMenuTabBarController* mainMenuTabBarController;
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 

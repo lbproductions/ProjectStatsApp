@@ -41,6 +41,7 @@
 @implementation ServerLoader
 
 @synthesize managedObjectContext = __managedObjectContext;
+@synthesize server = __server;
 
 - (id) init
 {
@@ -48,6 +49,21 @@
     {
     }
     return self;
+}
+
+- (void)setServer:(NSManagedObject *)newserver
+{
+    if(newserver != __server) {
+        __server = nil;
+        __server = newserver;
+        [self repopulateLibrary];
+    }
+}
+
+- (void) repopulateLibrary
+{
+    [self repopulateDrinkList];
+    [self repopulatePlayerList];
 }
 
 - (void)repopulatePlayerList
@@ -64,8 +80,8 @@
     
     projectstatsProxy proxy;
     PlayerList playerList;
-    proxy.playerList("127.0.0.1:1332","urn:projectstats:playerList",playerList);
-    
+    const char* host = [[self.server valueForKey:@"host"] UTF8String];
+    proxy.playerList(host,"urn:projectstats:playerList",playerList);
     
     
     for(std::vector<PlayerInformation>::const_iterator it = playerList.playerList.begin(); it != playerList.playerList.end(); it++) {
@@ -125,7 +141,8 @@
     
     projectstatsProxy proxy;
     DrinkList drinkList;
-    proxy.drinkList("127.0.0.1:1332","urn:projectstats:drinkList",drinkList);
+    const char* host = [[self.server valueForKey:@"host"] UTF8String];
+    proxy.drinkList(host ,"urn:projectstats:drinkList",drinkList);
     
     
     
