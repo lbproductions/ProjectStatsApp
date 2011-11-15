@@ -15,6 +15,7 @@
 
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
+@synthesize libraryViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil managedObjectContext:(NSManagedObjectContext*)context
 {
@@ -22,10 +23,8 @@
     if (self) {
         self.managedObjectContext = context;
         NSMutableArray *m_menu = [NSMutableArray arrayWithCapacity:2];
-        [m_menu addObject:(LibraryViewController*)[[LibraryViewController alloc] initWithStyle:UITableViewStylePlain managedObjectContext:self.managedObjectContext]];
-        ServerTableViewController *serverTableViewController = [[ServerTableViewController alloc] init];
-        serverTableViewController.managedObjectContext = self.managedObjectContext;
-        [m_menu addObject:serverTableViewController];
+        self.libraryViewController = [[LibraryViewController alloc] initWithStyle:UITableViewStylePlain managedObjectContext:self.managedObjectContext];
+        [m_menu addObject:self.libraryViewController];
         [self setViewControllers:m_menu];
         [self setSelectedViewController:[[self viewControllers] objectAtIndex:0]];
     }

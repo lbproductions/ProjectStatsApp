@@ -11,8 +11,10 @@
 @interface ServerLoader : NSObject <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSManagedObject *server;
 
 - (id)init;
+- (void)repopulateLibrary;
 - (void)repopulatePlayerList;
 - (void)repopulateDrinkList;
 
