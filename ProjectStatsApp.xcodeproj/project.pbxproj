@@ -49,6 +49,7 @@
 		D1954B761472C53600D26790 /* wappen_dortmund.png in Resources */ = {isa = PBXBuildFile; fileRef = D1954B751472C53500D26790 /* wappen_dortmund.png */; };
 		D1AA37EB1472AE47001FE9A5 /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1AA37E91472AE47001FE9A5 /* PlaceViewController.m */; };
 		D1AA37EC1472AE47001FE9A5 /* PlaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1AA37EA1472AE47001FE9A5 /* PlaceViewController.xib */; };
+		D1D69DC61472CFF800493A31 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D69DC51472CFF800493A31 /* MapKit.framework */; };
 		D1DB81311471B9B400F68BE8 /* DrinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DB812F1471B9B400F68BE8 /* DrinkViewController.m */; };
 		D1DB81321471B9B400F68BE8 /* DrinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DB81301471B9B400F68BE8 /* DrinkViewController.xib */; };
 		D1DB8136147249D600F68BE8 /* DrinkInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DB8134147249D600F68BE8 /* DrinkInfoViewController.m */; };
@@ -125,6 +126,7 @@
 		D1AA37E81472AE47001FE9A5 /* PlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
 		D1AA37E91472AE47001FE9A5 /* PlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
 		D1AA37EA1472AE47001FE9A5 /* PlaceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceViewController.xib; sourceTree = "<group>"; };
+		D1D69DC51472CFF800493A31 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D1DB812E1471B9B400F68BE8 /* DrinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkViewController.h; sourceTree = "<group>"; };
 		D1DB812F1471B9B400F68BE8 /* DrinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkViewController.m; sourceTree = "<group>"; };
 		D1DB81301471B9B400F68BE8 /* DrinkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrinkViewController.xib; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1D69DC61472CFF800493A31 /* MapKit.framework in Frameworks */,
 				857F06F1146C497300368D8C /* UIKit.framework in Frameworks */,
 				857F06F3146C497300368D8C /* Foundation.framework in Frameworks */,
 				857F06F5146C497300368D8C /* CoreGraphics.framework in Frameworks */,
@@ -180,6 +183,7 @@
 		857F06E1146C497200368D8C = {
 			isa = PBXGroup;
 			children = (
+				D1D69DC51472CFF800493A31 /* MapKit.framework */,
 				857F06F8146C497300368D8C /* ProjectStatsApp */,
 				857F06EF146C497300368D8C /* Frameworks */,
 				857F06ED146C497300368D8C /* Products */,
