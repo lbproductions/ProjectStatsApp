@@ -8,6 +8,8 @@
 
 #import "DrinkViewController.h"
 
+#import "DrinkInfoViewController.h"
+
 @implementation DrinkViewController
 
 @synthesize drinks;
@@ -146,8 +148,9 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // TO-DO
+{   
+    DrinkInfoViewController* drinkController = [[DrinkInfoViewController alloc] init:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
+    [self.navigationController pushViewController:drinkController animated:YES];
 }
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -198,7 +201,7 @@
     cell.textLabel.text = [[managedObject valueForKey:@"name"] description];
     //cell.editingAccessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    //[cell.imageView setImage:[UIImage imageNamed:@"player.png"]];
+    [cell.imageView setImage:[UIImage imageNamed:@"beer_default.png"]];
 }
 
 @end

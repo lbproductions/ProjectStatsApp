@@ -40,6 +40,9 @@
 		85EE57CC146D647D00631678 /* PlayerTabController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57C0146D647D00631678 /* PlayerTabController.xib */; };
 		D1DB81311471B9B400F68BE8 /* DrinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DB812F1471B9B400F68BE8 /* DrinkViewController.m */; };
 		D1DB81321471B9B400F68BE8 /* DrinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DB81301471B9B400F68BE8 /* DrinkViewController.xib */; };
+		D1DB8136147249D600F68BE8 /* DrinkInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DB8134147249D600F68BE8 /* DrinkInfoViewController.m */; };
+		D1DB8137147249D600F68BE8 /* DrinkInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DB8135147249D600F68BE8 /* DrinkInfoViewController.xib */; };
+		D1DB813914724A7E00F68BE8 /* beer_default.png in Resources */ = {isa = PBXBuildFile; fileRef = D1DB813814724A7E00F68BE8 /* beer_default.png */; };
 		D1F4EFAB146D9E74006AA425 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F4EFAA146D9E73006AA425 /* player.png */; };
 		D1F4EFBD14701F2C006AA425 /* PlayerGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F4EFBB14701F2C006AA425 /* PlayerGamesViewController.m */; };
 		D1F4EFBE14701F2C006AA425 /* PlayerGamesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F4EFBC14701F2C006AA425 /* PlayerGamesViewController.xib */; };
@@ -98,6 +101,10 @@
 		D1DB812E1471B9B400F68BE8 /* DrinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkViewController.h; sourceTree = "<group>"; };
 		D1DB812F1471B9B400F68BE8 /* DrinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkViewController.m; sourceTree = "<group>"; };
 		D1DB81301471B9B400F68BE8 /* DrinkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrinkViewController.xib; sourceTree = "<group>"; };
+		D1DB8133147249D600F68BE8 /* DrinkInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkInfoViewController.h; sourceTree = "<group>"; };
+		D1DB8134147249D600F68BE8 /* DrinkInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkInfoViewController.m; sourceTree = "<group>"; };
+		D1DB8135147249D600F68BE8 /* DrinkInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrinkInfoViewController.xib; sourceTree = "<group>"; };
+		D1DB813814724A7E00F68BE8 /* beer_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = beer_default.png; path = ../beer_default.png; sourceTree = "<group>"; };
 		D1F4EFAA146D9E73006AA425 /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
 		D1F4EFBA14701F2C006AA425 /* PlayerGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerGamesViewController.h; sourceTree = "<group>"; };
 		D1F4EFBB14701F2C006AA425 /* PlayerGamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerGamesViewController.m; sourceTree = "<group>"; };
@@ -152,6 +159,7 @@
 			children = (
 				D1F4EFB714701CAF006AA425 /* Library */,
 				D1F4EFAA146D9E73006AA425 /* player.png */,
+				D1DB813814724A7E00F68BE8 /* beer_default.png */,
 				85EE578E146D3B1600631678 /* ServerLoader */,
 				85EE578D146D3ADE00631678 /* ServerChooser */,
 				857F070F146C4A9400368D8C /* en.lproj */,
@@ -220,6 +228,9 @@
 				D1DB812E1471B9B400F68BE8 /* DrinkViewController.h */,
 				D1DB812F1471B9B400F68BE8 /* DrinkViewController.m */,
 				D1DB81301471B9B400F68BE8 /* DrinkViewController.xib */,
+				D1DB8133147249D600F68BE8 /* DrinkInfoViewController.h */,
+				D1DB8134147249D600F68BE8 /* DrinkInfoViewController.m */,
+				D1DB8135147249D600F68BE8 /* DrinkInfoViewController.xib */,
 			);
 			name = Drinks;
 			sourceTree = "<group>";
@@ -335,6 +346,8 @@
 				D1F4EFAB146D9E74006AA425 /* player.png in Resources */,
 				D1F4EFBE14701F2C006AA425 /* PlayerGamesViewController.xib in Resources */,
 				D1DB81321471B9B400F68BE8 /* DrinkViewController.xib in Resources */,
+				D1DB8137147249D600F68BE8 /* DrinkInfoViewController.xib in Resources */,
+				D1DB813914724A7E00F68BE8 /* beer_default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +375,7 @@
 				85EE57CB146D647D00631678 /* PlayerTabController.m in Sources */,
 				D1F4EFBD14701F2C006AA425 /* PlayerGamesViewController.m in Sources */,
 				D1DB81311471B9B400F68BE8 /* DrinkViewController.m in Sources */,
+				D1DB8136147249D600F68BE8 /* DrinkInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
