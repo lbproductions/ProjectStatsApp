@@ -96,8 +96,32 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_put_double(struct soap*, const double *, const ch
 
 SOAP_FMAC3 double * SOAP_FMAC4 soap_get_double(struct soap*, double *, const char*, const char*);
 
+#ifndef SOAP_TYPE_bool
+#define SOAP_TYPE_bool (25)
+#endif
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_bool(struct soap*, bool *);
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_bool(struct soap*, const char*, int, const bool *, const char*);
+
+SOAP_FMAC3S const char* SOAP_FMAC4S soap_bool2s(struct soap*, bool);
+SOAP_FMAC3 bool * SOAP_FMAC4 soap_in_bool(struct soap*, const char*, bool *, const char*);
+
+SOAP_FMAC3S int SOAP_FMAC4S soap_s2bool(struct soap*, const char*, bool *);
+
+#ifndef soap_write_bool
+#define soap_write_bool(soap, data) ( soap_begin_send(soap) || soap_put_bool(soap, data, "boolean", NULL) || soap_end_send(soap) )
+#endif
+
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_bool(struct soap*, const bool *, const char*, const char*);
+
+#ifndef soap_read_bool
+#define soap_read_bool(soap, data) ( soap_begin_recv(soap) || !soap_get_bool(soap, data, NULL, NULL) || soap_end_recv(soap) )
+#endif
+
+SOAP_FMAC3 bool * SOAP_FMAC4 soap_get_bool(struct soap*, bool *, const char*, const char*);
+
 #ifndef SOAP_TYPE_std__string
-#define SOAP_TYPE_std__string (50)
+#define SOAP_TYPE_std__string (58)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_std__string(struct soap*, std::string *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_std__string(struct soap*, const std::string *);
@@ -125,8 +149,34 @@ SOAP_FMAC3 std::string * SOAP_FMAC4 soap_get_std__string(struct soap*, std::stri
 SOAP_FMAC1 std::string * SOAP_FMAC2 soap_instantiate_std__string(struct soap*, int, const char*, const char*, size_t*);
 SOAP_FMAC3 void SOAP_FMAC4 soap_copy_std__string(struct soap*, int, int, void*, size_t, const void*, size_t);
 
+#ifndef SOAP_TYPE_LiveGameList
+#define SOAP_TYPE_LiveGameList (29)
+#endif
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_LiveGameList(struct soap*, const char*, int, const LiveGameList *, const char*);
+SOAP_FMAC3 LiveGameList * SOAP_FMAC4 soap_in_LiveGameList(struct soap*, const char*, LiveGameList *, const char*);
+
+#ifndef soap_write_LiveGameList
+#define soap_write_LiveGameList(soap, data) ( soap_begin_send(soap) || ((data)->soap_serialize(soap), 0) || (data)->soap_put(soap, "LiveGameList", NULL) || soap_end_send(soap) )
+#endif
+
+
+#ifndef soap_read_LiveGameList
+#define soap_read_LiveGameList(soap, data) ( soap_begin_recv(soap) || !soap_get_LiveGameList(soap, data, NULL, NULL) || soap_end_recv(soap) )
+#endif
+
+SOAP_FMAC3 LiveGameList * SOAP_FMAC4 soap_get_LiveGameList(struct soap*, LiveGameList *, const char*, const char*);
+
+#define soap_new_LiveGameList(soap, n) soap_instantiate_LiveGameList(soap, n, NULL, NULL, NULL)
+
+
+#define soap_delete_LiveGameList(soap, p) soap_delete(soap, p)
+
+SOAP_FMAC1 LiveGameList * SOAP_FMAC2 soap_instantiate_LiveGameList(struct soap*, int, const char*, const char*, size_t*);
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_LiveGameList(struct soap*, int, int, void*, size_t, const void*, size_t);
+
 #ifndef SOAP_TYPE_GameList
-#define SOAP_TYPE_GameList (25)
+#define SOAP_TYPE_GameList (27)
 #endif
 
 SOAP_FMAC3 int SOAP_FMAC4 soap_out_GameList(struct soap*, const char*, int, const GameList *, const char*);
@@ -150,6 +200,32 @@ SOAP_FMAC3 GameList * SOAP_FMAC4 soap_get_GameList(struct soap*, GameList *, con
 
 SOAP_FMAC1 GameList * SOAP_FMAC2 soap_instantiate_GameList(struct soap*, int, const char*, const char*, size_t*);
 SOAP_FMAC3 void SOAP_FMAC4 soap_copy_GameList(struct soap*, int, int, void*, size_t, const void*, size_t);
+
+#ifndef SOAP_TYPE_LiveGameInformation
+#define SOAP_TYPE_LiveGameInformation (26)
+#endif
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_LiveGameInformation(struct soap*, const char*, int, const LiveGameInformation *, const char*);
+SOAP_FMAC3 LiveGameInformation * SOAP_FMAC4 soap_in_LiveGameInformation(struct soap*, const char*, LiveGameInformation *, const char*);
+
+#ifndef soap_write_LiveGameInformation
+#define soap_write_LiveGameInformation(soap, data) ( soap_begin_send(soap) || ((data)->soap_serialize(soap), 0) || (data)->soap_put(soap, "LiveGameInformation", NULL) || soap_end_send(soap) )
+#endif
+
+
+#ifndef soap_read_LiveGameInformation
+#define soap_read_LiveGameInformation(soap, data) ( soap_begin_recv(soap) || !soap_get_LiveGameInformation(soap, data, NULL, NULL) || soap_end_recv(soap) )
+#endif
+
+SOAP_FMAC3 LiveGameInformation * SOAP_FMAC4 soap_get_LiveGameInformation(struct soap*, LiveGameInformation *, const char*, const char*);
+
+#define soap_new_LiveGameInformation(soap, n) soap_instantiate_LiveGameInformation(soap, n, NULL, NULL, NULL)
+
+
+#define soap_delete_LiveGameInformation(soap, p) soap_delete(soap, p)
+
+SOAP_FMAC1 LiveGameInformation * SOAP_FMAC2 soap_instantiate_LiveGameInformation(struct soap*, int, const char*, const char*, size_t*);
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_LiveGameInformation(struct soap*, int, int, void*, size_t, const void*, size_t);
 
 #ifndef SOAP_TYPE_GameInformation
 #define SOAP_TYPE_GameInformation (24)
@@ -388,7 +464,7 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy_StringIntPair(struct soap*, int, int, void*
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Fault
-#define SOAP_TYPE_SOAP_ENV__Fault (62)
+#define SOAP_TYPE_SOAP_ENV__Fault (73)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_SOAP_ENV__Fault(struct soap*, struct SOAP_ENV__Fault *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_SOAP_ENV__Fault(struct soap*, const struct SOAP_ENV__Fault *);
@@ -421,7 +497,7 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy_SOAP_ENV__Fault(struct soap*, int, int, voi
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Reason
-#define SOAP_TYPE_SOAP_ENV__Reason (61)
+#define SOAP_TYPE_SOAP_ENV__Reason (72)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_SOAP_ENV__Reason(struct soap*, struct SOAP_ENV__Reason *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_SOAP_ENV__Reason(struct soap*, const struct SOAP_ENV__Reason *);
@@ -454,7 +530,7 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy_SOAP_ENV__Reason(struct soap*, int, int, vo
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Detail
-#define SOAP_TYPE_SOAP_ENV__Detail (58)
+#define SOAP_TYPE_SOAP_ENV__Detail (69)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_SOAP_ENV__Detail(struct soap*, struct SOAP_ENV__Detail *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_SOAP_ENV__Detail(struct soap*, const struct SOAP_ENV__Detail *);
@@ -487,7 +563,7 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy_SOAP_ENV__Detail(struct soap*, int, int, vo
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Code
-#define SOAP_TYPE_SOAP_ENV__Code (56)
+#define SOAP_TYPE_SOAP_ENV__Code (67)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_SOAP_ENV__Code(struct soap*, struct SOAP_ENV__Code *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_SOAP_ENV__Code(struct soap*, const struct SOAP_ENV__Code *);
@@ -520,7 +596,7 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy_SOAP_ENV__Code(struct soap*, int, int, void
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_SOAP_ENV__Header
-#define SOAP_TYPE_SOAP_ENV__Header (55)
+#define SOAP_TYPE_SOAP_ENV__Header (66)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_SOAP_ENV__Header(struct soap*, struct SOAP_ENV__Header *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_SOAP_ENV__Header(struct soap*, const struct SOAP_ENV__Header *);
@@ -550,8 +626,66 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy_SOAP_ENV__Header(struct soap*, int, int, vo
 
 #endif
 
+#ifndef SOAP_TYPE_ps__addDrink
+#define SOAP_TYPE_ps__addDrink (65)
+#endif
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__addDrink(struct soap*, struct ps__addDrink *);
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__addDrink(struct soap*, const struct ps__addDrink *);
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_ps__addDrink(struct soap*, const char*, int, const struct ps__addDrink *, const char*);
+SOAP_FMAC3 struct ps__addDrink * SOAP_FMAC4 soap_in_ps__addDrink(struct soap*, const char*, struct ps__addDrink *, const char*);
+
+#ifndef soap_write_ps__addDrink
+#define soap_write_ps__addDrink(soap, data) ( soap_begin_send(soap) || (soap_serialize_ps__addDrink(soap, data), 0) || soap_put_ps__addDrink(soap, data, "ps:addDrink", NULL) || soap_end_send(soap) )
+#endif
+
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_ps__addDrink(struct soap*, const struct ps__addDrink *, const char*, const char*);
+
+#ifndef soap_read_ps__addDrink
+#define soap_read_ps__addDrink(soap, data) ( soap_begin_recv(soap) || !soap_get_ps__addDrink(soap, data, NULL, NULL) || soap_end_recv(soap) )
+#endif
+
+SOAP_FMAC3 struct ps__addDrink * SOAP_FMAC4 soap_get_ps__addDrink(struct soap*, struct ps__addDrink *, const char*, const char*);
+
+#define soap_new_ps__addDrink(soap, n) soap_instantiate_ps__addDrink(soap, n, NULL, NULL, NULL)
+
+
+#define soap_delete_ps__addDrink(soap, p) soap_delete(soap, p)
+
+SOAP_FMAC1 struct ps__addDrink * SOAP_FMAC2 soap_instantiate_ps__addDrink(struct soap*, int, const char*, const char*, size_t*);
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__addDrink(struct soap*, int, int, void*, size_t, const void*, size_t);
+
+#ifndef SOAP_TYPE_ps__addDrinkResponse
+#define SOAP_TYPE_ps__addDrinkResponse (64)
+#endif
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__addDrinkResponse(struct soap*, struct ps__addDrinkResponse *);
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__addDrinkResponse(struct soap*, const struct ps__addDrinkResponse *);
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_ps__addDrinkResponse(struct soap*, const char*, int, const struct ps__addDrinkResponse *, const char*);
+SOAP_FMAC3 struct ps__addDrinkResponse * SOAP_FMAC4 soap_in_ps__addDrinkResponse(struct soap*, const char*, struct ps__addDrinkResponse *, const char*);
+
+#ifndef soap_write_ps__addDrinkResponse
+#define soap_write_ps__addDrinkResponse(soap, data) ( soap_begin_send(soap) || (soap_serialize_ps__addDrinkResponse(soap, data), 0) || soap_put_ps__addDrinkResponse(soap, data, "ps:addDrinkResponse", NULL) || soap_end_send(soap) )
+#endif
+
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_ps__addDrinkResponse(struct soap*, const struct ps__addDrinkResponse *, const char*, const char*);
+
+#ifndef soap_read_ps__addDrinkResponse
+#define soap_read_ps__addDrinkResponse(soap, data) ( soap_begin_recv(soap) || !soap_get_ps__addDrinkResponse(soap, data, NULL, NULL) || soap_end_recv(soap) )
+#endif
+
+SOAP_FMAC3 struct ps__addDrinkResponse * SOAP_FMAC4 soap_get_ps__addDrinkResponse(struct soap*, struct ps__addDrinkResponse *, const char*, const char*);
+
+#define soap_new_ps__addDrinkResponse(soap, n) soap_instantiate_ps__addDrinkResponse(soap, n, NULL, NULL, NULL)
+
+
+#define soap_delete_ps__addDrinkResponse(soap, p) soap_delete(soap, p)
+
+SOAP_FMAC1 struct ps__addDrinkResponse * SOAP_FMAC2 soap_instantiate_ps__addDrinkResponse(struct soap*, int, const char*, const char*, size_t*);
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__addDrinkResponse(struct soap*, int, int, void*, size_t, const void*, size_t);
+
 #ifndef SOAP_TYPE_ps__addSchmeisserei
-#define SOAP_TYPE_ps__addSchmeisserei (54)
+#define SOAP_TYPE_ps__addSchmeisserei (62)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__addSchmeisserei(struct soap*, struct ps__addSchmeisserei *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__addSchmeisserei(struct soap*, const struct ps__addSchmeisserei *);
@@ -580,7 +714,7 @@ SOAP_FMAC1 struct ps__addSchmeisserei * SOAP_FMAC2 soap_instantiate_ps__addSchme
 SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__addSchmeisserei(struct soap*, int, int, void*, size_t, const void*, size_t);
 
 #ifndef SOAP_TYPE_ps__addSchmeissereiResponse
-#define SOAP_TYPE_ps__addSchmeissereiResponse (53)
+#define SOAP_TYPE_ps__addSchmeissereiResponse (61)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__addSchmeissereiResponse(struct soap*, struct ps__addSchmeissereiResponse *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__addSchmeissereiResponse(struct soap*, const struct ps__addSchmeissereiResponse *);
@@ -609,7 +743,7 @@ SOAP_FMAC1 struct ps__addSchmeissereiResponse * SOAP_FMAC2 soap_instantiate_ps__
 SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__addSchmeissereiResponse(struct soap*, int, int, void*, size_t, const void*, size_t);
 
 #ifndef SOAP_TYPE_ps__gameCurrentPlayingPlayers
-#define SOAP_TYPE_ps__gameCurrentPlayingPlayers (49)
+#define SOAP_TYPE_ps__gameCurrentPlayingPlayers (57)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__gameCurrentPlayingPlayers(struct soap*, struct ps__gameCurrentPlayingPlayers *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__gameCurrentPlayingPlayers(struct soap*, const struct ps__gameCurrentPlayingPlayers *);
@@ -638,7 +772,7 @@ SOAP_FMAC1 struct ps__gameCurrentPlayingPlayers * SOAP_FMAC2 soap_instantiate_ps
 SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__gameCurrentPlayingPlayers(struct soap*, int, int, void*, size_t, const void*, size_t);
 
 #ifndef SOAP_TYPE_ps__gameCurrentPlayingPlayersResponse
-#define SOAP_TYPE_ps__gameCurrentPlayingPlayersResponse (48)
+#define SOAP_TYPE_ps__gameCurrentPlayingPlayersResponse (56)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__gameCurrentPlayingPlayersResponse(struct soap*, struct ps__gameCurrentPlayingPlayersResponse *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__gameCurrentPlayingPlayersResponse(struct soap*, const struct ps__gameCurrentPlayingPlayersResponse *);
@@ -666,8 +800,66 @@ SOAP_FMAC3 struct ps__gameCurrentPlayingPlayersResponse * SOAP_FMAC4 soap_get_ps
 SOAP_FMAC1 struct ps__gameCurrentPlayingPlayersResponse * SOAP_FMAC2 soap_instantiate_ps__gameCurrentPlayingPlayersResponse(struct soap*, int, const char*, const char*, size_t*);
 SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__gameCurrentPlayingPlayersResponse(struct soap*, int, int, void*, size_t, const void*, size_t);
 
+#ifndef SOAP_TYPE_ps__liveGameList
+#define SOAP_TYPE_ps__liveGameList (54)
+#endif
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__liveGameList(struct soap*, struct ps__liveGameList *);
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__liveGameList(struct soap*, const struct ps__liveGameList *);
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_ps__liveGameList(struct soap*, const char*, int, const struct ps__liveGameList *, const char*);
+SOAP_FMAC3 struct ps__liveGameList * SOAP_FMAC4 soap_in_ps__liveGameList(struct soap*, const char*, struct ps__liveGameList *, const char*);
+
+#ifndef soap_write_ps__liveGameList
+#define soap_write_ps__liveGameList(soap, data) ( soap_begin_send(soap) || (soap_serialize_ps__liveGameList(soap, data), 0) || soap_put_ps__liveGameList(soap, data, "ps:liveGameList", NULL) || soap_end_send(soap) )
+#endif
+
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_ps__liveGameList(struct soap*, const struct ps__liveGameList *, const char*, const char*);
+
+#ifndef soap_read_ps__liveGameList
+#define soap_read_ps__liveGameList(soap, data) ( soap_begin_recv(soap) || !soap_get_ps__liveGameList(soap, data, NULL, NULL) || soap_end_recv(soap) )
+#endif
+
+SOAP_FMAC3 struct ps__liveGameList * SOAP_FMAC4 soap_get_ps__liveGameList(struct soap*, struct ps__liveGameList *, const char*, const char*);
+
+#define soap_new_ps__liveGameList(soap, n) soap_instantiate_ps__liveGameList(soap, n, NULL, NULL, NULL)
+
+
+#define soap_delete_ps__liveGameList(soap, p) soap_delete(soap, p)
+
+SOAP_FMAC1 struct ps__liveGameList * SOAP_FMAC2 soap_instantiate_ps__liveGameList(struct soap*, int, const char*, const char*, size_t*);
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__liveGameList(struct soap*, int, int, void*, size_t, const void*, size_t);
+
+#ifndef SOAP_TYPE_ps__liveGameListResponse
+#define SOAP_TYPE_ps__liveGameListResponse (53)
+#endif
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__liveGameListResponse(struct soap*, struct ps__liveGameListResponse *);
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__liveGameListResponse(struct soap*, const struct ps__liveGameListResponse *);
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_ps__liveGameListResponse(struct soap*, const char*, int, const struct ps__liveGameListResponse *, const char*);
+SOAP_FMAC3 struct ps__liveGameListResponse * SOAP_FMAC4 soap_in_ps__liveGameListResponse(struct soap*, const char*, struct ps__liveGameListResponse *, const char*);
+
+#ifndef soap_write_ps__liveGameListResponse
+#define soap_write_ps__liveGameListResponse(soap, data) ( soap_begin_send(soap) || (soap_serialize_ps__liveGameListResponse(soap, data), 0) || soap_put_ps__liveGameListResponse(soap, data, "ps:liveGameListResponse", NULL) || soap_end_send(soap) )
+#endif
+
+
+SOAP_FMAC3 int SOAP_FMAC4 soap_put_ps__liveGameListResponse(struct soap*, const struct ps__liveGameListResponse *, const char*, const char*);
+
+#ifndef soap_read_ps__liveGameListResponse
+#define soap_read_ps__liveGameListResponse(soap, data) ( soap_begin_recv(soap) || !soap_get_ps__liveGameListResponse(soap, data, NULL, NULL) || soap_end_recv(soap) )
+#endif
+
+SOAP_FMAC3 struct ps__liveGameListResponse * SOAP_FMAC4 soap_get_ps__liveGameListResponse(struct soap*, struct ps__liveGameListResponse *, const char*, const char*);
+
+#define soap_new_ps__liveGameListResponse(soap, n) soap_instantiate_ps__liveGameListResponse(soap, n, NULL, NULL, NULL)
+
+
+#define soap_delete_ps__liveGameListResponse(soap, p) soap_delete(soap, p)
+
+SOAP_FMAC1 struct ps__liveGameListResponse * SOAP_FMAC2 soap_instantiate_ps__liveGameListResponse(struct soap*, int, const char*, const char*, size_t*);
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__liveGameListResponse(struct soap*, int, int, void*, size_t, const void*, size_t);
+
 #ifndef SOAP_TYPE_ps__gameList
-#define SOAP_TYPE_ps__gameList (46)
+#define SOAP_TYPE_ps__gameList (50)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__gameList(struct soap*, struct ps__gameList *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__gameList(struct soap*, const struct ps__gameList *);
@@ -696,7 +888,7 @@ SOAP_FMAC1 struct ps__gameList * SOAP_FMAC2 soap_instantiate_ps__gameList(struct
 SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__gameList(struct soap*, int, int, void*, size_t, const void*, size_t);
 
 #ifndef SOAP_TYPE_ps__gameListResponse
-#define SOAP_TYPE_ps__gameListResponse (45)
+#define SOAP_TYPE_ps__gameListResponse (49)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__gameListResponse(struct soap*, struct ps__gameListResponse *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__gameListResponse(struct soap*, const struct ps__gameListResponse *);
@@ -725,7 +917,7 @@ SOAP_FMAC1 struct ps__gameListResponse * SOAP_FMAC2 soap_instantiate_ps__gameLis
 SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__gameListResponse(struct soap*, int, int, void*, size_t, const void*, size_t);
 
 #ifndef SOAP_TYPE_ps__placeList
-#define SOAP_TYPE_ps__placeList (42)
+#define SOAP_TYPE_ps__placeList (46)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__placeList(struct soap*, struct ps__placeList *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__placeList(struct soap*, const struct ps__placeList *);
@@ -754,7 +946,7 @@ SOAP_FMAC1 struct ps__placeList * SOAP_FMAC2 soap_instantiate_ps__placeList(stru
 SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__placeList(struct soap*, int, int, void*, size_t, const void*, size_t);
 
 #ifndef SOAP_TYPE_ps__placeListResponse
-#define SOAP_TYPE_ps__placeListResponse (41)
+#define SOAP_TYPE_ps__placeListResponse (45)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__placeListResponse(struct soap*, struct ps__placeListResponse *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__placeListResponse(struct soap*, const struct ps__placeListResponse *);
@@ -783,7 +975,7 @@ SOAP_FMAC1 struct ps__placeListResponse * SOAP_FMAC2 soap_instantiate_ps__placeL
 SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__placeListResponse(struct soap*, int, int, void*, size_t, const void*, size_t);
 
 #ifndef SOAP_TYPE_ps__drinkList
-#define SOAP_TYPE_ps__drinkList (38)
+#define SOAP_TYPE_ps__drinkList (42)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__drinkList(struct soap*, struct ps__drinkList *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__drinkList(struct soap*, const struct ps__drinkList *);
@@ -812,7 +1004,7 @@ SOAP_FMAC1 struct ps__drinkList * SOAP_FMAC2 soap_instantiate_ps__drinkList(stru
 SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__drinkList(struct soap*, int, int, void*, size_t, const void*, size_t);
 
 #ifndef SOAP_TYPE_ps__drinkListResponse
-#define SOAP_TYPE_ps__drinkListResponse (37)
+#define SOAP_TYPE_ps__drinkListResponse (41)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__drinkListResponse(struct soap*, struct ps__drinkListResponse *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__drinkListResponse(struct soap*, const struct ps__drinkListResponse *);
@@ -841,7 +1033,7 @@ SOAP_FMAC1 struct ps__drinkListResponse * SOAP_FMAC2 soap_instantiate_ps__drinkL
 SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__drinkListResponse(struct soap*, int, int, void*, size_t, const void*, size_t);
 
 #ifndef SOAP_TYPE_ps__playerList
-#define SOAP_TYPE_ps__playerList (34)
+#define SOAP_TYPE_ps__playerList (38)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__playerList(struct soap*, struct ps__playerList *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__playerList(struct soap*, const struct ps__playerList *);
@@ -870,7 +1062,7 @@ SOAP_FMAC1 struct ps__playerList * SOAP_FMAC2 soap_instantiate_ps__playerList(st
 SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__playerList(struct soap*, int, int, void*, size_t, const void*, size_t);
 
 #ifndef SOAP_TYPE_ps__playerListResponse
-#define SOAP_TYPE_ps__playerListResponse (33)
+#define SOAP_TYPE_ps__playerListResponse (37)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__playerListResponse(struct soap*, struct ps__playerListResponse *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__playerListResponse(struct soap*, const struct ps__playerListResponse *);
@@ -899,7 +1091,7 @@ SOAP_FMAC1 struct ps__playerListResponse * SOAP_FMAC2 soap_instantiate_ps__playe
 SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__playerListResponse(struct soap*, int, int, void*, size_t, const void*, size_t);
 
 #ifndef SOAP_TYPE_ps__playerById
-#define SOAP_TYPE_ps__playerById (30)
+#define SOAP_TYPE_ps__playerById (34)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__playerById(struct soap*, struct ps__playerById *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__playerById(struct soap*, const struct ps__playerById *);
@@ -928,7 +1120,7 @@ SOAP_FMAC1 struct ps__playerById * SOAP_FMAC2 soap_instantiate_ps__playerById(st
 SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__playerById(struct soap*, int, int, void*, size_t, const void*, size_t);
 
 #ifndef SOAP_TYPE_ps__playerByIdResponse
-#define SOAP_TYPE_ps__playerByIdResponse (29)
+#define SOAP_TYPE_ps__playerByIdResponse (33)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_ps__playerByIdResponse(struct soap*, struct ps__playerByIdResponse *);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_ps__playerByIdResponse(struct soap*, const struct ps__playerByIdResponse *);
@@ -959,7 +1151,7 @@ SOAP_FMAC3 void SOAP_FMAC4 soap_copy_ps__playerByIdResponse(struct soap*, int, i
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_PointerToSOAP_ENV__Reason
-#define SOAP_TYPE_PointerToSOAP_ENV__Reason (64)
+#define SOAP_TYPE_PointerToSOAP_ENV__Reason (75)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_PointerToSOAP_ENV__Reason(struct soap*, struct SOAP_ENV__Reason *const*);
 SOAP_FMAC3 int SOAP_FMAC4 soap_out_PointerToSOAP_ENV__Reason(struct soap*, const char *, int, struct SOAP_ENV__Reason *const*, const char *);
@@ -982,7 +1174,7 @@ SOAP_FMAC3 struct SOAP_ENV__Reason ** SOAP_FMAC4 soap_get_PointerToSOAP_ENV__Rea
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_PointerToSOAP_ENV__Detail
-#define SOAP_TYPE_PointerToSOAP_ENV__Detail (63)
+#define SOAP_TYPE_PointerToSOAP_ENV__Detail (74)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_PointerToSOAP_ENV__Detail(struct soap*, struct SOAP_ENV__Detail *const*);
 SOAP_FMAC3 int SOAP_FMAC4 soap_out_PointerToSOAP_ENV__Detail(struct soap*, const char *, int, struct SOAP_ENV__Detail *const*, const char *);
@@ -1005,7 +1197,7 @@ SOAP_FMAC3 struct SOAP_ENV__Detail ** SOAP_FMAC4 soap_get_PointerToSOAP_ENV__Det
 #ifndef WITH_NOGLOBAL
 
 #ifndef SOAP_TYPE_PointerToSOAP_ENV__Code
-#define SOAP_TYPE_PointerToSOAP_ENV__Code (57)
+#define SOAP_TYPE_PointerToSOAP_ENV__Code (68)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_PointerToSOAP_ENV__Code(struct soap*, struct SOAP_ENV__Code *const*);
 SOAP_FMAC3 int SOAP_FMAC4 soap_out_PointerToSOAP_ENV__Code(struct soap*, const char *, int, struct SOAP_ENV__Code *const*, const char *);
@@ -1085,8 +1277,24 @@ SOAP_FMAC3 int SOAP_FMAC4 soap_put_string(struct soap*, char *const*, const char
 
 SOAP_FMAC3 char ** SOAP_FMAC4 soap_get_string(struct soap*, char **, const char*, const char*);
 
+#ifndef SOAP_TYPE_std__vectorTemplateOfLiveGameInformation
+#define SOAP_TYPE_std__vectorTemplateOfLiveGameInformation (30)
+#endif
+SOAP_FMAC3 void SOAP_FMAC4 soap_default_std__vectorTemplateOfLiveGameInformation(struct soap*, std::vector<LiveGameInformation >*);
+SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_std__vectorTemplateOfLiveGameInformation(struct soap*, const std::vector<LiveGameInformation >*);
+SOAP_FMAC3 int SOAP_FMAC4 soap_out_std__vectorTemplateOfLiveGameInformation(struct soap*, const char*, int, const std::vector<LiveGameInformation >*, const char*);
+SOAP_FMAC3 std::vector<LiveGameInformation >* SOAP_FMAC4 soap_in_std__vectorTemplateOfLiveGameInformation(struct soap*, const char*, std::vector<LiveGameInformation >*, const char*);
+
+#define soap_new_std__vectorTemplateOfLiveGameInformation(soap, n) soap_instantiate_std__vectorTemplateOfLiveGameInformation(soap, n, NULL, NULL, NULL)
+
+
+#define soap_delete_std__vectorTemplateOfLiveGameInformation(soap, p) soap_delete(soap, p)
+
+SOAP_FMAC1 std::vector<LiveGameInformation > * SOAP_FMAC2 soap_instantiate_std__vectorTemplateOfLiveGameInformation(struct soap*, int, const char*, const char*, size_t*);
+SOAP_FMAC3 void SOAP_FMAC4 soap_copy_std__vectorTemplateOfLiveGameInformation(struct soap*, int, int, void*, size_t, const void*, size_t);
+
 #ifndef SOAP_TYPE_std__vectorTemplateOfGameInformation
-#define SOAP_TYPE_std__vectorTemplateOfGameInformation (26)
+#define SOAP_TYPE_std__vectorTemplateOfGameInformation (28)
 #endif
 SOAP_FMAC3 void SOAP_FMAC4 soap_default_std__vectorTemplateOfGameInformation(struct soap*, std::vector<GameInformation >*);
 SOAP_FMAC3 void SOAP_FMAC4 soap_serialize_std__vectorTemplateOfGameInformation(struct soap*, const std::vector<GameInformation >*);

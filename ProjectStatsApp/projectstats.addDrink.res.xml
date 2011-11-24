@@ -6,21 +6,8 @@
  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
  xmlns:ps="urn:projectstats">
  <SOAP-ENV:Body>
-  <ps:gameListResponse>
-   <result>
-    <gameList>
-     <id>0</id>
-     <name></name>
-     <date></date>
-     <isLive>false</isLive>
-    </gameList>
-    <gameList>
-     <id>0</id>
-     <name></name>
-     <date></date>
-     <isLive>false</isLive>
-    </gameList>
-   </result>
-  </ps:gameListResponse>
+  <ps:addDrinkResponse>
+   <result></result>
+  </ps:addDrinkResponse>
  </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>

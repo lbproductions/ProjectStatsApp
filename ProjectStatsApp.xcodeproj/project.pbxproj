@@ -44,6 +44,8 @@
 		85EE57CA146D647D00631678 /* PlayersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57BD146D647D00631678 /* PlayersViewController.xib */; };
 		85EE57CB146D647D00631678 /* PlayerTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EE57BF146D647D00631678 /* PlayerTabController.m */; };
 		85EE57CC146D647D00631678 /* PlayerTabController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57C0146D647D00631678 /* PlayerTabController.xib */; };
+		D17710BD147E2BFB001DA871 /* AddDrinkController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17710BB147E2BFB001DA871 /* AddDrinkController.m */; };
+		D17710BE147E2BFB001DA871 /* AddDrinkController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17710BC147E2BFB001DA871 /* AddDrinkController.xib */; };
 		D1954B721472BC2C00D26790 /* PlaceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1954B701472BC2C00D26790 /* PlaceInfoViewController.m */; };
 		D1954B731472BC2C00D26790 /* PlaceInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1954B711472BC2C00D26790 /* PlaceInfoViewController.xib */; };
 		D1954B761472C53600D26790 /* wappen_dortmund.png in Resources */ = {isa = PBXBuildFile; fileRef = D1954B751472C53500D26790 /* wappen_dortmund.png */; };
@@ -119,6 +121,9 @@
 		85EE57BE146D647D00631678 /* PlayerTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTabController.h; sourceTree = "<group>"; };
 		85EE57BF146D647D00631678 /* PlayerTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTabController.m; sourceTree = "<group>"; };
 		85EE57C0146D647D00631678 /* PlayerTabController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerTabController.xib; sourceTree = "<group>"; };
+		D17710BA147E2BFB001DA871 /* AddDrinkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDrinkController.h; sourceTree = "<group>"; };
+		D17710BB147E2BFB001DA871 /* AddDrinkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDrinkController.m; sourceTree = "<group>"; };
+		D17710BC147E2BFB001DA871 /* AddDrinkController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddDrinkController.xib; sourceTree = "<group>"; };
 		D1954B6F1472BC2C00D26790 /* PlaceInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceInfoViewController.h; sourceTree = "<group>"; };
 		D1954B701472BC2C00D26790 /* PlaceInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceInfoViewController.m; sourceTree = "<group>"; };
 		D1954B711472BC2C00D26790 /* PlaceInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceInfoViewController.xib; sourceTree = "<group>"; };
@@ -176,6 +181,9 @@
 				853BC6FF1472B6F2008B7C6B /* RemoteControl.h */,
 				853BC7001472B6F2008B7C6B /* RemoteControl.m */,
 				853BC7011472B6F2008B7C6B /* RemoteControl.xib */,
+				D17710BA147E2BFB001DA871 /* AddDrinkController.h */,
+				D17710BB147E2BFB001DA871 /* AddDrinkController.m */,
+				D17710BC147E2BFB001DA871 /* AddDrinkController.xib */,
 			);
 			name = RemoteControl;
 			sourceTree = "<group>";
@@ -425,6 +433,7 @@
 				855E23B31472C80500220B22 /* GameViewController.xib in Resources */,
 				D1954B731472BC2C00D26790 /* PlaceInfoViewController.xib in Resources */,
 				D1954B761472C53600D26790 /* wappen_dortmund.png in Resources */,
+				D17710BE147E2BFB001DA871 /* AddDrinkController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +467,7 @@
 				853BC7041472B6F2008B7C6B /* RemoteControl.m in Sources */,
 				855E23B21472C80500220B22 /* GameViewController.m in Sources */,
 				D1954B721472BC2C00D26790 /* PlaceInfoViewController.m in Sources */,
+				D17710BD147E2BFB001DA871 /* AddDrinkController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

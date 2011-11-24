@@ -77,6 +77,10 @@ class SOAP_CMAC projectstatsProxy : public soap
 	virtual	int gameList(GameList &result) { return gameList(NULL, NULL, result); }
 	virtual	int gameList(const char *endpoint, const char *soap_action, GameList &result);
 
+	/// Web service operation 'liveGameList' (returns error code or SOAP_OK)
+	virtual	int liveGameList(LiveGameList &result) { return liveGameList(NULL, NULL, result); }
+	virtual	int liveGameList(const char *endpoint, const char *soap_action, LiveGameList &result);
+
 	/// Web service operation 'gameCurrentPlayingPlayers' (returns error code or SOAP_OK)
 	virtual	int gameCurrentPlayingPlayers(int gameId, PlayerList &result) { return gameCurrentPlayingPlayers(NULL, NULL, gameId, result); }
 	virtual	int gameCurrentPlayingPlayers(const char *endpoint, const char *soap_action, int gameId, PlayerList &result);
@@ -84,5 +88,9 @@ class SOAP_CMAC projectstatsProxy : public soap
 	/// Web service operation 'addSchmeisserei' (returns error code or SOAP_OK)
 	virtual	int addSchmeisserei(int gameId, int playerId, std::string type, std::string &result) { return addSchmeisserei(NULL, NULL, gameId, playerId, type, result); }
 	virtual	int addSchmeisserei(const char *endpoint, const char *soap_action, int gameId, int playerId, std::string type, std::string &result);
+
+	/// Web service operation 'addDrink' (returns error code or SOAP_OK)
+	virtual	int addDrink(int gameId, int playerId, int drinkId, std::string &result) { return addDrink(NULL, NULL, gameId, playerId, drinkId, result); }
+	virtual	int addDrink(const char *endpoint, const char *soap_action, int gameId, int playerId, int drinkId, std::string &result);
 };
 #endif

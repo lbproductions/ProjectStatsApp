@@ -251,12 +251,24 @@
     
     
     for(std::vector<GameInformation>::const_iterator it = gameList.gameList.begin(); it != gameList.gameList.end(); it++) {
-        NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+        NSManagedObject *newManagedObject;
+        if(it->isLive){
+            newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"LiveGame" inManagedObjectContext:context];
+            LiveGameInformation liveInfo = static_cast<LiveGameInformation>(it);
+            for(std::vector<PlayerInformation>::const_iterator ite = liveInfo.playersSortedByPosition.begin(); ite != liveInfo.playersSortedByPosition.end(); ite++){
+                
+            }
+        }   
+        else{
+            newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:context];
+        }
         NSString* name = [NSString stringWithUTF8String:it->name];
         NSNumber* identifier = [NSNumber numberWithInt:it->id];
+        NSNumber* live = [NSNumber numberWithBool:it->isLive];
         
         [newManagedObject setValue:name forKey:@"name"];
         [newManagedObject setValue:identifier forKey:@"id"];
+        [newManagedObject setValue:live forKey:@"isLive"];
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
         
         [df setDateFormat:@"dd.MM.yyyy"];
