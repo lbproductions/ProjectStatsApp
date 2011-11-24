@@ -7,14 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 @interface PlaceInfoViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 -(id)init:(NSManagedObject*)place;
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+-(CLLocationCoordinate2D) addressLocation;
 
 @property (strong, nonatomic) IBOutlet UILabel* streetName;
 @property (strong, nonatomic) IBOutlet UILabel* townName;
 @property (strong, nonatomic) IBOutlet NSManagedObject* m_place;
+@property (strong, nonatomic) IBOutlet MKMapView* m_mapView;
 
 @end

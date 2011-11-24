@@ -12,7 +12,12 @@
     <entity name="Game" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="isLive" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="LiveGame" parentEntity="Game" syncable="YES">
+        <attribute name="currentPlayingPlayers" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="playersSortedByPosition" optional="YES" attributeType="Transformable" syncable="YES"/>
     </entity>
     <entity name="Place" syncable="YES">
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
@@ -42,9 +47,10 @@
     </entity>
     <elements>
         <element name="Drink" positionX="160" positionY="192" width="128" height="150"/>
-        <element name="Game" positionX="54" positionY="189" width="128" height="90"/>
-        <element name="Place" positionX="160" positionY="192" width="128" height="180"/>
-        <element name="Player" positionX="160" positionY="192" width="128" height="165"/>
-        <element name="Server" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Game" positionX="-90" positionY="9" width="128" height="90"/>
+        <element name="LiveGame" positionX="-234" positionY="135" width="128" height="75"/>
+        <element name="Place" positionX="153" positionY="-99" width="128" height="180"/>
+        <element name="Player" positionX="315" positionY="144" width="128" height="165"/>
+        <element name="Server" positionX="331" positionY="-9" width="128" height="105"/>
     </elements>
 </model>

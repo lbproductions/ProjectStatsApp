@@ -13,6 +13,7 @@
 @synthesize m_place;
 @synthesize streetName;
 @synthesize townName;
+@synthesize m_mapView;
 
 -(id)init:(NSManagedObject*)place
 {
@@ -48,6 +49,8 @@
     town = [town stringByAppendingString:@" "];
     town = [town stringByAppendingString:[[self.m_place valueForKey:@"ort"] description]];
     self.townName.text = town;
+    
+    [self.m_mapView setCenterCoordinate:[self addressLocation]];
 }
 
 - (void)viewDidUnload
@@ -159,6 +162,30 @@
     cell.editingAccessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     cell.accessoryType = UITableViewCellAccessoryNone;
     //[cell.imageView setImage:[UIImage imageNamed:@"player.png"]];
+}
+
+-(CLLocationCoordinate2D) addressLocation {
+    NSString *urlString = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=address&output=csv", 
+                           [[[self.m_place valueForKey:@"name"] description] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSLog(urlString);
+    NSString *locationString = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlString]];
+    NSArray *listItems = [locationString componentsSeparatedByString:@","];
+    
+    double latitude = 0.0;
+    double longitude = 0.0;
+    
+    if([listItems count] >= 4 && [[listItems objectAtIndex:0] isEqualToString:@"200"]) {
+        latitude = [[listItems objectAtIndex:2] doubleValue];
+        longitude = [[listItems objectAtIndex:3] doubleValue];
+    }
+    else {
+        //Show error
+    }
+    CLLocationCoordinate2D location;
+    location.latitude = latitude;
+    location.longitude = longitude;
+    
+    return location;
 }
 
 
