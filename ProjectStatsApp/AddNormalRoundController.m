@@ -26,6 +26,7 @@ const int MAXROWS = 1000;
         self.currentPlayingPlayers = [[ServerLoader instance] currentPlayingPlayers:self.game];
         player1 = 0;
         player2 = 1;
+        schweinereiPlayer = 0;
         self.title = @"Add Round";
     }
     return self;
@@ -66,7 +67,15 @@ const int MAXROWS = 1000;
 
 - (void)saveChanges
 {
-    //TODO runde hinzufügen
+    projectstatsProxy* proxy = [ServerLoader instance].proxy;
+    
+    int gameId = [[self.game valueForKey:@"id"] intValue];
+    int re1PlayerId = [[((NSManagedObject*)[currentPlayingPlayers objectAtIndex:player1]) valueForKey:@"id"] intValue];
+    int re2PlayerId = [[((NSManagedObject*)[currentPlayingPlayers objectAtIndex:player2]) valueForKey:@"id"] intValue];
+    int points = MAXROWS/2 - [self.pickerView selectedRowInComponent:0];
+    
+    std::string result;
+    proxy->addRound([ServerLoader instance].host, "urn:projectstats:addRound", gameId, re1PlayerId, re2PlayerId, 0, schweinereiPlayer, 0, "", false, points, "", result);
     
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -108,7 +117,12 @@ const int MAXROWS = 1000;
         case 1:
             if(indexPath.row == 0) {
                 cell.textLabel.text = @"Set Schweinerei";
-                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                if(schweinereiPlayer > 0) {
+                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                }
+                else {
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                }
             }
 
             break;
@@ -128,9 +142,12 @@ const int MAXROWS = 1000;
         }
         [self.tableView reloadData];
     }
-    if(indexPath.section == 2) {
+    if(indexPath.section == 1) {
         if(indexPath.row == 0) {
+            SetSchweinereiController* setSchweinereiController = [[SetSchweinereiController alloc] initWithCurrentPlayingPlayers:self.currentPlayingPlayers schweinereiPlayerId:[NSNumber numberWithInt:schweinereiPlayer ]];
+            setSchweinereiController.delegate = self;
             
+            [self.navigationController pushViewController:setSchweinereiController animated:YES];
         }
     }
 //    else if(indexPath.section == 1) {
@@ -168,6 +185,13 @@ const int MAXROWS = 1000;
 - (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     return [NSString stringWithFormat:@"%@", [NSNumber numberWithInt:MAXROWS/2 - row]];
+}
+
+- (void)setSchweinereiController:(SetSchweinereiController*)controller setPlayerSchweinerei:(NSNumber*)playerId;
+{
+    schweinereiPlayer = [playerId intValue];
+    [self.navigationController popViewControllerAnimated:YES];
+    [self.tableView reloadData];
 }
 
 @end

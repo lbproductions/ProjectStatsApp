@@ -28,6 +28,7 @@
 		857F071F146C4A9400368D8C /* ServerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 857F0716146C4A9400368D8C /* ServerTableViewController.m */; };
 		85AA6DC5147E7CC5006C6948 /* AddNormalRoundController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AA6DC3147E7CC5006C6948 /* AddNormalRoundController.m */; };
 		85AA6DC6147E7CC5006C6948 /* AddNormalRoundController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AA6DC4147E7CC5006C6948 /* AddNormalRoundController.xib */; };
+		85B43B45147EA81B00408862 /* SetSchweinereiController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85B43B44147EA81B00408862 /* SetSchweinereiController.m */; };
 		85EE579A146D439300631678 /* projectstats.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 85EE578F146D439300631678 /* projectstats.nsmap */; };
 		85EE579B146D439300631678 /* soapC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85EE5790146D439300631678 /* soapC.cpp */; };
 		85EE579C146D439300631678 /* soapprojectstatsProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85EE5792146D439300631678 /* soapprojectstatsProxy.cpp */; };
@@ -95,6 +96,8 @@
 		85AA6DC2147E7CC5006C6948 /* AddNormalRoundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNormalRoundController.h; sourceTree = "<group>"; };
 		85AA6DC3147E7CC5006C6948 /* AddNormalRoundController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNormalRoundController.m; sourceTree = "<group>"; };
 		85AA6DC4147E7CC5006C6948 /* AddNormalRoundController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNormalRoundController.xib; sourceTree = "<group>"; };
+		85B43B43147EA81B00408862 /* SetSchweinereiController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetSchweinereiController.h; sourceTree = "<group>"; };
+		85B43B44147EA81B00408862 /* SetSchweinereiController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetSchweinereiController.m; sourceTree = "<group>"; };
 		85EE578F146D439300631678 /* projectstats.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = projectstats.nsmap; sourceTree = "<group>"; };
 		85EE5790146D439300631678 /* soapC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapC.cpp; sourceTree = "<group>"; };
 		85EE5791146D439300631678 /* soapH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapH.h; sourceTree = "<group>"; };
@@ -190,6 +193,8 @@
 				D17710BA147E2BFB001DA871 /* AddDrinkController.h */,
 				D17710BB147E2BFB001DA871 /* AddDrinkController.m */,
 				D17710BC147E2BFB001DA871 /* AddDrinkController.xib */,
+				85B43B43147EA81B00408862 /* SetSchweinereiController.h */,
+				85B43B44147EA81B00408862 /* SetSchweinereiController.m */,
 			);
 			name = RemoteControl;
 			sourceTree = "<group>";
@@ -474,6 +479,7 @@
 				D1954B721472BC2C00D26790 /* PlaceInfoViewController.m in Sources */,
 				85AA6DC5147E7CC5006C6948 /* AddNormalRoundController.m in Sources */,
 				D17710BD147E2BFB001DA871 /* AddDrinkController.m in Sources */,
+				85B43B45147EA81B00408862 /* SetSchweinereiController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

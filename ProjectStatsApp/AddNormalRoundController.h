@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SetSchweinereiController.h"
 
-@interface AddNormalRoundController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate> {
+@interface AddNormalRoundController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, SetSchweinereiDelegate> {
     UITableView* tableView;
     UIPickerView* pickerView;
-    int player1, player2;
+    int player1, player2, schweinereiPlayer;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView* tableView;
