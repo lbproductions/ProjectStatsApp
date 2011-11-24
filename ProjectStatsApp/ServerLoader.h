@@ -7,13 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "soapprojectstatsProxy.h"
 
-@interface ServerLoader : NSObject <NSFetchedResultsControllerDelegate>
+@interface ServerLoader : NSObject <NSFetchedResultsControllerDelegate> {
+    projectstatsProxy* proxy;
+}
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSManagedObject *server;
 
-- (id)init;
++ (ServerLoader*)instance;
+
+- (void)saveContext;
+- (projectstatsProxy*)proxy;
+- (void)setProxy:(projectstatsProxy*)newproxy;
+- (const char*)host;
+
 - (void)repopulateLibrary;
 - (void)repopulatePlayerList;
 - (void)repopulateDrinkList;

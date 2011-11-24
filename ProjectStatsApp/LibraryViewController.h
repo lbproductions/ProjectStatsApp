@@ -11,10 +11,9 @@
 
 @interface LibraryViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-- (id)initWithStyle:(UITableViewStyle)style managedObjectContext:(NSManagedObjectContext*)context;
+- (id)init;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) ServerLoader *serverLoader;
 
 @end

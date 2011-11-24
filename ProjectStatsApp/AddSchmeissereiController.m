@@ -7,17 +7,22 @@
 //
 
 #import "AddSchmeissereiController.h"
+#import "ServerLoader.h"
 
 @implementation AddSchmeissereiController
 
 @synthesize saveCell = _saveCell;
 @synthesize game;
+@synthesize currentPlayingPlayers;
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithGame:(NSManagedObject*)agame
 {
-    self = [super initWithStyle:style];
+    self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        // Custom initialization
+        self.game = agame;
+        self.currentPlayingPlayers = [[ServerLoader instance] currentPlayingPlayers:self.game];
+        selectedPlayer = 0;
+        selectedSchmeisserei = 0;
     }
     return self;
 }
@@ -94,7 +99,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"AddSchmeissereiTableViewCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -103,26 +108,14 @@
     
     switch (indexPath.section) {
         case 0:
-            switch (indexPath.row) {
-                case 0:
-                    cell.textLabel.text = @"Spieler 1";
-                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
-                    break;
-                case 1:
+            cell.textLabel.text = [((NSManagedObject*)[currentPlayingPlayers objectAtIndex:indexPath.row]) valueForKey:@"name"];
                     
-                    cell.textLabel.text = @"Spieler 2";
-                    break;
-                case 2:
-                    
-                    cell.textLabel.text = @"Spieler 3";
-                    break;
-                case 3:
-                    
-                    cell.textLabel.text = @"Spieler 4";
-                    break;
-                    
-                default:
-                    break;
+            
+            if(selectedPlayer == indexPath.row) {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            }
+            else {
+                cell.accessoryType = UITableViewCellAccessoryNone;
             }
             break;
             
@@ -130,7 +123,6 @@
             switch (indexPath.row) {
                 case 0:
                     cell.textLabel.text = @"5 Könige";
-                    cell.accessoryType = UITableViewCellAccessoryCheckmark;
                     break;
                     
                 case 1:
@@ -142,10 +134,15 @@
                 default:
                     break;
             }
+            if(selectedSchmeisserei == indexPath.row) {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            }
+            else {
+                cell.accessoryType = UITableViewCellAccessoryNone;
+            }
             break;
         case 2:
             cell = self.saveCell;
-            _saveCell = nil;
         default:
             break;
     }
@@ -197,8 +194,24 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.section == 0) {
-        for (int i = 0; i < [self tableView:self.tableView numberOfRowsInSection:0]; ++i) {
-        }
+        selectedPlayer = indexPath.row;
+        [self.tableView reloadData];
+    }
+    else if(indexPath.section == 1) {
+        selectedSchmeisserei = indexPath.row;
+        [self.tableView reloadData];
+    }
+    else if(indexPath.section == 2) {
+        NSManagedObject* player = (NSManagedObject*)[currentPlayingPlayers objectAtIndex:selectedPlayer];
+        
+        int gameId = [[self.game valueForKey:@"id"] intValue];
+        int playerId = [[player valueForKey:@"id"] intValue];
+        std::string result = "";
+        std::string schmeisserei = [[self tableView:self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:selectedSchmeisserei inSection:1]].textLabel.text UTF8String];
+        
+        projectstatsProxy* proxy = [[ServerLoader instance] proxy];
+        proxy->addSchmeisserei([ServerLoader instance].host, "urn:projectstats:addSchmeisserei", gameId, playerId, schmeisserei, result);
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

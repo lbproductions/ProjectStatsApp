@@ -14,25 +14,13 @@
 
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
-@synthesize editServerViewController = __editServerViewController;
-@synthesize serverLoader = _serverLoader;
-@synthesize mainMenuTabBarController;
 
 - (id)init
 {
     if(self = [super init])
     {
         self.title = @"Servers";
-        self.editServerViewController = [[EditServerViewController alloc] init];
-    }
-    return self;
-}
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
+        self.managedObjectContext = [[ServerLoader instance] managedObjectContext];
     }
     return self;
 }
@@ -50,9 +38,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.serverLoader = [[ServerLoader alloc ] init];
-    self.serverLoader.managedObjectContext = self.managedObjectContext;
-    self.mainMenuTabBarController = [[MainMenuTabBarController alloc] initWithNibName:@"MainMenuTabBarController" bundle:[NSBundle mainBundle] managedObjectContext:self.managedObjectContext];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -69,81 +54,10 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    
+    self.managedObjectContext = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-#pragma mark - Table view data source
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-
-// Customize the number of sections in the table view.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableVie1w
 {
     return 1;//[[self.fetchedResultsController sections] count];
@@ -158,7 +72,7 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"ServerTableViewCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(cell == nil) {
@@ -168,25 +82,15 @@
     return cell;
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the managed object for the given index path
-        NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-        [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+        [self.managedObjectContext deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
         
         // Save the context.
         NSError *error = nil;
-        if (![context save:&error]) {
+        if (![self.managedObjectContext save:&error]) {
             /*
              Replace this implementation with code to handle the error appropriately.
              
@@ -218,20 +122,18 @@
     NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
     
     if(self.editing) {
-        self.editServerViewController.server = selectedObject;
+        EditServerViewController* editServerViewController = [[EditServerViewController alloc] 
+                                                              initWithServer:selectedObject];
+        editServerViewController.delegate = self;
         
-        [UIView 
-         transitionWithView:self.navigationController.view
-         duration:0.7
-         options:UIViewAnimationOptionTransitionFlipFromLeft
-         animations:^{ 
-             [self.navigationController pushViewController:self.editServerViewController animated:NO];
-         }
-         completion:NULL];
+        UINavigationController *navigationController = [[UINavigationController alloc]
+                                                        initWithRootViewController:editServerViewController];
+        
+        [self presentModalViewController:navigationController animated:YES];
     }
     else {
-        self.serverLoader.server = selectedObject;
-        mainMenuTabBarController.libraryViewController.serverLoader = self.serverLoader;
+        [ServerLoader instance].server = selectedObject;
+        MainMenuTabBarController* mainMenuTabBarController = [[MainMenuTabBarController alloc] init];
         [self.navigationController pushViewController:mainMenuTabBarController animated:YES];
     }
 }
@@ -348,34 +250,25 @@
 
 - (void)insertNewObject
 {
-    // Create a new instance of the entity managed by the fetched results controller.
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    EditServerViewController* editServerViewController = [[EditServerViewController alloc] init];
+    editServerViewController.delegate = self;
     
-    [newManagedObject setValue:@"New Server" forKey:@"displayName"];
-    self.editServerViewController.server = newManagedObject;
+    UINavigationController *navigationController = [[UINavigationController alloc]
+                                                    initWithRootViewController:editServerViewController];
     
-    [UIView 
-     transitionWithView:self.navigationController.view
-     duration:0.7
-     options:UIViewAnimationOptionTransitionFlipFromLeft
-     animations:^{ 
-         [self.navigationController pushViewController:self.editServerViewController animated:NO];
-     }
-     completion:NULL];
-    
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-         */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+    [self presentModalViewController:navigationController animated:YES];
+}
+
+- (void)editServerViewController:(EditServerViewController *)editServerViewController didSaveServer:(NSManagedObject *)server isAddServer:(bool)addServer
+{
+    if(server) {
+        if(addServer) {
+            [self.managedObjectContext insertObject:server];
+        }
+        [[ServerLoader instance] saveContext];
     }
+    
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end

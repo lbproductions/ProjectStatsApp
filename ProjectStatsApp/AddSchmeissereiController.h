@@ -10,9 +10,14 @@
 
 @interface AddSchmeissereiController : UITableViewController {
     UITableViewCell* saveCell;
+    int selectedPlayer;
+    int selectedSchmeisserei;
 }
+
+- (id)initWithGame:(NSManagedObject*)agame;
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *saveCell;
 @property (strong, nonatomic) NSManagedObject* game;
+@property (strong, nonatomic) NSMutableArray* currentPlayingPlayers;
 
 @end

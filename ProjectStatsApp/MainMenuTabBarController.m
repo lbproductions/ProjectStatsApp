@@ -17,13 +17,13 @@
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize libraryViewController;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil managedObjectContext:(NSManagedObjectContext*)context
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"MainMenuTabBarController" bundle:nil];
     if (self) {
-        self.managedObjectContext = context;
+        self.managedObjectContext = [ServerLoader instance].managedObjectContext;
         NSMutableArray *m_menu = [NSMutableArray arrayWithCapacity:2];
-        self.libraryViewController = [[LibraryViewController alloc] initWithStyle:UITableViewStylePlain managedObjectContext:self.managedObjectContext];
+        self.libraryViewController = [[LibraryViewController alloc] init];
         [m_menu addObject:self.libraryViewController];
         [self setViewControllers:m_menu];
         [self setSelectedViewController:[[self viewControllers] objectAtIndex:0]];
