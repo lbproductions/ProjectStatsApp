@@ -20,4 +20,6 @@
 - (void)repopulatePlaceList;
 - (void)repopulateGameList;
 
+- (NSMutableArray*)currentPlayingPlayers:(NSManagedObject*)game;
+
 @end

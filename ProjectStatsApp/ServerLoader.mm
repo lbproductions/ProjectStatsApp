@@ -268,4 +268,31 @@
     NSError* error = nil;
     [context save:&error];
 } 
+
+- (NSMutableArray *)currentPlayingPlayers:(NSManagedObject *)game
+{
+    PlayerList playerList;
+    
+    projectstatsProxy proxy;
+    const char* host = [[self.server valueForKey:@"host"] UTF8String];
+    int gameId = [[game valueForKey:@"id"] intValue];
+    proxy.gameCurrentPlayingPlayers(host ,"urn:projectstats:currentPlayingPlayers",gameId, playerList);
+    
+    NSMutableArray* players = [NSMutableArray arrayWithCapacity:playerList.playerList.size()];
+                               
+    for(std::vector<PlayerInformation>::const_iterator it = playerList.playerList.begin(); it != playerList.playerList.end(); it++) {
+        
+        NSManagedObjectContext * context = [self managedObjectContext];
+        NSFetchRequest * fetch = [[NSFetchRequest alloc] init];
+        NSEntityDescription* entity = [NSEntityDescription entityForName:@"Player" inManagedObjectContext:context];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(id == %@)", it->id];
+        [fetch setEntity:entity];
+        [fetch setPredicate:predicate];
+        NSArray * result = [context executeFetchRequest:fetch error:nil];
+        [players addObject:[result objectAtIndex:0]];
+    }
+    
+    return players;
+}
+
 @end
