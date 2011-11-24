@@ -8,12 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface EditServerViewController : UITableViewController {
     UITableViewCell *nameCell;
     UITableViewCell *hostCell;
     UITableViewCell *usernameCell;
     UITableViewCell *passwordCell;
+    id delegate;
+    bool isAddServer;
 }
+
+@property (nonatomic, retain) id delegate;
 
 @property (nonatomic, retain) IBOutlet UITableViewCell *nameCell;
 @property (nonatomic, retain) IBOutlet UITableViewCell *hostCell;
@@ -27,8 +32,20 @@
 
 @property (nonatomic, retain) NSManagedObject* server;
 
+- (id)init;
+- (id)initWithServer:(NSManagedObject*)server;
 - (void)configureView;
 - (void)saveChanges;
 - (void)dismissChanges;
+
+@end
+
+
+@protocol EditServerDelegate <NSObject>
+
+- (void)editServerViewController:(EditServerViewController*)editServerViewController
+                    didSaveServer:(NSManagedObject*)server
+                    isAddServer:(bool)addServer;
+
 
 @end

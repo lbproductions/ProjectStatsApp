@@ -18,14 +18,13 @@
 
 @synthesize fetchedResultsController = __fetchedResultsController;
 @synthesize managedObjectContext = __managedObjectContext;
-@synthesize serverLoader = __serverLoader;
 
 NSMutableArray *listOfItems;
 
 
-- (id)initWithStyle:(UITableViewStyle)style managedObjectContext:(NSManagedObjectContext*)context
+- (id)init
 {
-    self = [super initWithStyle:style];
+    self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         listOfItems = [[NSMutableArray alloc] init];
         
@@ -35,11 +34,10 @@ NSMutableArray *listOfItems;
         [listOfItems addObject:@"Places"];
         [listOfItems addObject:@"Drinks"];
         
-        self.managedObjectContext = context;
+        self.title = @"Library";
+        self.managedObjectContext = [ServerLoader instance].managedObjectContext;
     }
-    self.title = @"Library";
     
-    //self.tableView insertRowsAtIndexPaths:<#(NSArray *)#> withRowAnimation:<#(UITableViewRowAnimation)#>
     return self;
 }
 
@@ -58,22 +56,7 @@ NSMutableArray *listOfItems;
     [super viewDidLoad];
     
     self.tabBarController.title = self.title;
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)setServerLoader:(ServerLoader *)newserverLoader
-{
-    if(__serverLoader != newserverLoader) {
-        __serverLoader = nil;
-        __serverLoader = newserverLoader;
-        
-        self.tabBarController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self.serverLoader action:@selector(repopulateLibrary)];
-    }
+    self.tabBarController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:[ServerLoader instance] action:@selector(repopulateLibrary)];
 }
 
 - (void)viewDidUnload

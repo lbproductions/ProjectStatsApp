@@ -26,7 +26,6 @@
 		857F071C146C4A9400368D8C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 857F0710146C4A9400368D8C /* InfoPlist.strings */; };
 		857F071E146C4A9400368D8C /* README in Resources */ = {isa = PBXBuildFile; fileRef = 857F0714146C4A9400368D8C /* README */; };
 		857F071F146C4A9400368D8C /* ServerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 857F0716146C4A9400368D8C /* ServerTableViewController.m */; };
-		857F0720146C4A9400368D8C /* ServerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 857F0717146C4A9400368D8C /* ServerTableViewController.xib */; };
 		85EE579A146D439300631678 /* projectstats.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 85EE578F146D439300631678 /* projectstats.nsmap */; };
 		85EE579B146D439300631678 /* soapC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85EE5790146D439300631678 /* soapC.cpp */; };
 		85EE579C146D439300631678 /* soapprojectstatsProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85EE5792146D439300631678 /* soapprojectstatsProxy.cpp */; };
@@ -91,7 +90,6 @@
 		857F0714146C4A9400368D8C /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		857F0715146C4A9400368D8C /* ServerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerTableViewController.h; sourceTree = "<group>"; };
 		857F0716146C4A9400368D8C /* ServerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerTableViewController.m; sourceTree = "<group>"; };
-		857F0717146C4A9400368D8C /* ServerTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServerTableViewController.xib; sourceTree = "<group>"; };
 		85EE578F146D439300631678 /* projectstats.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = projectstats.nsmap; sourceTree = "<group>"; };
 		85EE5790146D439300631678 /* soapC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapC.cpp; sourceTree = "<group>"; };
 		85EE5791146D439300631678 /* soapH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapH.h; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 				857F070E146C4A9400368D8C /* EditServerViewController.xib */,
 				857F0715146C4A9400368D8C /* ServerTableViewController.h */,
 				857F0716146C4A9400368D8C /* ServerTableViewController.m */,
-				857F0717146C4A9400368D8C /* ServerTableViewController.xib */,
 			);
 			name = ServerChooser;
 			sourceTree = "<group>";
@@ -414,7 +411,6 @@
 				857F071B146C4A9400368D8C /* EditServerViewController.xib in Resources */,
 				857F071C146C4A9400368D8C /* InfoPlist.strings in Resources */,
 				857F071E146C4A9400368D8C /* README in Resources */,
-				857F0720146C4A9400368D8C /* ServerTableViewController.xib in Resources */,
 				85EE579A146D439300631678 /* projectstats.nsmap in Resources */,
 				85EE57C2146D647D00631678 /* LibraryViewController.xib in Resources */,
 				85EE57C4146D647D00631678 /* MainMenuTabBarController.xib in Resources */,

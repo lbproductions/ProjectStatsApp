@@ -36,15 +36,12 @@
 //        MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
 //        controller.managedObjectContext = self.managedObjectContext;
     //} else {
+        [ServerLoader initialize];
         self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         
         ServerTableViewController *serverTableViewController = [[ServerTableViewController alloc] init];
-        serverTableViewController.managedObjectContext = self.managedObjectContext;
         
-        //MainMenuTabBarController* mainMenu = [[MainMenuTabBarController alloc] initWithNibName:@"MainMenuTabBarController" bundle:nil managedObjectContext:self.managedObjectContext];
-        
-        self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.window.rootViewController];
-        [self.navigationController pushViewController:serverTableViewController animated:NO];
+        self.navigationController = [[UINavigationController alloc] initWithRootViewController:serverTableViewController];
         [self.window addSubview:navigationController.view];
         [self.window makeKeyAndVisible];
     //}

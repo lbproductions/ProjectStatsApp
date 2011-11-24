@@ -7,7 +7,7 @@
 //
 
 #import "ServerLoader.h"
-#import "soapprojectstatsProxy.h"
+#import "AppDelegate.h"
 
 @interface NSDictionary (MWBDictionary)
 
@@ -43,12 +43,43 @@
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize server = __server;
 
-- (id) init
+static ServerLoader* instance;
+
++ (void)initialize
 {
-    if (self = [super init])
+    static BOOL initialized = NO;
+    if(!initialized)
     {
+        initialized = YES;
+        instance = [[ServerLoader alloc] init];
+        instance.managedObjectContext = [(AppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+        instance.proxy = new projectstatsProxy();
     }
-    return self;
+}
+
++ (ServerLoader*)instance
+{
+    return instance;
+}
+
+- (void)saveContext
+{
+    [(AppDelegate*)[[UIApplication sharedApplication] delegate] saveContext];
+}
+
+- (projectstatsProxy*)proxy
+{
+    return proxy;
+}
+
+- (void)setProxy:(projectstatsProxy *)newproxy
+{
+    proxy = newproxy;
+}
+
+- (const char*)host
+{
+    return [[self.server valueForKey:@"host"] UTF8String];
 }
 
 - (void)setServer:(NSManagedObject *)newserver
@@ -56,14 +87,14 @@
     if(newserver != __server) {
         __server = nil;
         __server = newserver;
+        
         [self repopulateLibrary];
     }
 }
 
 - (void) repopulateLibrary
 {
-    const char* host = [[self.server valueForKey:@"host"] UTF8String];
-    NSLog(@"Repopulating from server: %s", host);
+    NSLog(@"Repopulating from server: %s", [self host]);
     [self repopulateDrinkList];
     [self repopulatePlayerList];
     [self repopulatePlaceList];
@@ -82,11 +113,9 @@
         [context deleteObject:player];
     }
     
-    projectstatsProxy proxy;
     PlayerList playerList;
-    const char* host = [[self.server valueForKey:@"host"] UTF8String];
-    if(proxy.playerList(host,"urn:projectstats:playerList",playerList) != SOAP_OK) {
-        proxy.soap_print_fault(stderr);
+    if(proxy->playerList([self host],"urn:projectstats:playerList",playerList) != SOAP_OK) {
+        proxy->soap_print_fault(stderr);
     }
     
     
@@ -145,10 +174,8 @@
         [context deleteObject:drink];
     }
     
-    projectstatsProxy proxy;
     DrinkList drinkList;
-    const char* host = [[self.server valueForKey:@"host"] UTF8String];
-    proxy.drinkList(host ,"urn:projectstats:drinkList",drinkList);
+    proxy->drinkList([self host] ,"urn:projectstats:drinkList",drinkList);
     
     
     
@@ -191,10 +218,8 @@
         [context deleteObject:place];
     }
     
-    projectstatsProxy proxy;
     PlaceList placeList;
-    const char* host = [[self.server valueForKey:@"host"] UTF8String];
-    proxy.placeList(host ,"urn:projectstats:placeList",placeList);
+    proxy->placeList([self host] ,"urn:projectstats:placeList",placeList);
     
     
     
@@ -243,10 +268,8 @@
         [context deleteObject:game];
     }
     
-    projectstatsProxy proxy;
     GameList gameList;
-    const char* host = [[self.server valueForKey:@"host"] UTF8String];
-    proxy.gameList(host ,"urn:projectstats:gameList",gameList);
+    proxy->gameList([self host] ,"urn:projectstats:gameList",gameList);
     
     
     for(int i = 0; i<gameList.gameList.size();i++){
@@ -309,10 +332,8 @@
 {
     PlayerList playerList;
     
-    projectstatsProxy proxy;
-    const char* host = [[self.server valueForKey:@"host"] UTF8String];
     int gameId = [[game valueForKey:@"id"] intValue];
-    proxy.gameCurrentPlayingPlayers(host ,"urn:projectstats:currentPlayingPlayers",gameId, playerList);
+    proxy->gameCurrentPlayingPlayers([self host] ,"urn:projectstats:currentPlayingPlayers",gameId, playerList);
     
     NSMutableArray* players = [NSMutableArray arrayWithCapacity:playerList.playerList.size()];
                                

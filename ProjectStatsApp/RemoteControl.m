@@ -159,10 +159,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-     AddSchmeissereiController *addSchmeissereiController = [[AddSchmeissereiController alloc] initWithNibName:@"AddSchmeissereiController" bundle:nil];
-    
-    addSchmeissereiController.game = self.game;
-     [self.navigationController pushViewController:addSchmeissereiController animated:YES];
+    AddSchmeissereiController *addSchmeissereiController = [[AddSchmeissereiController alloc] initWithGame:self.game];
+    [self.navigationController pushViewController:addSchmeissereiController animated:YES];
 }
 
 @end
