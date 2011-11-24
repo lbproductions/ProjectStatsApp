@@ -9,6 +9,7 @@
 #import "RemoteControl.h"
 #import "AddSchmeissereiController.h"
 #import "AddNormalRoundController.h"
+#import "AddDrinkController.h"
 
 @implementation RemoteControl
 
@@ -82,13 +83,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(section == 0) return 1;
     if(section == 1) return 1;
+    if(section == 2) return 1;
     return 0;
 }
 
@@ -123,7 +125,17 @@
                     break;
             }
             break;
-            
+        case 2:
+            switch (indexPath.row) {
+                case 0:
+                    cell.textLabel.text = @"Add Drink";
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                    break;
+                    
+                default:
+                    break;
+            }
+            break;   
         default:
             break;
     }
@@ -184,6 +196,12 @@
         if(indexPath.row == 0) {
             AddSchmeissereiController *addSchmeissereiController = [[AddSchmeissereiController alloc] initWithGame:self.game];
             [self.navigationController pushViewController:addSchmeissereiController animated:YES];
+        }
+    }
+    else if(indexPath.section == 2) {
+        if(indexPath.row == 0) {
+            AddDrinkController *addDrinkController = [[AddDrinkController alloc] initWithGame:self.game];
+            [self.navigationController pushViewController:addDrinkController animated:YES];
         }
     }
 }

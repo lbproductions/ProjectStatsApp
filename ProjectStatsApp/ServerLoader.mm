@@ -275,32 +275,17 @@ static ServerLoader* instance;
     for(int i = 0; i<gameList.gameList.size();i++){
         GameInformation it = gameList.gameList[i];
         NSManagedObject *newManagedObject;
-        if(!it.isLive){
+        if(it.isLive){
             newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"LiveGame" inManagedObjectContext:context];
-            /*
             NSMutableArray* playersSortedByPosition = [[NSMutableArray alloc] init];
             for(std::vector<PlayerInformation>::const_iterator ite = it.playersSortedByPosition.begin(); ite != it.playersSortedByPosition.end(); ite++){
-                
                 NSFetchRequest * fetch = [[NSFetchRequest alloc] init];
                 NSEntityDescription* entity = [NSEntityDescription entityForName:@"Player" inManagedObjectContext:context];
                 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(id == %@)", [NSNumber numberWithInt:ite->id]];
                 [fetch setEntity:entity];
                 [fetch setPredicate:predicate];
                 NSArray * result = [context executeFetchRequest:fetch error:nil];
-                [playersSortedByPosition addObject:(NSManagedObject*)];
-            }
-            [newManagedObject setValue:playersSortedByPosition forKey:@"playersSortedByPosition"];
-            */
-            NSMutableDictionary* playersSortedByPosition = [NSMutableDictionary dictionary];
-            for(std::vector<PlayerInformation>::const_iterator ite = it.playersSortedByPosition.begin(); ite != it.playersSortedByPosition.end(); ite++){
-                
-                NSFetchRequest * fetch = [[NSFetchRequest alloc] init];
-                NSEntityDescription* entity = [NSEntityDescription entityForName:@"Player" inManagedObjectContext:context];
-                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(id == %@)", [NSNumber numberWithInt:ite->id]];
-                [fetch setEntity:entity];
-                [fetch setPredicate:predicate];
-                NSArray * result = [context executeFetchRequest:fetch error:nil];
-                [playersSortedByPosition setObject:@"_" forKey:[result objectAtIndex:0]];
+                //[playersSortedByPosition addObject:(NSManagedObject*)[result objectAtIndex:0]];
             }
             [newManagedObject setValue:playersSortedByPosition forKey:@"playersSortedByPosition"];
         }   

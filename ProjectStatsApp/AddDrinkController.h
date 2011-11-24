@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddDrinkController : UIViewController
+@interface AddDrinkController : UITableViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) NSManagedObject* game;
+@property (strong, nonatomic) NSMutableArray* playersSortedByPosition;
+@property (strong, nonatomic) NSMutableArray* selectedPlayers;
+
+- (id)initWithGame:(NSManagedObject*)agame;
+- (void) nextStepPressed;
 
 @end
