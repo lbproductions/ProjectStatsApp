@@ -47,7 +47,7 @@
     </entity>
     <elements>
         <element name="Drink" positionX="160" positionY="192" width="128" height="150"/>
-        <element name="Game" positionX="-90" positionY="9" width="128" height="105"/>
+        <element name="Game" positionX="-90" positionY="9" width="128" height="90"/>
         <element name="LiveGame" positionX="-234" positionY="135" width="128" height="75"/>
         <element name="Place" positionX="153" positionY="-99" width="128" height="180"/>
         <element name="Player" positionX="315" positionY="144" width="128" height="165"/>

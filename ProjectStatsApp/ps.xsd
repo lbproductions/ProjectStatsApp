@@ -86,21 +86,6 @@
    </complexType>
   </element>
   <!-- operation request element -->
-  <element name="liveGameList">
-   <complexType>
-    <sequence>
-    </sequence>
-   </complexType>
-  </element>
-  <!-- operation response element -->
-  <element name="liveGameListResponse">
-   <complexType>
-    <sequence>
-     <element name="result" type="ps:LiveGameList" minOccurs="1" maxOccurs="1"/><!-- ps__liveGameList::result -->
-    </sequence>
-   </complexType>
-  </element>
-  <!-- operation request element -->
   <element name="gameCurrentPlayingPlayers">
    <complexType>
     <sequence>

@@ -249,22 +249,44 @@
     proxy.gameList(host ,"urn:projectstats:gameList",gameList);
     
     
-    
-    for(std::vector<GameInformation>::const_iterator it = gameList.gameList.begin(); it != gameList.gameList.end(); it++) {
+    for(int i = 0; i<gameList.gameList.size();i++){
+        GameInformation it = gameList.gameList[i];
         NSManagedObject *newManagedObject;
-        if(it->isLive){
+        if(!it.isLive){
             newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"LiveGame" inManagedObjectContext:context];
-            LiveGameInformation liveInfo = static_cast<LiveGameInformation>(it);
-            for(std::vector<PlayerInformation>::const_iterator ite = liveInfo.playersSortedByPosition.begin(); ite != liveInfo.playersSortedByPosition.end(); ite++){
+            /*
+            NSMutableArray* playersSortedByPosition = [[NSMutableArray alloc] init];
+            for(std::vector<PlayerInformation>::const_iterator ite = it.playersSortedByPosition.begin(); ite != it.playersSortedByPosition.end(); ite++){
                 
+                NSFetchRequest * fetch = [[NSFetchRequest alloc] init];
+                NSEntityDescription* entity = [NSEntityDescription entityForName:@"Player" inManagedObjectContext:context];
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(id == %@)", [NSNumber numberWithInt:ite->id]];
+                [fetch setEntity:entity];
+                [fetch setPredicate:predicate];
+                NSArray * result = [context executeFetchRequest:fetch error:nil];
+                [playersSortedByPosition addObject:(NSManagedObject*)];
             }
+            [newManagedObject setValue:playersSortedByPosition forKey:@"playersSortedByPosition"];
+            */
+            NSMutableDictionary* playersSortedByPosition = [NSMutableDictionary dictionary];
+            for(std::vector<PlayerInformation>::const_iterator ite = it.playersSortedByPosition.begin(); ite != it.playersSortedByPosition.end(); ite++){
+                
+                NSFetchRequest * fetch = [[NSFetchRequest alloc] init];
+                NSEntityDescription* entity = [NSEntityDescription entityForName:@"Player" inManagedObjectContext:context];
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(id == %@)", [NSNumber numberWithInt:ite->id]];
+                [fetch setEntity:entity];
+                [fetch setPredicate:predicate];
+                NSArray * result = [context executeFetchRequest:fetch error:nil];
+                [playersSortedByPosition setObject:@"_" forKey:[result objectAtIndex:0]];
+            }
+            [newManagedObject setValue:playersSortedByPosition forKey:@"playersSortedByPosition"];
         }   
         else{
             newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:@"Game" inManagedObjectContext:context];
         }
-        NSString* name = [NSString stringWithUTF8String:it->name];
-        NSNumber* identifier = [NSNumber numberWithInt:it->id];
-        NSNumber* live = [NSNumber numberWithBool:it->isLive];
+        NSString* name = [NSString stringWithUTF8String:it.name];
+        NSNumber* identifier = [NSNumber numberWithInt:it.id];
+        NSNumber* live = [NSNumber numberWithBool:it.isLive];
         
         [newManagedObject setValue:name forKey:@"name"];
         [newManagedObject setValue:identifier forKey:@"id"];
@@ -272,13 +294,15 @@
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
         
         [df setDateFormat:@"dd.MM.yyyy"];
-        NSDate *myDate = [df dateFromString: [NSString stringWithUTF8String:it->date]];
+        NSDate *myDate = [df dateFromString: [NSString stringWithUTF8String:it.date]];
         
         [newManagedObject setValue:myDate forKey:@"date"];
     }
     
     NSError* error = nil;
     [context save:&error];
+    
+    
 } 
 
 - (NSMutableArray *)currentPlayingPlayers:(NSManagedObject *)game
@@ -297,7 +321,7 @@
         NSManagedObjectContext * context = [self managedObjectContext];
         NSFetchRequest * fetch = [[NSFetchRequest alloc] init];
         NSEntityDescription* entity = [NSEntityDescription entityForName:@"Player" inManagedObjectContext:context];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(id == %@)", it->id];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(id == %@)", [NSNumber numberWithInt:it->id]];
         [fetch setEntity:entity];
         [fetch setPredicate:predicate];
         NSArray * result = [context executeFetchRequest:fetch error:nil];

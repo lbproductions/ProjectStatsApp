@@ -165,7 +165,6 @@ static int serve_ps__playerList(projectstatsService*);
 static int serve_ps__drinkList(projectstatsService*);
 static int serve_ps__placeList(projectstatsService*);
 static int serve_ps__gameList(projectstatsService*);
-static int serve_ps__liveGameList(projectstatsService*);
 static int serve_ps__gameCurrentPlayingPlayers(projectstatsService*);
 static int serve_ps__addSchmeisserei(projectstatsService*);
 static int serve_ps__addDrink(projectstatsService*);
@@ -182,8 +181,6 @@ int projectstatsService::dispatch()
 		return serve_ps__placeList(this);
 	if (!soap_match_tag(this, this->tag, "ps:gameList"))
 		return serve_ps__gameList(this);
-	if (!soap_match_tag(this, this->tag, "ps:liveGameList"))
-		return serve_ps__liveGameList(this);
 	if (!soap_match_tag(this, this->tag, "ps:gameCurrentPlayingPlayers"))
 		return serve_ps__gameCurrentPlayingPlayers(this);
 	if (!soap_match_tag(this, this->tag, "ps:addSchmeisserei"))
@@ -391,47 +388,6 @@ static int serve_ps__gameList(projectstatsService *soap)
 	 || soap_putheader(soap)
 	 || soap_body_begin_out(soap)
 	 || soap_put_ps__gameListResponse(soap, &soap_tmp_ps__gameListResponse, "ps:gameListResponse", NULL)
-	 || soap_body_end_out(soap)
-	 || soap_envelope_end_out(soap)
-	 || soap_end_send(soap))
-		return soap->error;
-	return soap_closesock(soap);
-}
-
-static int serve_ps__liveGameList(projectstatsService *soap)
-{	struct ps__liveGameList soap_tmp_ps__liveGameList;
-	struct ps__liveGameListResponse soap_tmp_ps__liveGameListResponse;
-	soap_default_ps__liveGameListResponse(soap, &soap_tmp_ps__liveGameListResponse);
-	soap_default_ps__liveGameList(soap, &soap_tmp_ps__liveGameList);
-	soap->encodingStyle = NULL;
-	if (!soap_get_ps__liveGameList(soap, &soap_tmp_ps__liveGameList, "ps:liveGameList", NULL))
-		return soap->error;
-	if (soap_body_end_in(soap)
-	 || soap_envelope_end_in(soap)
-	 || soap_end_recv(soap))
-		return soap->error;
-	soap->error = soap->liveGameList(soap_tmp_ps__liveGameListResponse.result);
-	if (soap->error)
-		return soap->error;
-	soap_serializeheader(soap);
-	soap_serialize_ps__liveGameListResponse(soap, &soap_tmp_ps__liveGameListResponse);
-	if (soap_begin_count(soap))
-		return soap->error;
-	if (soap->mode & SOAP_IO_LENGTH)
-	{	if (soap_envelope_begin_out(soap)
-		 || soap_putheader(soap)
-		 || soap_body_begin_out(soap)
-		 || soap_put_ps__liveGameListResponse(soap, &soap_tmp_ps__liveGameListResponse, "ps:liveGameListResponse", NULL)
-		 || soap_body_end_out(soap)
-		 || soap_envelope_end_out(soap))
-			 return soap->error;
-	};
-	if (soap_end_count(soap)
-	 || soap_response(soap, SOAP_OK)
-	 || soap_envelope_begin_out(soap)
-	 || soap_putheader(soap)
-	 || soap_body_begin_out(soap)
-	 || soap_put_ps__liveGameListResponse(soap, &soap_tmp_ps__liveGameListResponse, "ps:liveGameListResponse", NULL)
 	 || soap_body_end_out(soap)
 	 || soap_envelope_end_out(soap)
 	 || soap_end_send(soap))

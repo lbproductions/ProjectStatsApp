@@ -77,10 +77,6 @@ class SOAP_CMAC projectstatsProxy : public soap
 	virtual	int gameList(GameList &result) { return gameList(NULL, NULL, result); }
 	virtual	int gameList(const char *endpoint, const char *soap_action, GameList &result);
 
-	/// Web service operation 'liveGameList' (returns error code or SOAP_OK)
-	virtual	int liveGameList(LiveGameList &result) { return liveGameList(NULL, NULL, result); }
-	virtual	int liveGameList(const char *endpoint, const char *soap_action, LiveGameList &result);
-
 	/// Web service operation 'gameCurrentPlayingPlayers' (returns error code or SOAP_OK)
 	virtual	int gameCurrentPlayingPlayers(int gameId, PlayerList &result) { return gameCurrentPlayingPlayers(NULL, NULL, gameId, result); }
 	virtual	int gameCurrentPlayingPlayers(const char *endpoint, const char *soap_action, int gameId, PlayerList &result);

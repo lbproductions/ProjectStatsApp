@@ -102,29 +102,14 @@
      <element name="name" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- GameInformation::name -->
      <element name="date" type="xsd:string" minOccurs="0" maxOccurs="1" nillable="true"/><!-- GameInformation::date -->
      <element name="isLive" type="xsd:boolean" minOccurs="1" maxOccurs="1"/><!-- GameInformation::isLive -->
+     <element name="playersSortedByPosition" type="ps:PlayerInformation" minOccurs="0" maxOccurs="unbounded"/><!-- GameInformation::playersSortedByPosition -->
+     <element name="currentPlayingPlayers" type="ps:PlayerInformation" minOccurs="0" maxOccurs="unbounded"/><!-- GameInformation::currentPlayingPlayers -->
    </sequence>
-  </complexType>
-  <complexType name="LiveGameInformation"><!-- LiveGameInformation -->
-
-   <complexContent>
-    <extension base="GameInformation">
-     <sequence>
-     <element name="playersSortedByPosition" type="ps:PlayerInformation" minOccurs="0" maxOccurs="unbounded"/><!-- LiveGameInformation::playersSortedByPosition -->
-     <element name="currentPlayingPlayers" type="ps:PlayerInformation" minOccurs="0" maxOccurs="unbounded"/><!-- LiveGameInformation::currentPlayingPlayers -->
-     </sequence>
-    </extension>
-   </complexContent>
   </complexType>
   <complexType name="GameList"><!-- GameList -->
 
    <sequence>
      <element name="gameList" type="ps:GameInformation" minOccurs="0" maxOccurs="unbounded"/><!-- GameList::gameList -->
-   </sequence>
-  </complexType>
-  <complexType name="LiveGameList"><!-- LiveGameList -->
-
-   <sequence>
-     <element name="liveGameList" type="ps:LiveGameInformation" minOccurs="0" maxOccurs="unbounded"/><!-- LiveGameList::liveGameList -->
    </sequence>
   </complexType>
   <!-- operation request element -->
@@ -200,21 +185,6 @@
    <complexType>
     <sequence>
      <element name="result" type="ps:GameList" minOccurs="1" maxOccurs="1"/><!-- ps__gameList::result -->
-    </sequence>
-   </complexType>
-  </element>
-  <!-- operation request element -->
-  <element name="liveGameList">
-   <complexType>
-    <sequence>
-    </sequence>
-   </complexType>
-  </element>
-  <!-- operation response element -->
-  <element name="liveGameListResponse">
-   <complexType>
-    <sequence>
-     <element name="result" type="ps:LiveGameList" minOccurs="1" maxOccurs="1"/><!-- ps__liveGameList::result -->
     </sequence>
    </complexType>
   </element>
@@ -314,14 +284,6 @@
  <part name="parameters" element="ps:gameListResponse"/>
 </message>
 
-<message name="liveGameListRequest">
- <part name="parameters" element="ps:liveGameList"/><!-- ps__liveGameList::ps__liveGameList -->
-</message>
-
-<message name="liveGameListResponse">
- <part name="parameters" element="ps:liveGameListResponse"/>
-</message>
-
 <message name="gameCurrentPlayingPlayersRequest">
  <part name="parameters" element="ps:gameCurrentPlayingPlayers"/><!-- ps__gameCurrentPlayingPlayers::ps__gameCurrentPlayingPlayers -->
 </message>
@@ -371,11 +333,6 @@
   <documentation>Service definition of function ps__gameList</documentation>
   <input message="tns:gameListRequest"/>
   <output message="tns:gameListResponse"/>
- </operation>
- <operation name="liveGameList">
-  <documentation>Service definition of function ps__liveGameList</documentation>
-  <input message="tns:liveGameListRequest"/>
-  <output message="tns:liveGameListResponse"/>
  </operation>
  <operation name="gameCurrentPlayingPlayers">
   <documentation>Service definition of function ps__gameCurrentPlayingPlayers</documentation>
@@ -441,15 +398,6 @@
      <SOAP:body parts="parameters" use="literal"/>
   </output>
  </operation>
- <operation name="liveGameList">
-  <SOAP:operation soapAction=""/>
-  <input>
-     <SOAP:body parts="parameters" use="literal"/>
-  </input>
-  <output>
-     <SOAP:body parts="parameters" use="literal"/>
-  </output>
- </operation>
  <operation name="gameCurrentPlayingPlayers">
   <SOAP:operation soapAction=""/>
   <input>
@@ -482,7 +430,6 @@
 <service name="projectstats">
  <documentation>gSOAP 2.8.4 generated service definition</documentation>
  <port name="projectstats" binding="tns:projectstats">
-  <SOAP:address location="http://eineurl.von.uns?"/>
   <SOAP:address location="http://eineurl.von.uns?"/>
   <SOAP:address location="http://eineurl.von.uns?"/>
   <SOAP:address location="http://eineurl.von.uns?"/>
