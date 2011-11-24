@@ -20,4 +20,6 @@
 @property (strong, nonatomic) NSManagedObject* game;
 @property (strong, nonatomic) NSMutableArray* currentPlayingPlayers;
 
+- (void)saveChanges;
+
 @end

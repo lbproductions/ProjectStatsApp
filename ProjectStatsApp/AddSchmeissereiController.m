@@ -42,11 +42,7 @@
     [super viewDidLoad];
     [[NSBundle mainBundle] loadNibNamed:@"AddSchmeissereiController" owner:self options:nil];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(saveChanges)];
 }
 
 - (void)viewDidUnload
@@ -82,18 +78,31 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)saveChanges
+{
+    NSManagedObject* player = (NSManagedObject*)[currentPlayingPlayers objectAtIndex:selectedPlayer];
+    
+    int gameId = [[self.game valueForKey:@"id"] intValue];
+    int playerId = [[player valueForKey:@"id"] intValue];
+    std::string result = "";
+    std::string schmeisserei = [[self tableView:self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:selectedSchmeisserei inSection:1]].textLabel.text UTF8String];
+    
+    projectstatsProxy* proxy = [[ServerLoader instance] proxy];
+    proxy->addSchmeisserei([ServerLoader instance].host, "urn:projectstats:addSchmeisserei", gameId, playerId, schmeisserei, result);
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(section == 0) return 4;
     if(section == 1) return 3;
-    if(section == 2) return 1;
     return 0;
 }
 
@@ -141,8 +150,6 @@
                 cell.accessoryType = UITableViewCellAccessoryNone;
             }
             break;
-        case 2:
-            cell = self.saveCell;
         default:
             break;
     }
@@ -200,18 +207,6 @@
     else if(indexPath.section == 1) {
         selectedSchmeisserei = indexPath.row;
         [self.tableView reloadData];
-    }
-    else if(indexPath.section == 2) {
-        NSManagedObject* player = (NSManagedObject*)[currentPlayingPlayers objectAtIndex:selectedPlayer];
-        
-        int gameId = [[self.game valueForKey:@"id"] intValue];
-        int playerId = [[player valueForKey:@"id"] intValue];
-        std::string result = "";
-        std::string schmeisserei = [[self tableView:self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:selectedSchmeisserei inSection:1]].textLabel.text UTF8String];
-        
-        projectstatsProxy* proxy = [[ServerLoader instance] proxy];
-        proxy->addSchmeisserei([ServerLoader instance].host, "urn:projectstats:addSchmeisserei", gameId, playerId, schmeisserei, result);
-        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

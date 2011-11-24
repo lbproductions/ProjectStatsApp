@@ -8,6 +8,7 @@
 
 #import "RemoteControl.h"
 #import "AddSchmeissereiController.h"
+#import "AddNormalRoundController.h"
 
 @implementation RemoteControl
 
@@ -18,6 +19,7 @@
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
         self.game = somegame;
+        self.title = @"Remote Control";
     }
     return self;
 }
@@ -80,12 +82,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(section == 0) return 1;
+    if(section == 1) return 1;
     return 0;
 }
 
@@ -100,8 +103,20 @@
     switch (indexPath.section) {
         case 0:
             switch (indexPath.row) {
+            case 0:
+                cell.textLabel.text = @"Add normal round";
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+                
+            default:
+                break;
+        }
+            break;
+        case 1:
+            switch (indexPath.row) {
                 case 0:
                     cell.textLabel.text = @"Add Schmeisserei";
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     break;
                     
                 default:
@@ -159,8 +174,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AddSchmeissereiController *addSchmeissereiController = [[AddSchmeissereiController alloc] initWithGame:self.game];
-    [self.navigationController pushViewController:addSchmeissereiController animated:YES];
+    if(indexPath.section == 0) {
+        if(indexPath.row == 0) {
+            AddNormalRoundController *addNormalRoundController = [[AddNormalRoundController alloc] initWithGame:self.game];
+            [self.navigationController pushViewController:addNormalRoundController animated:YES];
+        }
+    }
+    else if(indexPath.section == 1) {
+        if(indexPath.row == 0) {
+            AddSchmeissereiController *addSchmeissereiController = [[AddSchmeissereiController alloc] initWithGame:self.game];
+            [self.navigationController pushViewController:addSchmeissereiController animated:YES];
+        }
+    }
 }
 
 @end

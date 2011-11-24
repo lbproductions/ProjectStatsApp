@@ -26,6 +26,8 @@
 		857F071C146C4A9400368D8C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 857F0710146C4A9400368D8C /* InfoPlist.strings */; };
 		857F071E146C4A9400368D8C /* README in Resources */ = {isa = PBXBuildFile; fileRef = 857F0714146C4A9400368D8C /* README */; };
 		857F071F146C4A9400368D8C /* ServerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 857F0716146C4A9400368D8C /* ServerTableViewController.m */; };
+		85AA6DC5147E7CC5006C6948 /* AddNormalRoundController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AA6DC3147E7CC5006C6948 /* AddNormalRoundController.m */; };
+		85AA6DC6147E7CC5006C6948 /* AddNormalRoundController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AA6DC4147E7CC5006C6948 /* AddNormalRoundController.xib */; };
 		85EE579A146D439300631678 /* projectstats.nsmap in Resources */ = {isa = PBXBuildFile; fileRef = 85EE578F146D439300631678 /* projectstats.nsmap */; };
 		85EE579B146D439300631678 /* soapC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85EE5790146D439300631678 /* soapC.cpp */; };
 		85EE579C146D439300631678 /* soapprojectstatsProxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 85EE5792146D439300631678 /* soapprojectstatsProxy.cpp */; };
@@ -87,6 +89,9 @@
 		857F0714146C4A9400368D8C /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		857F0715146C4A9400368D8C /* ServerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerTableViewController.h; sourceTree = "<group>"; };
 		857F0716146C4A9400368D8C /* ServerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerTableViewController.m; sourceTree = "<group>"; };
+		85AA6DC2147E7CC5006C6948 /* AddNormalRoundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNormalRoundController.h; sourceTree = "<group>"; };
+		85AA6DC3147E7CC5006C6948 /* AddNormalRoundController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNormalRoundController.m; sourceTree = "<group>"; };
+		85AA6DC4147E7CC5006C6948 /* AddNormalRoundController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNormalRoundController.xib; sourceTree = "<group>"; };
 		85EE578F146D439300631678 /* projectstats.nsmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = projectstats.nsmap; sourceTree = "<group>"; };
 		85EE5790146D439300631678 /* soapC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = soapC.cpp; sourceTree = "<group>"; };
 		85EE5791146D439300631678 /* soapH.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = soapH.h; sourceTree = "<group>"; };
@@ -171,6 +176,9 @@
 				853BC6FF1472B6F2008B7C6B /* RemoteControl.h */,
 				853BC7001472B6F2008B7C6B /* RemoteControl.m */,
 				853BC7011472B6F2008B7C6B /* RemoteControl.xib */,
+				85AA6DC2147E7CC5006C6948 /* AddNormalRoundController.h */,
+				85AA6DC3147E7CC5006C6948 /* AddNormalRoundController.m */,
+				85AA6DC4147E7CC5006C6948 /* AddNormalRoundController.xib */,
 			);
 			name = RemoteControl;
 			sourceTree = "<group>";
@@ -417,6 +425,7 @@
 				855E23B31472C80500220B22 /* GameViewController.xib in Resources */,
 				D1954B731472BC2C00D26790 /* PlaceInfoViewController.xib in Resources */,
 				D1954B761472C53600D26790 /* wappen_dortmund.png in Resources */,
+				85AA6DC6147E7CC5006C6948 /* AddNormalRoundController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +459,7 @@
 				853BC7041472B6F2008B7C6B /* RemoteControl.m in Sources */,
 				855E23B21472C80500220B22 /* GameViewController.m in Sources */,
 				D1954B721472BC2C00D26790 /* PlaceInfoViewController.m in Sources */,
+				85AA6DC5147E7CC5006C6948 /* AddNormalRoundController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
