@@ -46,6 +46,8 @@
 		85EE57CA146D647D00631678 /* PlayersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57BD146D647D00631678 /* PlayersViewController.xib */; };
 		85EE57CB146D647D00631678 /* PlayerTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EE57BF146D647D00631678 /* PlayerTabController.m */; };
 		85EE57CC146D647D00631678 /* PlayerTabController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57C0146D647D00631678 /* PlayerTabController.xib */; };
+		D1460B99147EA81200B810E3 /* AddDrinkDrinkController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1460B97147EA81100B810E3 /* AddDrinkDrinkController.m */; };
+		D1460B9A147EA81200B810E3 /* AddDrinkDrinkController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1460B98147EA81200B810E3 /* AddDrinkDrinkController.xib */; };
 		D17710BD147E2BFB001DA871 /* AddDrinkController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17710BB147E2BFB001DA871 /* AddDrinkController.m */; };
 		D17710BE147E2BFB001DA871 /* AddDrinkController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17710BC147E2BFB001DA871 /* AddDrinkController.xib */; };
 		D1954B721472BC2C00D26790 /* PlaceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1954B701472BC2C00D26790 /* PlaceInfoViewController.m */; };
@@ -127,6 +129,9 @@
 		85EE57BE146D647D00631678 /* PlayerTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTabController.h; sourceTree = "<group>"; };
 		85EE57BF146D647D00631678 /* PlayerTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTabController.m; sourceTree = "<group>"; };
 		85EE57C0146D647D00631678 /* PlayerTabController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerTabController.xib; sourceTree = "<group>"; };
+		D1460B96147EA81100B810E3 /* AddDrinkDrinkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDrinkDrinkController.h; sourceTree = "<group>"; };
+		D1460B97147EA81100B810E3 /* AddDrinkDrinkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDrinkDrinkController.m; sourceTree = "<group>"; };
+		D1460B98147EA81200B810E3 /* AddDrinkDrinkController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddDrinkDrinkController.xib; sourceTree = "<group>"; };
 		D17710BA147E2BFB001DA871 /* AddDrinkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDrinkController.h; sourceTree = "<group>"; };
 		D17710BB147E2BFB001DA871 /* AddDrinkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDrinkController.m; sourceTree = "<group>"; };
 		D17710BC147E2BFB001DA871 /* AddDrinkController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddDrinkController.xib; sourceTree = "<group>"; };
@@ -195,6 +200,9 @@
 				D17710BC147E2BFB001DA871 /* AddDrinkController.xib */,
 				85B43B43147EA81B00408862 /* SetSchweinereiController.h */,
 				85B43B44147EA81B00408862 /* SetSchweinereiController.m */,
+				D1460B96147EA81100B810E3 /* AddDrinkDrinkController.h */,
+				D1460B97147EA81100B810E3 /* AddDrinkDrinkController.m */,
+				D1460B98147EA81200B810E3 /* AddDrinkDrinkController.xib */,
 			);
 			name = RemoteControl;
 			sourceTree = "<group>";
@@ -444,6 +452,7 @@
 				D1954B761472C53600D26790 /* wappen_dortmund.png in Resources */,
 				85AA6DC6147E7CC5006C6948 /* AddNormalRoundController.xib in Resources */,
 				D17710BE147E2BFB001DA871 /* AddDrinkController.xib in Resources */,
+				D1460B9A147EA81200B810E3 /* AddDrinkDrinkController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +489,7 @@
 				85AA6DC5147E7CC5006C6948 /* AddNormalRoundController.m in Sources */,
 				D17710BD147E2BFB001DA871 /* AddDrinkController.m in Sources */,
 				85B43B45147EA81B00408862 /* SetSchweinereiController.m in Sources */,
+				D1460B99147EA81200B810E3 /* AddDrinkDrinkController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

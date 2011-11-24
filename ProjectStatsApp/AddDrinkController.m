@@ -7,14 +7,23 @@
 //
 
 #import "AddDrinkController.h"
+#import "ServerLoader.h"
+#import "AddDrinkDrinkController.h"
 
 @implementation AddDrinkController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+@synthesize game;
+@synthesize playersSortedByPosition;
+@synthesize selectedPlayers;
+
+- (id)initWithGame:(NSManagedObject *)agame
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:@"AddDrinkController" bundle:nil];
     if (self) {
-        // Custom initialization
+        self.game = agame;
+        self.playersSortedByPosition = [[ServerLoader instance] currentPlayingPlayers:self.game];
+        self.title = @"Add Drink - Players";
+        self.selectedPlayers = [[NSMutableArray alloc] initWithCapacity:self.playersSortedByPosition.count];
     }
     return self;
 }
@@ -32,7 +41,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(nextStepPressed)];
 }
 
 - (void)viewDidUnload
@@ -46,6 +56,55 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.playersSortedByPosition.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)atableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"AddDrinkTableViewCell";
+    
+    UITableViewCell *cell = [atableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    cell.textLabel.text = [((NSManagedObject*)[self.playersSortedByPosition objectAtIndex:indexPath.row]) valueForKey:@"name"];
+     
+    if([self.selectedPlayers containsObject:[self.playersSortedByPosition objectAtIndex:indexPath.row]]){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else{
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }    
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(![self.selectedPlayers containsObject:[self.playersSortedByPosition objectAtIndex:indexPath.row]]){
+        [self.selectedPlayers addObject:[self.playersSortedByPosition objectAtIndex:indexPath.row]];
+    }
+    else{
+        [self.selectedPlayers removeObject:[self.playersSortedByPosition objectAtIndex:indexPath.row]];
+    }
+    
+    [self.tableView reloadData];
+}
+
+- (void) nextStepPressed
+{
+    AddDrinkDrinkController* drinks = [[AddDrinkDrinkController alloc] initWithGameAndPlayers:self.game players:self.selectedPlayers];
+    [self.navigationController pushViewController:drinks animated:YES];
 }
 
 @end
