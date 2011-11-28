@@ -149,7 +149,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {   
     DrinkInfoViewController* drinkController = [[DrinkInfoViewController alloc] init:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
-    [self.navigationController pushViewController:drinkController animated:YES];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        UINavigationController* navi = (UINavigationController*)[self.navigationController.splitViewController.viewControllers objectAtIndex:1];
+        [navi setViewControllers:[NSArray arrayWithObjects:drinkController, nil]];
+    }
+    else{
+        [self.navigationController pushViewController:drinkController animated:YES];
+    }
 }
 
 - (NSFetchedResultsController *)fetchedResultsController

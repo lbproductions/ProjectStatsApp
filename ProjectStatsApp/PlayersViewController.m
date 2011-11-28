@@ -179,24 +179,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSLog([(NSManagedObject *)[players objectAtIndex:indexPath.row] valueForKey:@"name"]);
-    // Navigation logic may go here. Create and push another view controller.
-    
     PlayerTabController* playerTab = [[PlayerTabController alloc] initWithNibName:@"PlayerTabController" bundle:nil player:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
-     //<#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:playerTab animated:YES];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        UINavigationController* navi = (UINavigationController*)[self.navigationController.splitViewController.viewControllers objectAtIndex:1];
+        [navi setViewControllers:[NSArray arrayWithObjects:playerTab, nil]];
+    }
+    else{
+        [self.navigationController pushViewController:playerTab animated:YES];
+    }
+    
      
 }
 
 - (void)insertNewObject
 { 
-    /*
-    Player *player = [[Player alloc] init];
-    player.name = @"New Player";
-    [self.players addObject:player];
-    */
     [self.tableView reloadData];
 }
 

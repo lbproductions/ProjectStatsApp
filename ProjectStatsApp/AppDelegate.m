@@ -10,6 +10,7 @@
 #import "MainMenuTabBarController.h"
 
 #import "ServerTableViewController.h"
+#import "IPadInfoScreen.h"
 
 
 @implementation AppDelegate
@@ -21,30 +22,32 @@
 @synthesize navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    // Override point for customization after application launch.
-//    self.window.backgroundColor = [UIColor whiteColor];
-//    [self.window makeKeyAndVisible];
+{    
+    [ServerLoader initialize];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    //if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-//        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-//        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-//        splitViewController.delegate = (id)navigationController.topViewController;
-//        
-//        UINavigationController *masterNavigationController = [splitViewController.viewControllers objectAtIndex:0];
-//        MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
-//        controller.managedObjectContext = self.managedObjectContext;
-    //} else {
-        [ServerLoader initialize];
-        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    ServerTableViewController *serverTableViewController = [[ServerTableViewController alloc] init];
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        UINavigationController *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:serverTableViewController];
         
-        ServerTableViewController *serverTableViewController = [[ServerTableViewController alloc] init];
+        IPadInfoScreen* infoScreen = [[IPadInfoScreen alloc] init];
+        UINavigationController *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:infoScreen];
+        
+        UISplitViewController *splitViewController = [[UISplitViewController alloc] init];
+        splitViewController.delegate = infoScreen;
+        splitViewController.viewControllers = [NSArray arrayWithObjects:masterNavigationController, detailNavigationController, nil];
+
+        self.window.rootViewController = splitViewController;
+        
+        } else {
         
         self.navigationController = [[UINavigationController alloc] initWithRootViewController:serverTableViewController];
         [self.window addSubview:navigationController.view];
-        [self.window makeKeyAndVisible];
-    //}
+    }
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

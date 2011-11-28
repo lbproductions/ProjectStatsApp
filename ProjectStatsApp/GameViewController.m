@@ -148,7 +148,13 @@
 {   
     RemoteControl* remoteController = [[RemoteControl alloc] initWithGame:
                                        [[self fetchedResultsController] objectAtIndexPath:indexPath]];
-    [self.navigationController pushViewController:remoteController animated:YES];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        UINavigationController* navi = (UINavigationController*)[self.navigationController.splitViewController.viewControllers objectAtIndex:1];
+        [navi setViewControllers:[NSArray arrayWithObjects:remoteController, nil]];
+    }
+    else{
+        [self.navigationController pushViewController:remoteController animated:YES];
+    }
 }
 
 - (NSFetchedResultsController *)fetchedResultsController

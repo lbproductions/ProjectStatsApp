@@ -149,7 +149,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {   
     PlaceInfoViewController* placeController = [[PlaceInfoViewController alloc] init:[[self fetchedResultsController] objectAtIndexPath:indexPath]];
-    [self.navigationController pushViewController:placeController animated:YES];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        UINavigationController* navi = (UINavigationController*)[self.navigationController.splitViewController.viewControllers objectAtIndex:1];
+        [navi setViewControllers:[NSArray arrayWithObjects:placeController, nil]];
+    }
+    else{
+        [self.navigationController pushViewController:placeController animated:YES];
+    }
 }
 
 - (NSFetchedResultsController *)fetchedResultsController

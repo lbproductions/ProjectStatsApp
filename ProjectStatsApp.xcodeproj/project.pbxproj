@@ -50,6 +50,8 @@
 		D1460B9A147EA81200B810E3 /* AddDrinkDrinkController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1460B98147EA81200B810E3 /* AddDrinkDrinkController.xib */; };
 		D17710BD147E2BFB001DA871 /* AddDrinkController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17710BB147E2BFB001DA871 /* AddDrinkController.m */; };
 		D17710BE147E2BFB001DA871 /* AddDrinkController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17710BC147E2BFB001DA871 /* AddDrinkController.xib */; };
+		D193B83E1483CFF5008D09E9 /* IPadInfoScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D193B83C1483CFF5008D09E9 /* IPadInfoScreen.m */; };
+		D193B83F1483CFF5008D09E9 /* IPadInfoScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D193B83D1483CFF5008D09E9 /* IPadInfoScreen.xib */; };
 		D1954B721472BC2C00D26790 /* PlaceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1954B701472BC2C00D26790 /* PlaceInfoViewController.m */; };
 		D1954B731472BC2C00D26790 /* PlaceInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1954B711472BC2C00D26790 /* PlaceInfoViewController.xib */; };
 		D1954B761472C53600D26790 /* wappen_dortmund.png in Resources */ = {isa = PBXBuildFile; fileRef = D1954B751472C53500D26790 /* wappen_dortmund.png */; };
@@ -135,6 +137,9 @@
 		D17710BA147E2BFB001DA871 /* AddDrinkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDrinkController.h; sourceTree = "<group>"; };
 		D17710BB147E2BFB001DA871 /* AddDrinkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDrinkController.m; sourceTree = "<group>"; };
 		D17710BC147E2BFB001DA871 /* AddDrinkController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddDrinkController.xib; sourceTree = "<group>"; };
+		D193B83B1483CFF5008D09E9 /* IPadInfoScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPadInfoScreen.h; sourceTree = "<group>"; };
+		D193B83C1483CFF5008D09E9 /* IPadInfoScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPadInfoScreen.m; sourceTree = "<group>"; };
+		D193B83D1483CFF5008D09E9 /* IPadInfoScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IPadInfoScreen.xib; sourceTree = "<group>"; };
 		D1954B6F1472BC2C00D26790 /* PlaceInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceInfoViewController.h; sourceTree = "<group>"; };
 		D1954B701472BC2C00D26790 /* PlaceInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceInfoViewController.m; sourceTree = "<group>"; };
 		D1954B711472BC2C00D26790 /* PlaceInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceInfoViewController.xib; sourceTree = "<group>"; };
@@ -251,6 +256,9 @@
 				857F0702146C497300368D8C /* AppDelegate.m */,
 				857F0704146C497300368D8C /* ProjectStatsApp.xcdatamodeld */,
 				857F06F9146C497300368D8C /* Supporting Files */,
+				D193B83B1483CFF5008D09E9 /* IPadInfoScreen.h */,
+				D193B83C1483CFF5008D09E9 /* IPadInfoScreen.m */,
+				D193B83D1483CFF5008D09E9 /* IPadInfoScreen.xib */,
 			);
 			path = ProjectStatsApp;
 			sourceTree = "<group>";
@@ -453,6 +461,7 @@
 				85AA6DC6147E7CC5006C6948 /* AddNormalRoundController.xib in Resources */,
 				D17710BE147E2BFB001DA871 /* AddDrinkController.xib in Resources */,
 				D1460B9A147EA81200B810E3 /* AddDrinkDrinkController.xib in Resources */,
+				D193B83F1483CFF5008D09E9 /* IPadInfoScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +499,7 @@
 				D17710BD147E2BFB001DA871 /* AddDrinkController.m in Sources */,
 				85B43B45147EA81B00408862 /* SetSchweinereiController.m in Sources */,
 				D1460B99147EA81200B810E3 /* AddDrinkDrinkController.m in Sources */,
+				D193B83E1483CFF5008D09E9 /* IPadInfoScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

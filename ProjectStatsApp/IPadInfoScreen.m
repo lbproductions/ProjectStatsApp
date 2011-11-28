@@ -1,42 +1,20 @@
 //
-//  LibraryViewController.m
+//  IPadInfoScreen.m
 //  ProjectStatsApp
 //
-//  Created by Niclas Raabe on 11.11.11.
+//  Created by Niclas Raabe on 28.11.11.
 //  Copyright (c) 2011 Technische Universität Dortmund. All rights reserved.
 //
 
-#import "LibraryViewController.h"
+#import "IPadInfoScreen.h"
 
-#import "PlayersViewController.h"
-#import "DrinkViewController.h"
-#import "PlaceViewController.h"
-#import "RemoteControl.h"
-#import "GameViewController.h"
+@implementation IPadInfoScreen
 
-@implementation LibraryViewController
+@synthesize masterPopoverController = _masterPopoverController;
 
-@synthesize fetchedResultsController = __fetchedResultsController;
-@synthesize managedObjectContext = __managedObjectContext;
-
-NSMutableArray *listOfItems;
-
-
-- (id)init
+- (id) init
 {
-    self = [super initWithStyle:UITableViewStylePlain];
-    if (self) {
-        listOfItems = [[NSMutableArray alloc] init];
-        
-        //Add items
-        [listOfItems addObject:@"Players"];
-        [listOfItems addObject:@"Games"];
-        [listOfItems addObject:@"Places"];
-        [listOfItems addObject:@"Drinks"];
-        
-        self.title = @"Library";
-        self.managedObjectContext = [ServerLoader instance].managedObjectContext;
-    }
+    self = [super initWithNibName:@"IPadInfoScreen" bundle:nil];
     
     return self;
 }
@@ -54,9 +32,12 @@ NSMutableArray *listOfItems;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.tabBarController.title = self.title;
-    self.tabBarController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:[ServerLoader instance] action:@selector(repopulateLibrary)];
+
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+ 
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -89,21 +70,27 @@ NSMutableArray *listOfItems;
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    } else {
+        return YES;
+    }
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 4;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -115,9 +102,7 @@ NSMutableArray *listOfItems;
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    NSString *cellValue = [listOfItems objectAtIndex:indexPath.row];
-    cell.textLabel.text = cellValue;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    // Configure the cell...
     
     return cell;
 }
@@ -172,24 +157,20 @@ NSMutableArray *listOfItems;
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-    if(indexPath.row == 0){
-        PlayersViewController* playerController = [[PlayersViewController alloc] init:self.managedObjectContext];
-        [self.navigationController pushViewController:playerController animated:YES];      
-    }
-    
-    if(indexPath.row == 1) {
-        GameViewController* gameController = [[GameViewController alloc] init:self.managedObjectContext];
-        [self.navigationController pushViewController:gameController animated:YES];
-    }
-    if(indexPath.row == 2){
-        PlaceViewController* placeController = [[PlaceViewController alloc] init:self.managedObjectContext];
-        [self.navigationController pushViewController:placeController animated:YES];
-    }
-    
-    if(indexPath.row == 3){
-        DrinkViewController* drinkController = [[DrinkViewController alloc] init:self.managedObjectContext];
-        [self.navigationController pushViewController:drinkController animated:YES];
-    }
+}
+
+- (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
+{
+    barButtonItem.title = NSLocalizedString(@"Master", @"Master");
+    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
+    self.masterPopoverController = popoverController;
+}
+
+- (void)splitViewController:(UISplitViewController *)splitController willShowViewController:(UIViewController *)viewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+{
+    // Called when the view is shown again in the split view, invalidating the button and popover controller.
+    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+    self.masterPopoverController = nil;
 }
 
 @end
