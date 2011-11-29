@@ -57,6 +57,9 @@
 		D1954B761472C53600D26790 /* wappen_dortmund.png in Resources */ = {isa = PBXBuildFile; fileRef = D1954B751472C53500D26790 /* wappen_dortmund.png */; };
 		D1AA37EB1472AE47001FE9A5 /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1AA37E91472AE47001FE9A5 /* PlaceViewController.m */; };
 		D1AA37EC1472AE47001FE9A5 /* PlaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1AA37EA1472AE47001FE9A5 /* PlaceViewController.xib */; };
+		D1BFE9881485A3820092E350 /* iOS-logo_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D1BFE9851485A3820092E350 /* iOS-logo_iphone.png */; };
+		D1BFE9891485A3820092E350 /* iOS-logo_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D1BFE9861485A3820092E350 /* iOS-logo_ipad.png */; };
+		D1BFE98A1485A3820092E350 /* iOS-logo_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = D1BFE9871485A3820092E350 /* iOS-logo_retina.png */; };
 		D1D69DC61472CFF800493A31 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D69DC51472CFF800493A31 /* MapKit.framework */; };
 		D1DB81311471B9B400F68BE8 /* DrinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DB812F1471B9B400F68BE8 /* DrinkViewController.m */; };
 		D1DB81321471B9B400F68BE8 /* DrinkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1DB81301471B9B400F68BE8 /* DrinkViewController.xib */; };
@@ -66,6 +69,7 @@
 		D1F4EFAB146D9E74006AA425 /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F4EFAA146D9E73006AA425 /* player.png */; };
 		D1F4EFBD14701F2C006AA425 /* PlayerGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F4EFBB14701F2C006AA425 /* PlayerGamesViewController.m */; };
 		D1F4EFBE14701F2C006AA425 /* PlayerGamesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F4EFBC14701F2C006AA425 /* PlayerGamesViewController.xib */; };
+		D1FE2F551484E64B008EAAE0 /* AddNormalRoundController-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1FE2F541484E64B008EAAE0 /* AddNormalRoundController-iPad.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +151,9 @@
 		D1AA37E81472AE47001FE9A5 /* PlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
 		D1AA37E91472AE47001FE9A5 /* PlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
 		D1AA37EA1472AE47001FE9A5 /* PlaceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlaceViewController.xib; sourceTree = "<group>"; };
+		D1BFE9851485A3820092E350 /* iOS-logo_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iOS-logo_iphone.png"; path = "../iOS-logo_iphone.png"; sourceTree = "<group>"; };
+		D1BFE9861485A3820092E350 /* iOS-logo_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iOS-logo_ipad.png"; path = "../iOS-logo_ipad.png"; sourceTree = "<group>"; };
+		D1BFE9871485A3820092E350 /* iOS-logo_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iOS-logo_retina.png"; path = "../iOS-logo_retina.png"; sourceTree = "<group>"; };
 		D1D69DC51472CFF800493A31 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D1DB812E1471B9B400F68BE8 /* DrinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrinkViewController.h; sourceTree = "<group>"; };
 		D1DB812F1471B9B400F68BE8 /* DrinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrinkViewController.m; sourceTree = "<group>"; };
@@ -159,6 +166,7 @@
 		D1F4EFBA14701F2C006AA425 /* PlayerGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerGamesViewController.h; sourceTree = "<group>"; };
 		D1F4EFBB14701F2C006AA425 /* PlayerGamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerGamesViewController.m; sourceTree = "<group>"; };
 		D1F4EFBC14701F2C006AA425 /* PlayerGamesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerGamesViewController.xib; sourceTree = "<group>"; };
+		D1FE2F541484E64B008EAAE0 /* AddNormalRoundController-iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "AddNormalRoundController-iPad.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +208,7 @@
 				85AA6DC2147E7CC5006C6948 /* AddNormalRoundController.h */,
 				85AA6DC3147E7CC5006C6948 /* AddNormalRoundController.m */,
 				85AA6DC4147E7CC5006C6948 /* AddNormalRoundController.xib */,
+				D1FE2F541484E64B008EAAE0 /* AddNormalRoundController-iPad.xib */,
 				D17710BA147E2BFB001DA871 /* AddDrinkController.h */,
 				D17710BB147E2BFB001DA871 /* AddDrinkController.m */,
 				D17710BC147E2BFB001DA871 /* AddDrinkController.xib */,
@@ -248,6 +257,9 @@
 				D1F4EFAA146D9E73006AA425 /* player.png */,
 				D1DB813814724A7E00F68BE8 /* beer_default.png */,
 				D1954B751472C53500D26790 /* wappen_dortmund.png */,
+				D1BFE9851485A3820092E350 /* iOS-logo_iphone.png */,
+				D1BFE9861485A3820092E350 /* iOS-logo_ipad.png */,
+				D1BFE9871485A3820092E350 /* iOS-logo_retina.png */,
 				85EE578E146D3B1600631678 /* ServerLoader */,
 				85EE578D146D3ADE00631678 /* ServerChooser */,
 				857F070F146C4A9400368D8C /* en.lproj */,
@@ -462,6 +474,10 @@
 				D17710BE147E2BFB001DA871 /* AddDrinkController.xib in Resources */,
 				D1460B9A147EA81200B810E3 /* AddDrinkDrinkController.xib in Resources */,
 				D193B83F1483CFF5008D09E9 /* IPadInfoScreen.xib in Resources */,
+				D1FE2F551484E64B008EAAE0 /* AddNormalRoundController-iPad.xib in Resources */,
+				D1BFE9881485A3820092E350 /* iOS-logo_iphone.png in Resources */,
+				D1BFE9891485A3820092E350 /* iOS-logo_ipad.png in Resources */,
+				D1BFE98A1485A3820092E350 /* iOS-logo_retina.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
