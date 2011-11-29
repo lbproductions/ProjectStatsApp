@@ -20,7 +20,12 @@ const int MAXROWS = 1000;
 
 - (id)initWithGame:(NSManagedObject *)agame
 {
-    self = [super initWithNibName:@"AddNormalRoundController" bundle:nil];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        self = [super initWithNibName:@"AddNormalRoundController-iPad" bundle:nil];
+    }
+    else{
+        self = [super initWithNibName:@"AddNormalRoundController" bundle:nil];
+    }
     if (self) {
         self.game = agame;
         self.currentPlayingPlayers = [[ServerLoader instance] currentPlayingPlayers:self.game];
@@ -61,8 +66,11 @@ const int MAXROWS = 1000;
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    } else {
+        return YES;
+    }
 }
 
 - (void)saveChanges
@@ -193,5 +201,6 @@ const int MAXROWS = 1000;
     [self.navigationController popViewControllerAnimated:YES];
     [self.tableView reloadData];
 }
+
 
 @end
