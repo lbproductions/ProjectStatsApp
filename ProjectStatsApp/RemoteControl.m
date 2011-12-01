@@ -9,6 +9,9 @@
 #import "RemoteControl.h"
 #import "AddSchmeissereiController.h"
 #import "AddNormalRoundController.h"
+#import "AddHochzeitRoundController.h"
+#import "AddTrumpfabgabeRoundController.h"
+#import "AddSoloRoundController.h"
 #import "AddDrinkController.h"
 
 @implementation RemoteControl
@@ -88,7 +91,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section == 0) return 1;
+    if(section == 0) return 4;
     if(section == 1) return 1;
     if(section == 2) return 1;
     return 0;
@@ -109,7 +112,18 @@
                 cell.textLabel.text = @"Add normal round";
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 break;
-                
+            case 1:
+                cell.textLabel.text = @"Add Hochzeit";
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break; 
+            case 2:
+                cell.textLabel.text = @"Add Trumpfabgabe";
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;
+           case 3:
+                cell.textLabel.text = @"Add Solo";
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                break;                
             default:
                 break;
         }
@@ -190,6 +204,18 @@
         if(indexPath.row == 0) {
             AddNormalRoundController *addNormalRoundController = [[AddNormalRoundController alloc] initWithGame:self.game];
             [self.navigationController pushViewController:addNormalRoundController animated:YES];
+        }
+        else if(indexPath.row == 1) {
+            AddHochzeitRoundController *addHochzeitRoundController = [[AddHochzeitRoundController alloc] initWithGame:self.game];
+            [self.navigationController pushViewController:addHochzeitRoundController animated:YES];
+        }
+        else if(indexPath.row == 2) {
+            AddTrumpfabgabeRoundController *addTrumpfabgabeRoundController = [[AddTrumpfabgabeRoundController alloc] initWithGame:self.game];
+            [self.navigationController pushViewController:addTrumpfabgabeRoundController animated:YES];
+        }
+        else if(indexPath.row == 3) {
+            AddSoloRoundController *addSoloRoundController = [[AddSoloRoundController alloc] initWithGame:self.game];
+            [self.navigationController pushViewController:addSoloRoundController animated:YES];
         }
     }
     else if(indexPath.section == 1) {

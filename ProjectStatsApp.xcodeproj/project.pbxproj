@@ -48,6 +48,12 @@
 		85EE57CC146D647D00631678 /* PlayerTabController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85EE57C0146D647D00631678 /* PlayerTabController.xib */; };
 		D1460B99147EA81200B810E3 /* AddDrinkDrinkController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1460B97147EA81100B810E3 /* AddDrinkDrinkController.m */; };
 		D1460B9A147EA81200B810E3 /* AddDrinkDrinkController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1460B98147EA81200B810E3 /* AddDrinkDrinkController.xib */; };
+		D16624761487B52C00A53772 /* AddHochzeitRoundController.m in Sources */ = {isa = PBXBuildFile; fileRef = D16624741487B52C00A53772 /* AddHochzeitRoundController.m */; };
+		D16624771487B52C00A53772 /* AddHochzeitRoundController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D16624751487B52C00A53772 /* AddHochzeitRoundController.xib */; };
+		D166247B1487BA9300A53772 /* AddTrumpfabgabeRoundController.m in Sources */ = {isa = PBXBuildFile; fileRef = D16624791487BA9100A53772 /* AddTrumpfabgabeRoundController.m */; };
+		D166247C1487BA9300A53772 /* AddTrumpfabgabeRoundController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D166247A1487BA9200A53772 /* AddTrumpfabgabeRoundController.xib */; };
+		D16624801487BD1C00A53772 /* AddSoloRoundController.m in Sources */ = {isa = PBXBuildFile; fileRef = D166247E1487BD1B00A53772 /* AddSoloRoundController.m */; };
+		D16624811487BD1C00A53772 /* AddSoloRoundController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D166247F1487BD1C00A53772 /* AddSoloRoundController.xib */; };
 		D17710BD147E2BFB001DA871 /* AddDrinkController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17710BB147E2BFB001DA871 /* AddDrinkController.m */; };
 		D17710BE147E2BFB001DA871 /* AddDrinkController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17710BC147E2BFB001DA871 /* AddDrinkController.xib */; };
 		D193B83E1483CFF5008D09E9 /* IPadInfoScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = D193B83C1483CFF5008D09E9 /* IPadInfoScreen.m */; };
@@ -138,6 +144,15 @@
 		D1460B96147EA81100B810E3 /* AddDrinkDrinkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDrinkDrinkController.h; sourceTree = "<group>"; };
 		D1460B97147EA81100B810E3 /* AddDrinkDrinkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDrinkDrinkController.m; sourceTree = "<group>"; };
 		D1460B98147EA81200B810E3 /* AddDrinkDrinkController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddDrinkDrinkController.xib; sourceTree = "<group>"; };
+		D16624731487B52C00A53772 /* AddHochzeitRoundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddHochzeitRoundController.h; sourceTree = "<group>"; };
+		D16624741487B52C00A53772 /* AddHochzeitRoundController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddHochzeitRoundController.m; sourceTree = "<group>"; };
+		D16624751487B52C00A53772 /* AddHochzeitRoundController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddHochzeitRoundController.xib; sourceTree = "<group>"; };
+		D16624781487BA9100A53772 /* AddTrumpfabgabeRoundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTrumpfabgabeRoundController.h; sourceTree = "<group>"; };
+		D16624791487BA9100A53772 /* AddTrumpfabgabeRoundController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTrumpfabgabeRoundController.m; sourceTree = "<group>"; };
+		D166247A1487BA9200A53772 /* AddTrumpfabgabeRoundController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddTrumpfabgabeRoundController.xib; sourceTree = "<group>"; };
+		D166247D1487BD1B00A53772 /* AddSoloRoundController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddSoloRoundController.h; sourceTree = "<group>"; };
+		D166247E1487BD1B00A53772 /* AddSoloRoundController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddSoloRoundController.m; sourceTree = "<group>"; };
+		D166247F1487BD1C00A53772 /* AddSoloRoundController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddSoloRoundController.xib; sourceTree = "<group>"; };
 		D17710BA147E2BFB001DA871 /* AddDrinkController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDrinkController.h; sourceTree = "<group>"; };
 		D17710BB147E2BFB001DA871 /* AddDrinkController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDrinkController.m; sourceTree = "<group>"; };
 		D17710BC147E2BFB001DA871 /* AddDrinkController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddDrinkController.xib; sourceTree = "<group>"; };
@@ -217,6 +232,15 @@
 				D1460B96147EA81100B810E3 /* AddDrinkDrinkController.h */,
 				D1460B97147EA81100B810E3 /* AddDrinkDrinkController.m */,
 				D1460B98147EA81200B810E3 /* AddDrinkDrinkController.xib */,
+				D16624731487B52C00A53772 /* AddHochzeitRoundController.h */,
+				D16624741487B52C00A53772 /* AddHochzeitRoundController.m */,
+				D16624751487B52C00A53772 /* AddHochzeitRoundController.xib */,
+				D16624781487BA9100A53772 /* AddTrumpfabgabeRoundController.h */,
+				D16624791487BA9100A53772 /* AddTrumpfabgabeRoundController.m */,
+				D166247A1487BA9200A53772 /* AddTrumpfabgabeRoundController.xib */,
+				D166247D1487BD1B00A53772 /* AddSoloRoundController.h */,
+				D166247E1487BD1B00A53772 /* AddSoloRoundController.m */,
+				D166247F1487BD1C00A53772 /* AddSoloRoundController.xib */,
 			);
 			name = RemoteControl;
 			sourceTree = "<group>";
@@ -478,6 +502,9 @@
 				D1BFE9881485A3820092E350 /* iOS-logo_iphone.png in Resources */,
 				D1BFE9891485A3820092E350 /* iOS-logo_ipad.png in Resources */,
 				D1BFE98A1485A3820092E350 /* iOS-logo_retina.png in Resources */,
+				D16624771487B52C00A53772 /* AddHochzeitRoundController.xib in Resources */,
+				D166247C1487BA9300A53772 /* AddTrumpfabgabeRoundController.xib in Resources */,
+				D16624811487BD1C00A53772 /* AddSoloRoundController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +543,9 @@
 				85B43B45147EA81B00408862 /* SetSchweinereiController.m in Sources */,
 				D1460B99147EA81200B810E3 /* AddDrinkDrinkController.m in Sources */,
 				D193B83E1483CFF5008D09E9 /* IPadInfoScreen.m in Sources */,
+				D16624761487B52C00A53772 /* AddHochzeitRoundController.m in Sources */,
+				D166247B1487BA9300A53772 /* AddTrumpfabgabeRoundController.m in Sources */,
+				D16624801487BD1C00A53772 /* AddSoloRoundController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,7 +577,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = developer;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Niclas Raabe";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
